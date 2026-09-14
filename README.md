@@ -42,6 +42,26 @@ Budowanie idzie z `--strict`, więc każde ostrzeżenie MkDocs zatrzymuje wdroż
 | `docs/pliki/` | materiały do pobrania, m.in. baza ćwiczeniowa `obuwie.sql` |
 | `narzedzia/` | `zadania6.py` + `zadania6.json`, `deploy.yml` do skopiowania |
 
+## Nawigacja
+
+Lewą kolumnę składa wtyczka **awesome-nav** z plików `.nav.yml`: jeden leży
+w `docs/` (kolejność działów), po jednym w katalogu każdego działu (tytuł działu
+i kolejność tematów). W `mkdocs.yml` nie ma już klucza `nav`.
+
+```yaml
+# docs/dzial-4/.nav.yml
+title: "Dział IV. Relacje i agregacja"
+append_unmatched: true
+nav:
+  - "Zapytania z relacją (JOIN)": select-relacje.md
+```
+
+`append_unmatched: true` znaczy, że **plik bez wpisu nie znika ze strony** —
+ląduje na końcu działu z tytułem wziętym z nagłówka pierwszego poziomu. Wcześniej
+temat pominięty w `nav` był na stronie niewidoczny, a `--strict` tego nie
+wychwytywał. Odwrotna pomyłka jest głośna: wpis wskazujący nieistniejący plik
+zatrzymuje budowanie i pokazuje, w którym `.nav.yml` siedzi.
+
 ## Trener SQL
 
 Na stronach z zapytaniami działa **trener SQL** — uczeń wpisuje zapytanie
@@ -90,7 +110,8 @@ Skrypt jest idempotentny — nadpisuje blok między znacznikami
 
 1. utwórz `docs/dzial-N/nazwa-tematu.md`
 2. dopisz go do tabeli w odpowiednim dziale w `docs/index.md`
-3. dopisz go do `nav` w `mkdocs.yml`
+3. dopisz go do `.nav.yml` w katalogu działu — tam ustawiasz kolejność
+   i nazwę w lewej kolumnie
 4. jeżeli ma kartę pracy — dodaj `docs/assets/karty/nazwa-tematu.json`
    i wstaw `<div class="karta-pracy" data-karta="nazwa-tematu"></div>`
 5. uruchom `python narzedzia/zadania6.py docs/index.md`, jeżeli doszły zadania na 6

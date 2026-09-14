@@ -1,0 +1,9 @@
+# Kolejność i nazwy w lewej kolumnie — wtyczka awesome-nav.
+# Katalog dopisany bez wpisu niżej trafi na koniec listy (append_unmatched),
+# więc nowa strona nigdy nie zniknie ze strony w sposób niezauważony.
+
+append_unmatched: true
+nav:
+  - "Start": index.md
+  - dzial-1
+  - dzial-4

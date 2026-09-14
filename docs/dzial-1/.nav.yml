@@ -1,0 +1,10 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział I. Środowisko pracy"
+append_unmatched: true
+nav:
+  - "Wymagania edukacyjne i bhp": wymagania-i-bhp.md
+  - "Środowisko, import bazy i plik kwerend": srodowisko-import.md
+  - "Systemy zarządzania bazami danych": szbd-przeglad.md

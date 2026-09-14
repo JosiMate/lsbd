@@ -102,14 +102,9 @@ plugins:
   # Wyszukiwarka lunr nie ma polskiego stemmera (lunr-languages nie wspiera
   # polskiego), więc świadomie zostaje tokenizer domyślny.
   - search
-
-nav:
-  - Start: index.md
-  - "Dział I. Środowisko pracy":
-      - "Wymagania edukacyjne i bhp": dzial-1/wymagania-i-bhp.md
-      - "Środowisko, import bazy i plik kwerend": dzial-1/srodowisko-import.md
-  - "Dział IV. Relacje i agregacja":
-      - "Zapytania z relacją (JOIN)": dzial-4/select-relacje.md
+  # Nawigacją rządzą pliki .nav.yml w katalogach docs/ — dzięki temu
+  # dopisanie tematu nie wymaga już zaglądania do tego pliku.
+  - awesome-nav
 
 extra:
   social:
@@ -117,6 +112,3 @@ extra:
       link: https://www.pceikz.pl
       name: PCEiKZ Szczucin
   generator: false
-
-not_in_nav: |
-  /assets/

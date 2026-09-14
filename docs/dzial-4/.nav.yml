@@ -1,0 +1,8 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział IV. Relacje i agregacja"
+append_unmatched: true
+nav:
+  - "Zapytania z relacją (JOIN)": select-relacje.md
