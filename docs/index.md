@@ -52,7 +52,7 @@ Ciebie i nie ma nic wspólnego z ocenami.
 | --- | --- |
 | **[Wymagania edukacyjne i bhp](dzial-1/wymagania-i-bhp.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[Środowisko, import bazy i plik kwerend](dzial-1/srodowisko-import.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
-| Systemy zarządzania bazami danych — przegląd i dobór | *w przygotowaniu* |
+| **[Systemy zarządzania bazami danych — przegląd i dobór](dzial-1/szbd-przeglad.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział II. Model danych
 
