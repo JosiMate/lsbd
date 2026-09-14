@@ -1,0 +1,66 @@
+{
+  "Dział I. Środowisko pracy": [
+    {
+      "ozn": "A",
+      "tytul": "Instrukcja stanowiska dla kolegi z klasy",
+      "wymaga": "po temacie „Środowisko, import bazy i plik kwerend”",
+      "opis": [
+        "Napisz instrukcję, która przeprowadza kogoś od czystego komputera do zaimportowanej bazy: instalacja pakietu, uruchomienie usług, założenie bazy z właściwym kodowaniem, import, sprawdzenie wyniku. Każdy krok ze zrzutem ekranu.",
+        "Instrukcja ma też zawierać **sekcję awaryjną**: trzy komunikaty błędu, które realnie zobaczyłeś, i co je usunęło. Na koniec daj ją komuś, kto jej nie pisał, i popraw to, co okazało się niejasne."
+      ],
+      "oddajesz": "instrukcję w pliku PDF oraz akapit o tym, co zmieniłeś po teście na koledze"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Trzy systemy zarządzania bazą, jedno porównanie",
+      "wymaga": "po temacie „Środowisko, import bazy i plik kwerend”",
+      "opis": [
+        "Zainstaluj i uruchom trzy różne rozwiązania: MariaDB z phpMyAdminem, SQLite z graficznym klientem oraz jeden do wyboru (PostgreSQL, MS Access, Firebird). Do każdego zaimportuj tę samą bazę `obuwie`.",
+        "Porównaj je w tabeli: co trzeba zainstalować, gdzie fizycznie leżą dane, czy jest serwer i konta użytkowników, jak wygląda import, do czego to rozwiązanie się nadaje. Wskaż, które wybrałbyś do sklepu na 3 stanowiska i dlaczego."
+      ],
+      "oddajesz": "tabelę porównawczą, zrzuty z trzech środowisk i jednoakapitową rekomendację"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Ile naprawdę zajmuje przygotowanie stanowiska",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Zmierz stoperem pełną ścieżkę z checklisty pierwszych dziesięciu minut — pięć razy, w pięciu różnych dniach. Zapisuj czas każdego kroku osobno.",
+        "Zestaw wyniki w tabeli i na wykresie. Odpowiedz: który krok zajmuje najwięcej czasu, o ile skrócił się łączny czas między pierwszym a piątym podejściem i co konkretnie tę różnicę zrobiło."
+      ],
+      "oddajesz": "arkusz z pomiarami, wykres i wnioski — z wyraźnym wskazaniem kroku, który warto przećwiczyć jeszcze raz"
+    }
+  ],
+  "Dział IV. Relacje i agregacja": [
+    {
+      "ozn": "A",
+      "tytul": "Zestaw dwudziestu zapytań z arkuszy",
+      "wymaga": "po temacie „Zapytania z relacją (JOIN)”",
+      "opis": [
+        "Przejrzyj arkusze egzaminacyjne INF.03 (dawniej EE.09 i E.14) z co najmniej pięciu sesji i wypisz **wszystkie** polecenia dotyczące zapytań z relacją. Uporządkuj je od najprostszego do najtrudniejszego.",
+        "Do każdego napisz rozwiązanie i sprawdź je na bazie z tego arkusza. Przy każdym dopisz jedno zdanie: co w treści polecenia decydowało o tym, że trzeba użyć złączenia."
+      ],
+      "oddajesz": "dokument z dwudziestoma parami polecenie–rozwiązanie, ze wskazaniem sesji, z której pochodzi każde zadanie"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Własna baza i własne zadanie egzaminacyjne",
+      "wymaga": "po temacie „Zapytania z relacją (JOIN)”",
+      "opis": [
+        "Zaprojektuj bazę z **trzech** powiązanych tabel na temat, który Cię interesuje — wypożyczalnia, serwis, magazyn części. Wypełnij ją co najmniej trzydziestoma wierszami sensownych danych i wyeksportuj do pliku `.sql`.",
+        "Do tej bazy ułóż zadanie w stylu arkusza: cztery polecenia, w tym co najmniej jedno wymagające złączenia trzech tabel. Napisz też **kryteria oceniania** — za co ile punktów."
+      ],
+      "oddajesz": "plik `.sql` z bazą, treść zadania, wzorcowe rozwiązania i kryteria oceniania"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Kiedy JOIN gubi wiersze — eksperyment",
+      "wymaga": "po temacie o złączeniach zewnętrznych",
+      "opis": [
+        "Przygotuj bazę, w której celowo występują trzy sytuacje: kategoria bez produktów, produkt z `NULL` w kluczu obcym oraz produkt wskazujący na nieistniejącą kategorię.",
+        "Dla każdej z nich wykonaj to samo zapytanie w czterech wariantach: `JOIN`, `LEFT JOIN`, `RIGHT JOIN` i zapis z przecinkiem. Zestaw liczby zwróconych wierszy w tabeli i wyjaśnij każdą różnicę."
+      ],
+      "oddajesz": "plik `.sql` z przygotowaną bazą, tabelę wyników dwanaście na raz i wyjaśnienia — z odpowiedzią, który wariant jest bezpieczny, gdy nie znasz danych"
+    }
+  ]
+}

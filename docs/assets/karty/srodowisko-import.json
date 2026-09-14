@@ -1,0 +1,142 @@
+{
+  "id": "lsbd-srodowisko-import",
+  "tytul": "Środowisko, import bazy i plik kwerend",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-IMPORT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Import bazy i dowód, że się udał",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Załóż bazę <code>obuwie</code> z kodowaniem <code>utf8mb4_general_ci</code> i zaimportuj plik.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kodowanie",
+              "Wybrane porównywanie znaków",
+              ""
+            ],
+            [
+              "z1_tabele",
+              "Liczba tabel po imporcie",
+              ""
+            ],
+            [
+              "z1_produkt",
+              "Liczba wierszy w tabeli produkt",
+              ""
+            ],
+            [
+              "z1_kategoria",
+              "Liczba wierszy w tabeli kategoria",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_jak",
+          "wiersze": 3,
+          "pytanie": "Jakim zapytaniem sprawdziłeś liczbę wierszy? Przepisz je."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z widoczną nazwą bazy i listą tabel"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Kodowanie zepsute celowo",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Zaimportuj ten sam plik do bazy z kodowaniem <code>latin1_swedish_ci</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_ktore",
+          "wiersze": 3,
+          "pytanie": "Które konkretnie znaki się zepsuły? Wypisz je."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego",
+          "wiersze": 4,
+          "pytanie": "Dlaczego zepsuły się akurat te, a litery a–z i cyfry przetrwały bez zmian?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "tabela produkt z widocznymi uszkodzonymi znakami"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Plik kwerend jak na egzaminie",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Dwa zapytania, plik <code>kwerendy.txt</code> i dwa zrzuty zgodne z regułą z arkusza.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_kw1",
+              "Zapytanie 1 — treść",
+              "przepisz dokładnie"
+            ],
+            [
+              "z3_kw1_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z3_kw2",
+              "Zapytanie 2 — treść",
+              "przepisz dokładnie"
+            ],
+            [
+              "z3_kw2_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "zrzut kw1 — cały ekran z paskiem zadań, widoczna treść zapytania i wynik"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_regula",
+          "wiersze": 3,
+          "pytanie": "Wypisz z pamięci trzy wymagania arkusza dotyczące zrzutu ekranu."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_czas",
+          "wiersze": 2,
+          "pytanie": "Ile minut zajęła Ci cała ścieżka od uruchomienia XAMPP-a do gotowego pliku kwerend?"
+        }
+      ]
+    }
+  ]
+}

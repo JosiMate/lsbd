@@ -1,0 +1,144 @@
+{
+  "id": "lsbd-select-relacje",
+  "tytul": "Zapytania z relacją (JOIN)",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-JOIN",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Trzy kolumny, jedno złączenie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Nazwa i cena produktu oraz nazwa jego kategorii — <strong>jedynie</strong> te trzy kolumny.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania",
+          "podpowiedz": "SELECT … FROM … JOIN … ON …;"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_jedynie",
+          "wiersze": 3,
+          "pytanie": "Dlaczego SELECT * nie dostałby za to zadanie punktu?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Złączenie z warunkiem",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Nazwy produktów z kategorii <em>Sportowe</em>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_gdzie",
+          "wiersze": 3,
+          "pytanie": "Dlaczego warunek dotyczący nazwy kategorii trafia do WHERE, a nie do ON?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Iloczyn kartezjański na własne oczy",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 3. Wykonaj <code>SELECT * FROM produkt, kategoria;</code> i wyjaśnij wynik.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z3_skad",
+              "Skąd bierze się ta liczba",
+              "działanie na liczbach"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_poprawka",
+          "wiersze": 3,
+          "pytanie": "Poprawiona wersja zapytania"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "wynik z widoczną liczbą wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Ile butów w kategorii",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 4. Nazwa kategorii i liczba produktów w niej — <code>COUNT(*)</code> z <code>GROUP BY</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z4_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_wynik",
+          "wiersze": 6,
+          "pytanie": "Przepisz wynik: kategoria i liczba produktów"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_bez",
+          "wiersze": 3,
+          "pytanie": "Które z tych czterech zapytań umiesz już napisać bez zaglądania w notatki?"
+        }
+      ]
+    }
+  ]
+}

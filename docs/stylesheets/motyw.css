@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Motyw kolorystyczny serwisu lsbd — lokalne systemy baz danych.
+
+   Indygo zamiast zieleni, żeby serwis nie mylił się z pozostałymi przedmiotami
+   w pasku zakładek przeglądarki. Plik wczytywany jako trzeci, po
+   stylesheets/extra.css, i dotyczy wyłącznie tego serwisu.
+
+   Kontrast policzony na wartościach, które przeglądarka naprawdę wylicza
+   (tło motywu ciemnego po ociepleniu wychodzi tu #1b1f2b). Próg AA dla tekstu
+   to 4,5:1:
+       #303f9f na białym          →  8,98:1  ✔ motyw jasny
+       #303f9f na tle slate       →  1,79:1  ✘ dlatego ciemny ma własny odcień
+       #9fa8da na tle slate       →  7,11:1  ✔ motyw ciemny
+       tekst #10131c na #9fa8da   →  8,03:1  ✔ napis na przycisku podstawowym
+       biel na #9fa8da            →  2,31:1  ✘ dlatego napis jest ciemny
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────── motyw ciemny (slate) ─────────────────────────── */
+/* Selektory dwuczłonowe celowo: Material ustawia --md-typeset-a-color regułą
+   [data-md-color-scheme=slate][data-md-color-primary=indigo], która ma wyższą
+   swoistość niż sam [data-md-color-scheme=slate]. */
+[data-md-color-scheme="slate"][data-md-color-primary] {
+  --md-primary-fg-color:        #9fa8da;
+  --md-primary-fg-color--light: #c5cae9;
+  --md-primary-fg-color--dark:  #5c6bc0;
+  --md-primary-bg-color:        #10131c;
+  --md-primary-bg-color--light: #10131c;
+
+  --md-accent-fg-color:         #c5cae9;
+  --md-accent-fg-color--transparent: rgba(197, 202, 233, 0.1);
+  --md-accent-bg-color:         #10131c;
+
+  --md-typeset-a-color:         #9fa8da;
+
+  /* Ocieplenie szarości w stronę granatu — spójne z kolorem akcentu. */
+  --md-hue: 232;
+  --md-default-bg-color:        hsl(232, 21%, 14%);
+  --md-default-bg-color--light: hsla(232, 21%, 14%, 0.54);
+  --md-code-bg-color:           hsl(232, 21%, 11%);
+}
+
+/* ─────────────────────────── motyw jasny (default) ────────────────────────── */
+[data-md-color-scheme="default"][data-md-color-primary] {
+  --md-primary-fg-color:        #303f9f;
+  --md-primary-fg-color--light: #5c6bc0;
+  --md-primary-fg-color--dark:  #1a237e;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffff;
+
+  --md-accent-fg-color:         #1a237e;
+  --md-accent-fg-color--transparent: rgba(26, 35, 126, 0.1);
+
+  --md-typeset-a-color:         #303f9f;
+
+  --md-code-bg-color:           hsl(232, 30%, 96%);
+}
+
+/* Kod SQL pojawia się na tych stronach częściej niż proza — niech oddycha. */
+.md-typeset pre > code {
+  line-height: 1.55;
+}
+
+/* Nazwy tabel i kolumn w tekście mają być rozpoznawalne na pierwszy rzut oka. */
+.md-typeset code {
+  font-variant-ligatures: none;
+}

@@ -1,0 +1,122 @@
+site_name: Lokalne systemy baz danych
+site_description: Materiały do przedmiotu lokalne systemy baz danych — technik informatyk, kwalifikacja INF.03, PCEiKZ Szczucin
+site_author: PCEiKZ Szczucin
+
+# Adres docelowy strony. Przy GitHub Pages dla repozytorium projektowego
+# ma postać https://<użytkownik>.github.io/<nazwa-repo>/ — zmień, jeśli
+# nazwiesz repozytorium inaczej albo podepniesz własną domenę.
+site_url: https://josimate.github.io/lsbd/
+
+repo_url: https://github.com/JosiMate/lsbd
+repo_name: JosiMate/lsbd
+edit_uri: edit/main/docs/
+copyright: PCEiKZ Szczucin — materiały do użytku edukacyjnego
+
+theme:
+  name: material
+  language: pl
+  icon:
+    logo: material/database-cog
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.png
+  palette:
+    # Dwa stany: ciemny (domyślny) i jasny — tak samo jak w pozostałych
+    # serwisach. Wpisu „zgodny z systemem" nie ma celowo: Material rozpoznaje
+    # ustawienie systemu tylko wtedy, gdy oba wpisy mają media prefers-color-
+    # -scheme, a wtedy nie da się wymusić ciemnego jako domyślnego.
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Przełącz na tryb jasny
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Przełącz na tryb ciemny
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.action.edit
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tooltips
+
+extra_css:
+  # Kolejność ma znaczenie: najpierw style elementów interaktywnych,
+  # potem warstwa wyglądu powłoki dokumentacji, na końcu kolory serwisu.
+  - assets/extra.css
+  - stylesheets/extra.css
+  - stylesheets/motyw.css
+
+extra_javascript:
+  # docx.umd.js celowo NIE jest tu wymieniony — karta.js doczyta go dopiero
+  # przy generowaniu pliku .docx, żeby nie obciążać czytelników materiału.
+  # sql-trener.js sam pobiera silnik SQLite z cdnjs przy pierwszym użyciu.
+  - assets/js/karta.js
+  - assets/js/quiz.js
+  - assets/js/postep.js
+  - assets/js/sql-trener.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "#"
+      permalink_title: Odnośnik do tej sekcji
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+plugins:
+  # Wyszukiwarka lunr nie ma polskiego stemmera (lunr-languages nie wspiera
+  # polskiego), więc świadomie zostaje tokenizer domyślny.
+  - search
+
+nav:
+  - Start: index.md
+  - "Dział I. Środowisko pracy":
+      - "Wymagania edukacyjne i bhp": dzial-1/wymagania-i-bhp.md
+      - "Środowisko, import bazy i plik kwerend": dzial-1/srodowisko-import.md
+  - "Dział IV. Relacje i agregacja":
+      - "Zapytania z relacją (JOIN)": dzial-4/select-relacje.md
+
+extra:
+  social:
+    - icon: material/school
+      link: https://www.pceikz.pl
+      name: PCEiKZ Szczucin
+  generator: false
+
+not_in_nav: |
+  /assets/
