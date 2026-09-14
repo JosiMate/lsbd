@@ -1,0 +1,140 @@
+{
+  "id": "lsbd-szbd-przeglad",
+  "tytul": "Systemy zarządzania bazami danych — przegląd i dobór",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-SZBD",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Dobór do scenariusza",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Przeanalizuj opisy trzech sytuacji biznesowych i dobierz właściwy SZBD wraz z uzasadnieniem.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_scenariusz_a",
+              "Sytuacja A (kurier na tablecie offline)",
+              ""
+            ],
+            [
+              "z1_scenariusz_b",
+              "Sytuacja B (4 recepcjonistki w sieci lokalnej)",
+              ""
+            ],
+            [
+              "z1_scenariusz_c",
+              "Sytuacja C (szkolny dziennik na 500 uczniów WWW)",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_uzasadnienie",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij wybór dla każdej z trzech sytuacji poprzez kryteria z sekcji 4 lekcji."
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Sprawdzenie własnego stanowiska",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Sprawdź parametry serwera bazy danych w pracowni i porównaj je z najnowszą wydaną wersją.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_wersja_stanowisko",
+              "Wersja serwera (SELECT VERSION();)",
+              ""
+            ],
+            [
+              "z2_silnik",
+              "Używany silnik bazodanowy",
+              ""
+            ],
+            [
+              "z2_wersja_najnowsza",
+              "Najnowsza wersja w sieci",
+              ""
+            ],
+            [
+              "z2_roznica",
+              "Różnica i wnioski",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "phpMyAdmin z widoczną wersją serwera i silnikiem"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Granice na papierze",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Oblicz liczbę rekordów o rozmiarze 500 B mieszczących się w limitach rozmiaru baz MS Access i MS SQL Server Express.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_rozmiar_rekordu",
+              "Przyjęty średni rozmiar rekordu",
+              "500 B"
+            ],
+            [
+              "z3_limit_access",
+              "Liczba rekordów w limit MS Access (2 GB)",
+              ""
+            ],
+            [
+              "z3_limit_express",
+              "Liczba rekordów w limit SQL Server Express (10 GB)",
+              ""
+            ],
+            [
+              "z3_stosunek",
+              "Ile razy więcej pozwala zapisać SQL Server Express",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_obliczenia",
+          "wiersze": 5,
+          "pytanie": "Przedstaw pełny tok obliczeń oraz wniosek na temat realnych ograniczeń obu systemów."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Które kryterium doboru bazy danych uważasz za najbardziej kluczowe w praktyce?"
+        }
+      ]
+    }
+  ]
+}
