@@ -106,6 +106,15 @@ plugins:
   # dopisanie tematu nie wymaga już zaglądania do tego pliku.
   - awesome-nav
 
+nav:
+  - Start: index.md
+  - "Dział I. Środowisko pracy":
+      - "Wymagania edukacyjne i bhp": dzial-1/wymagania-i-bhp.md
+      - "Środowisko, import bazy i plik kwerend": dzial-1/srodowisko-import.md
+      - "Systemy zarządzania bazami danych": dzial-1/szbd-przeglad.md
+  - "Dział IV. Relacje i agregacja":
+      - "Zapytania z relacją (JOIN)": dzial-4/select-relacje.md
+
 extra:
   social:
     - icon: material/school
