@@ -1,0 +1,11 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział III. SELECT — jedna tabela"
+append_unmatched: true
+nav:
+  - "SELECT, kolumny i aliasy": select-podstawy.md
+  - "WHERE — warunki, operatory, LIKE, BETWEEN, IN": filtrowanie-warunki.md
+  - "ORDER BY i LIMIT": sortowanie-limit.md
+  - "Wartości NULL — pułapka, na której traci się punkty": obsluga-null.md

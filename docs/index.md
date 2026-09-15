@@ -68,10 +68,10 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| `SELECT`, kolumny i aliasy | *w przygotowaniu* |
-| `WHERE` — warunki, operatory, `LIKE`, `BETWEEN`, `IN` | *w przygotowaniu* |
-| `ORDER BY` i `LIMIT` | *w przygotowaniu* |
-| Wartości `NULL` — pułapka, na której traci się punkty | *w przygotowaniu* |
+| **[SELECT, kolumny i aliasy](dzial-3/select-podstawy.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[WHERE — warunki, operatory, LIKE, BETWEEN, IN](dzial-3/filtrowanie-warunki.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[ORDER BY i LIMIT](dzial-3/sortowanie-limit.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Wartości NULL — pułapka, na której traci się punkty](dzial-3/obsluga-null.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział IV. Relacje i agregacja
 
