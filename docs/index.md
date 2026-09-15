@@ -58,11 +58,11 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| Encje, atrybuty, klucze — pojęcia, które trzeba nazywać poprawnie | *w przygotowaniu* |
-| Związki między encjami i ich liczebność | *w przygotowaniu* |
-| Diagram E/R — od szkicu do struktury | *w przygotowaniu* |
-| Postacie normalne w praktyce | *w przygotowaniu* |
-| Typy danych i dobór ich do atrybutów | *w przygotowaniu* |
+| **[Encje, atrybuty, klucze — pojęcia, które trzeba nazywać poprawnie](dzial-2/encje-atrybuty-klucze.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Związki między encjami i ich liczebność](dzial-2/zwiazki-liczebnosc.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Diagram E/R — od szkicu do struktury](dzial-2/diagram-er.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Postacie normalne w praktyce](dzial-2/postacie-normalne.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Typy danych i dobór ich do atrybutów](dzial-2/typy-danych.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział III. SELECT — jedna tabela
 
