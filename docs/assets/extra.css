@@ -102,34 +102,38 @@
                                 w swoim kontenerze zamiast zgniatać kolumny */
 }
 
-/* Cztery kolumny: temat, godziny, materiały i dokładana skryptem kolumna
-   „Zrobione”. Sumują się do 100%, żeby tabela nie wystawała poza treść. */
-.spis-tematow table:not([class]) th:nth-child(1),
-.spis-tematow table:not([class]) td:nth-child(1) { width: 55%; }
+/* Szerokość kolumny zależy od tego, ile kolumn ma tabela, więc każda reguła
+   nazywa jedno i drugie: „:nth-child(2):nth-last-child(3)" to druga kolumna
+   w tabeli, która ma dokładnie cztery kolumny. Wcześniej służyły do tego
+   poprawki z „:last-child" i trzykolumnowy spis w lsbd (temat · materiały ·
+   „Zrobione", bez rubryki „Godz.") brał szerokości ułożone dla czterech:
+   „Materiały" dostawały 10%, a „Zrobione" 30% — na wąskim ekranie napis
+   „w przygotowaniu" łamał się w połowie wyrazu. */
 
-.spis-tematow table:not([class]) th:nth-child(2),
-.spis-tematow table:not([class]) td:nth-child(2) { width: 10%; }
+/* Cztery kolumny: temat · godziny · materiały · „Zrobione" dokładane skryptem. */
+.spis-tematow table:not([class]) tr > :nth-child(1):nth-last-child(4) { width: 55%; }
+.spis-tematow table:not([class]) tr > :nth-child(2):nth-last-child(3) { width: 10%; }
+.spis-tematow table:not([class]) tr > :nth-child(3):nth-last-child(2) { width: 24%; }
+.spis-tematow table:not([class]) tr > :nth-child(4):nth-last-child(1) { width: 11%; }
 
-.spis-tematow table:not([class]) th:nth-child(3),
-.spis-tematow table:not([class]) td:nth-child(3) { width: 24%; }
+/* Trzy kolumny: spis w lsbd. Dwie ostatnie kolumny zachowują szerokości
+   z układu czterokolumnowego, całą resztę bierze temat. */
+.spis-tematow table:not([class]) tr > :nth-child(1):nth-last-child(3) { width: 65%; }
+.spis-tematow table:not([class]) tr > :nth-child(2):nth-last-child(2) { width: 24%; }
+.spis-tematow table:not([class]) tr > :nth-child(3):nth-last-child(1) { width: 11%; }
 
-.spis-tematow table:not([class]) th:nth-child(4),
-.spis-tematow table:not([class]) td:nth-child(4) { width: 11%; }
+/* Dwie kolumny: ten sam spis, gdy skrypt nie zdążył dołożyć „Zrobione"
+   albo obsługa skryptów jest wyłączona. */
+.spis-tematow table:not([class]) tr > :nth-child(1):nth-last-child(2) { width: 76%; }
+.spis-tematow table:not([class]) tr > :nth-child(2):nth-last-child(1) { width: 24%; }
 
-/* Spis tematów ASSO ma trzy kolumny (temat, godziny, materiały), więc
-   szerokości powyżej wymagają korekty — inaczej tabela nie wypełnia szerokości. */
-.spis-tematow table:not([class]) th:nth-child(2):last-child,
-.spis-tematow table:not([class]) td:nth-child(2):last-child { width: 45%; }
-
-.spis-tematow table:not([class]) th:nth-child(3):last-child,
-.spis-tematow table:not([class]) td:nth-child(3):last-child { width: 28%; }
-
-.spis-tematow table:not([class]) tr > th:nth-child(3):last-child ~ *,
-.spis-tematow table:not([class]) tr > td:nth-child(3):last-child ~ * { width: auto; }
-
-/* Przy stałym układzie długie tytuły muszą się łamać, a nie wychodzić poza
-   komórkę. */
-.spis-tematow table:not([class]) td { overflow-wrap: anywhere; }
+/* Długie tytuły mają się łamać, żeby nie wychodziły poza komórkę — ale tylko
+   wtedy, gdy wyraz naprawdę się nie mieści. „anywhere" tnie także wyrazy,
+   które zmieściłyby się w całości w następnym wierszu. */
+.spis-tematow table:not([class]) td {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
 
 /* ═══════════════════════ elementy interaktywne ═══════════════════════
    Karta pracy, quizy, pasek postępu i narzędzia. Wszystko działa po
