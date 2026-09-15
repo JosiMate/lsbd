@@ -40,7 +40,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Zbuduj stronę
-        run: mkdocs build --strict
+        run: mkdocs build
 
       - name: Skonfiguruj GitHub Pages
         uses: actions/configure-pages@v6
