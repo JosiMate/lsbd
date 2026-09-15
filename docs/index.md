@@ -96,9 +96,9 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| `INSERT` — wprowadzanie danych | *w przygotowaniu* |
-| `UPDATE` i `DELETE` — i dlaczego zawsze z `WHERE` | *w przygotowaniu* |
-| Import i eksport danych | *w przygotowaniu* |
+| **[`INSERT` — wprowadzanie danych](dzial-6/insert.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[`UPDATE` i `DELETE` — i dlaczego zawsze z `WHERE`](dzial-6/update-delete.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Import i eksport danych](dzial-6/import-eksport.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział VII. Administrowanie
 

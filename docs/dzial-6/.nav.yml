@@ -1,0 +1,10 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział VI. Modyfikacja danych"
+append_unmatched: true
+nav:
+  - "INSERT — wprowadzanie danych": insert.md
+  - "UPDATE i DELETE — i dlaczego zawsze z WHERE": update-delete.md
+  - "Import i eksport danych": import-eksport.md
