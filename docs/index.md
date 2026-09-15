@@ -78,10 +78,10 @@ Ciebie i nie ma nic wspólnego z ocenami.
 | Temat | Materiały |
 | --- | --- |
 | **[Zapytania z relacją (JOIN)](dzial-4/select-relacje.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
-| Złączenia zewnętrzne — `LEFT JOIN` i po co on jest | *w przygotowaniu* |
-| Funkcje agregujące i `GROUP BY` | *w przygotowaniu* |
-| `HAVING` kontra `WHERE` | *w przygotowaniu* |
-| Podzapytania | *w przygotowaniu* |
+| **[Złączenia zewnętrzne — LEFT JOIN i po co on jest](dzial-4/zlaczenia-zewnetrzne.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Funkcje agregujące i GROUP BY](dzial-4/agregacja-groupby.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[HAVING kontra WHERE](dzial-4/having-where.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Podzapytania](dzial-4/podzapytania.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział V. Struktura bazy
 

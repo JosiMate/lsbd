@@ -6,3 +6,7 @@ title: "Dział IV. Relacje i agregacja"
 append_unmatched: true
 nav:
   - "Zapytania z relacją (JOIN)": select-relacje.md
+  - "Złączenia zewnętrzne — LEFT JOIN i po co on jest": zlaczenia-zewnetrzne.md
+  - "Funkcje agregujące i GROUP BY": agregacja-groupby.md
+  - "HAVING kontra WHERE": having-where.md
+  - "Podzapytania": podzapytania.md
