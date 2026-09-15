@@ -1,0 +1,46 @@
+{
+  "id": "lsbd-diagram-er",
+  "tytul": "Diagram E/R — od szkicu do struktury",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-DIAGER",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Projektant w phpMyAdmin",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Wejdź w bazę obuwie i odszukaj widok Projektant. Opisz (lub wklej zrzut), co widzisz - jak powiązane są tabele.",
+      "pola": [
+        {"typ": "tekst", "id": "cw1_opis", "wiersze": 3, "pytanie": "Opisz słownie relację i widoczne tabele (albo wstaw zrzut ekranu):"}
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Projekt własnej bazy - gry planszowe",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Dla sklepu z grami planszowymi (gra i kategoria) napisz odpowiednie polecenia CREATE TABLE uwzględniające relację 1:N.",
+      "pola": [
+        {"typ": "tekst", "id": "cw2_sql", "wiersze": 8, "pytanie": "Polecenia CREATE TABLE w odpowiedniej kolejności:"}
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Rozbudowa projektu - tabele pośredniczące",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Rozbuduj projekt gier o producenta i klienta. Zrealizuj tabelę pośredniczącą.",
+      "pola": [
+        {"typ": "tekst", "id": "cw3_sql", "wiersze": 12, "pytanie": "Komplet poleceń CREATE TABLE z uwzględnieniem tabeli dla relacji wiele-do-wielu:"}
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {"typ": "tekst", "id": "s_trudne", "wiersze": 3, "pytanie": "Co sprawiło kłopot w tym temacie?"},
+        {"typ": "tekst", "id": "s_wnioski", "wiersze": 2, "pytanie": "Czy rozumiesz już, kiedy na diagramie używamy relacji 1:N, a kiedy trzeba rozbić powiązanie na tabelę pośredniczącą (M:N)?"}
+      ]
+    }
+  ]
+}

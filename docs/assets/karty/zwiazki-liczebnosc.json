@@ -1,0 +1,53 @@
+{
+  "id": "lsbd-zwiazki-liczebnosc",
+  "tytul": "Związki między encjami i ich liczebność",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-ZWIAZKI",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Typy związków z życia",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Określ rodzaj liczebności (1:1, 1:N lub N:M) dla poniższych par encji i podaj krótkie uzasadnienie.",
+      "pola": [
+        {"typ": "tabela", "wiersze": [
+          ["id", "Para", "Relacja (1:1, 1:N, N:M) i krótkie uzasadnienie"],
+          ["1", "Państwo – Stolica", "relacja i uzasadnienie"],
+          ["2", "Autor – Książka", "relacja i uzasadnienie"],
+          ["3", "Nauczyciel – Klasa (wychowawstwo)", "relacja i uzasadnienie"],
+          ["4", "Samochód – Właściciel", "relacja i uzasadnienie"],
+          ["5", "Pacjent – Lekarz (przychodnia)", "relacja i uzasadnienie"]
+        ]}
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Produkt i kolory",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Wymaganie: 'Jeden produkt może występować w kilku kolorach. Z kolei jeden kolor jest przypisany do wielu produktów w sklepie.' Zaprojektuj rozwiązanie. Jakie utworzysz tabele?",
+      "pola": [
+        {"typ": "tekst", "id": "cw2_tabele", "wiersze": 6, "pytanie": "Lista nowych tabel, kolumn ze wskazaniem (PK) i (FK), oraz typ relacji:"}
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "System biblioteczny",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "System musi przechowywać informacje o czytelnikach, książkach oraz historii wypożyczeń (kto, co, kiedy pożyczył, do kiedy ma oddać). Zaprojektuj odpowiednie tabele i opisz relacje między nimi.",
+      "pola": [
+        {"typ": "tekst", "id": "cw3_projekt", "wiersze": 8, "pytanie": "Zestaw tabel z kolumnami, kluczami PK i FK, oraz objaśnienie relacji:"}
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {"typ": "tekst", "id": "s_trudne", "wiersze": 3, "pytanie": "Co sprawiło kłopot w tym temacie?"},
+        {"typ": "tekst", "id": "s_wnioski", "wiersze": 2, "pytanie": "Czy rozumiesz już, kiedy należy stosować tabelę łączącą (pośredniczącą)?"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział II. Model danych"
+append_unmatched: true
+nav:
+  - "Encje, atrybuty, klucze": encje-atrybuty-klucze.md
+  - "Związki między encjami i ich liczebność": zwiazki-liczebnosc.md
+  - "Diagram E/R — od szkicu do struktury": diagram-er.md
+  - "Postacie normalne w praktyce": postacie-normalne.md
+  - "Typy danych i dobór ich do atrybutów": typy-danych.md

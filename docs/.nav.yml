@@ -6,4 +6,5 @@ append_unmatched: true
 nav:
   - "Start": index.md
   - dzial-1
+  - dzial-2
   - dzial-4

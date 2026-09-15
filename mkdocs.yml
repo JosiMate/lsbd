@@ -112,6 +112,12 @@ nav:
       - "Wymagania edukacyjne i bhp": dzial-1/wymagania-i-bhp.md
       - "Środowisko, import bazy i plik kwerend": dzial-1/srodowisko-import.md
       - "Systemy zarządzania bazami danych": dzial-1/szbd-przeglad.md
+  - "Dział II. Model danych":
+      - "Encje, atrybuty, klucze": dzial-2/encje-atrybuty-klucze.md
+      - "Związki między encjami i ich liczebność": dzial-2/zwiazki-liczebnosc.md
+      - "Diagram E/R — od szkicu do struktury": dzial-2/diagram-er.md
+      - "Postacie normalne w praktyce": dzial-2/postacie-normalne.md
+      - "Typy danych i dobór ich do atrybutów": dzial-2/typy-danych.md
   - "Dział IV. Relacje i agregacja":
       - "Zapytania z relacją (JOIN)": dzial-4/select-relacje.md
 

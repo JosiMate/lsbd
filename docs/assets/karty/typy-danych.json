@@ -1,0 +1,92 @@
+{
+  "id": "lsbd-typy-danych",
+  "tytul": "Typy danych i dobór ich do atrybutów",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-TYPY",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Analiza typów w tabeli produkt",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Otwórz strukturę tabeli produkt w phpMyAdminie. Wypisz każdą kolumnę, jej typ i wyjaśnij, dlaczego został wybrany taki typ (a nie inny).",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["Nazwa kolumny", "Typ danych", "Uzasadnienie wyboru"],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Projekt tabeli zamowienie",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Zaprojektuj tabelę zamowienie dla sklepu obuwniczego. Tabela musi zawierać: id zamówienia, datę, imię klienta, nazwisko klienta, adres, id produktu, ilość, cenę jednostkową, informację czy zapłacone. Dobierz typ do każdego atrybutu i uzasadnij.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["Atrybut", "Zaproponowany typ", "Uzasadnienie"],
+            ["id_zamowienia", "", ""],
+            ["data_zamowienia", "", ""],
+            ["imie_klienta", "", ""],
+            ["nazwisko_klienta", "", ""],
+            ["adres_klienta", "", ""],
+            ["id_produktu", "", ""],
+            ["ilosc", "", ""],
+            ["cena_jednostkowa", "", ""],
+            ["czy_zaplacone", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Eksperyment: DECIMAL vs FLOAT",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wykonaj eksperyment: stwórz tymczasową tabelę z kolumną FLOAT, wstaw wartość 19.99 i odczytaj ją. Porównaj działanie z kolumną DECIMAL. Zapisz zapytania SQL, wynik oraz wnioski z tego eksperymentu.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "e_sql",
+          "wiersze": 3,
+          "pytanie": "Kod SQL (CREATE, INSERT, SELECT):"
+        },
+        {
+          "typ": "tekst",
+          "id": "e_wnioski",
+          "wiersze": 3,
+          "pytanie": "Wnioski z porównania typu FLOAT i DECIMAL dla wartości pieniężnych:"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Która reguła doboru typów wydaje Ci się najważniejsza do zapamiętania przed egzaminem?"
+        }
+      ]
+    }
+  ]
+}

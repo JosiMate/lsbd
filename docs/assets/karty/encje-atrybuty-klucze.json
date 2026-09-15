@@ -1,0 +1,65 @@
+{
+  "id": "lsbd-encje-atrybuty-klucze",
+  "tytul": "Encje, atrybuty, klucze — pojęcia, które trzeba nazywać poprawnie",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-ENCJE",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Odkrywamy strukturę tabeli produkt",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Otwórz bazę `obuwie` w phpMyAdminie, odczytaj strukturę tabeli `produkt`. Wypisz nazwy atrybutów, ich typy i wskaż klucz główny oraz obcy.",
+      "pola": [
+        {"typ": "tabela", "wiersze": [
+          ["Nazwa atrybutu", "Typ danych", "Uwagi (np. czy to klucz)"],
+          ["", "", ""],
+          ["", "", ""],
+          ["", "", ""],
+          ["", "", ""],
+          ["", "", ""],
+          ["", "", ""]
+        ]}
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Projektujemy klienta sklepu",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Zaprojektuj nową encję `klient` dla sklepu obuwniczego. Wymyśl 5-6 atrybutów, wskaż klucz główny, uzasadnij wybór typów i decyzję o NULL/NOT NULL.",
+      "pola": [
+        {"typ": "tabela", "wiersze": [
+          ["Atrybut", "Typ danych", "NULL/NOT NULL", "Klucz główny?"],
+          ["", "", "", ""],
+          ["", "", "", ""],
+          ["", "", "", ""],
+          ["", "", "", ""],
+          ["", "", "", ""],
+          ["", "", "", ""]
+        ]},
+        {"typ": "tekst", "id": "uzasadnienie_typow", "wiersze": 4, "pytanie": "Uzasadnij krótko dobór typów danych i użycie NULL w co najmniej dwóch atrybutach:"}
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Refaktoryzacja bazy — osobna encja dla kolorów",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Zaproponuj wydzielenie kolorów do osobnej tabeli. Zapisz/wymień kolumny przed zmianą oraz w nowej strukturze (dwie tabele), wskaż klucz obcy i zalety tego rozwiązania.",
+      "pola": [
+        {"typ": "tekst", "id": "struktura_przed", "wiersze": 3, "pytanie": "Struktura 'przed' (tabela produkt):"},
+        {"typ": "tekst", "id": "struktura_po", "wiersze": 5, "pytanie": "Struktura 'po' (tabele produkt i kolor) z widocznym kluczem obcym:"},
+        {"typ": "tekst", "id": "wyjasnienie_zyskow", "wiersze": 3, "pytanie": "Co zyskujemy na takiej refaktoryzacji bazy?"}
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {"typ": "tekst", "id": "s_trudne", "wiersze": 3, "pytanie": "Co sprawiło kłopot w tym temacie?"},
+        {"typ": "tekst", "id": "s_wnioski", "wiersze": 2, "pytanie": "Czy po tej lekcji potrafisz wyraźnie odróżnić klucz główny od klucza obcego?"}
+      ]
+    }
+  ]
+}

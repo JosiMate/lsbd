@@ -1,0 +1,50 @@
+{
+  "id": "lsbd-postacie-normalne",
+  "tytul": "Postacie normalne w praktyce",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-NORMAL",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Anomalie w płaskiej tabeli",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Dla tabeli zamowienie zbadaj dublujące się wartości i opisz na przykładach ewentualne anomalie.",
+      "pola": [
+        {"typ": "tekst", "id": "anomalie_wstep", "wiersze": 2, "pytanie": "Które kolumny będą wielokrotnie powielać swoje wartości przy setkach zamówień?"},
+        {"typ": "tekst", "id": "anomalia_wstawiania", "wiersze": 3, "pytanie": "Podaj przykład anomalii wstawiania:"},
+        {"typ": "tekst", "id": "anomalia_aktualizacji", "wiersze": 3, "pytanie": "Podaj przykład anomalii aktualizacji:"},
+        {"typ": "tekst", "id": "anomalia_usuwania", "wiersze": 3, "pytanie": "Podaj przykład anomalii usuwania:"}
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Wiele wartości (1NF)",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Przeanalizuj kolumnę przedmioty w tabeli uczniowie i wykonaj poprawki by zachować zgodność z 1NF.",
+      "pola": [
+        {"typ": "tekst", "id": "ocena_1nf", "wiersze": 1, "pytanie": "Czy tabela jest w 1NF? Odpowiedź Tak lub Nie:"},
+        {"typ": "tekst", "id": "rozwiazanie_1nf", "wiersze": 4, "pytanie": "Zaproponuj poprawną strukturę relacyjną (tabele, kolumny i klucze):"}
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Krok po kroku do 3NF",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Doprowadź tabelę zamowienie z ćwiczenia 1 do 3NF, wydzielając potrzebne encje.",
+      "pola": [
+        {"typ": "tekst", "id": "struktura_3nf", "wiersze": 8, "pytanie": "Wypisz powstałe tabele ze swoimi kolumnami, kluczami głównymi (PK) i obcymi (FK):"}
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {"typ": "tekst", "id": "s_trudne", "wiersze": 3, "pytanie": "Co sprawiło kłopot w tym temacie?"},
+        {"typ": "tekst", "id": "s_wnioski", "wiersze": 2, "pytanie": "Czy postacie normalne wydają Ci się użyteczne w praktyce i dlaczego?"}
+      ]
+    }
+  ]
+}
