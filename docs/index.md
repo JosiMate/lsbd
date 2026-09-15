@@ -104,10 +104,10 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| Konta użytkowników — `CREATE USER` | *w przygotowaniu* |
-| Uprawnienia — `GRANT` i `REVOKE` | *w przygotowaniu* |
-| Kopia zapasowa i przywracanie bazy | *w przygotowaniu* |
-| Spójność bazy i diagnostyka | *w przygotowaniu* |
+| **[Konta użytkowników — `CREATE USER`](dzial-7/create-user.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Uprawnienia — `GRANT` i `REVOKE`](dzial-7/grant-revoke.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Kopia zapasowa i przywracanie bazy](dzial-7/backup-recovery.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Spójność bazy i diagnostyka](dzial-7/diagnostics.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział VIII. Baza w aplikacji
 
