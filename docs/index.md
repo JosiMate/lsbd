@@ -87,10 +87,10 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| `CREATE TABLE` — tworzenie tabel z projektu | *w przygotowaniu* |
-| Klucze główne i obce w SQL-u | *w przygotowaniu* |
-| `ALTER TABLE` — rozbudowa istniejącej bazy | *w przygotowaniu* |
-| Skrypty tworzące strukturę | *w przygotowaniu* |
+| **[CREATE TABLE — tworzenie tabel z projektu](dzial-5/create-table.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Klucze główne i obce w SQL-u](dzial-5/klucze-sql.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[ALTER TABLE — rozbudowa istniejącej bazy](dzial-5/alter-table.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Skrypty tworzące strukturę](dzial-5/skrypty-struktura.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział VI. Modyfikacja danych
 

@@ -1,0 +1,11 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział V. Struktura bazy"
+append_unmatched: true
+nav:
+  - "CREATE TABLE — tworzenie tabel z projektu": create-table.md
+  - "Klucze główne i obce w SQL-u": klucze-sql.md
+  - "ALTER TABLE — rozbudowa istniejącej bazy": alter-table.md
+  - "Skrypty tworzące strukturę": skrypty-struktura.md
