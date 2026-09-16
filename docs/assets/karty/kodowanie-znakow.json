@@ -1,0 +1,98 @@
+{
+  "id": "lsbd-kodowanie-znakow",
+  "tytul": "Kodowanie znaków — skąd biorą się „krzaczki\"",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-KODOWANIE",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Eksperyment z kodowaniem w Notatniku",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Otwórz Notatnik Windows. Wpisz zdanie: <code style=\"color: red;\">Kodowanie znaków jest ważne!</code>. Zapisz plik jako <code style=\"color: red;\">kodowanie1.txt</code>, wybierając z listy rozwijanej przy zapisie kodowanie <code style=\"color: red;\">ANSI</code>. Następnie zapisz to samo zdanie w pliku <code style=\"color: red;\">kodowanie2.txt</code>, wybierając kodowanie <code style=\"color: red;\">UTF-8</code>. Otwórz oba pliki w przeglądarce internetowej i sprawdź, czy w obu przypadkach polskie znaki wyświetlają się poprawnie.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z1_wynik",
+          "pytanie": "Który plik wyświetla się poprawnie w przeglądarce?",
+          "opcje": [
+            "Tylko kodowanie1.txt (ANSI)",
+            "Tylko kodowanie2.txt (UTF-8)",
+            "Oba pliki",
+            "Żaden z plików"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_dlaczego",
+          "wiersze": 3,
+          "pytanie": "Wyjaśnij, dlaczego przeglądarka zachowała się w ten sposób. Co domyślnie zakłada współczesna przeglądarka w kwestii kodowania?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Walka z krzaczkami w phpMyAdmin",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Przygotuj prosty plik <code style=\"color: red;\">test.sql</code> z jedną instrukcją <code style=\"color: red;\">INSERT INTO</code>, zawierającą polskie znaki. Zapisz go w kodowaniu ANSI (Windows-1250). Zaimportuj go do phpMyAdmina, zostawiając domyślne ustawienia importu (UTF-8). Sprawdź wynik w tabeli. Następnie usuń rekord i zaimportuj ten sam plik, zmieniając w opcjach importu kodowanie na Windows-1250.",
+      "pola": [
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut_bledny",
+          "opis": "zrzut ekranu z phpMyAdmin: wynik importu UTF-8 (krzaczki)"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut_poprawny",
+          "opis": "zrzut ekranu z phpMyAdmin: wynik importu Windows-1250"
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_wniosek",
+          "wiersze": 4,
+          "pytanie": "Opisz, co dokładnie zmieniło się w wyświetlaniu danych po zmianie kodowania podczas importu."
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Analiza dużego zrzutu bazy",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Otwórz dowolny duży plik .sql (np. z repozytorium projektu) w edytorze VS Code. Zmień w prawym dolnym rogu kodowanie z UTF-8 na Windows-1250 i z powrotem. Zauważ, co dzieje się z polskimi znakami. Następnie znajdź w pliku miejsce, gdzie definiowane jest kodowanie bazy danych (szukaj frazy <code style=\"color: red;\">DEFAULT CHARACTER SET</code>).",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_kodowanie_bazy",
+          "wiersze": 2,
+          "pytanie": "Jakie kodowanie domyślne jest ustawione w pliku .sql?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_analiza",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij różnicę między kodowaniem samego pliku .sql (to, co widzisz w VS Code) a kodowaniem, które jest zapisane wewnątrz polecenia SQL (DEFAULT CHARACTER SET). Dlaczego oba muszą być spójne?"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Który z etapów (teoria, eksperyment z Notatnikiem, import w phpMyAdmin) był dla Ciebie najtrudniejszy?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Gdy w przyszłości zobaczysz 'krzaczki' w bazie danych, jaki będzie Twój pierwszy krok w celu naprawy?"
+        }
+      ]
+    }
+  ]
+}

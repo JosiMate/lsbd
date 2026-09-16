@@ -117,7 +117,7 @@ Ciebie i nie ma nic wspólnego z ocenami.
 | **[Operacje CRUD w kodzie aplikacji](dzial-8/operacje-crud.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[Bezpieczeństwo — SQL Injection i Prepared Statements](dzial-8/sql-injection.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[Zarządzanie połączeniami i błędy](dzial-8/zarzadzanie-polaczeniami.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
-| Kodowanie znaków — skąd biorą się „krzaczki" | *w przygotowaniu* |
+| **[Kodowanie znaków — skąd biorą się „krzaczki"](dzial-8/kodowanie-znakow.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział IX. Zaawansowane programowanie w bazie
 

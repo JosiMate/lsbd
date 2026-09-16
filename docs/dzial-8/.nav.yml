@@ -10,3 +10,4 @@ nav:
   - "Operacje CRUD w kodzie aplikacji": operacje-crud.md
   - "Bezpieczeństwo — SQL Injection i Prepared Statements": sql-injection.md
   - "Zarządzanie połączeniami i błędy": zarzadzanie-polaczeniami.md
+  - "Kodowanie znaków — skąd biorą się „krzaczki\"": kodowanie-znakow.md
