@@ -88,6 +88,22 @@ Zapytania agregujące często pojawiają się w zadaniach z „podsumowaniem dan
 `SELECT` $\rightarrow$ `FROM` $\rightarrow$ `JOIN` $\rightarrow$ `WHERE` $\rightarrow$ `GROUP BY` $\rightarrow$ `ORDER BY`.
 Wstawienie `WHERE` po `GROUP BY` spowoduje błąd składni.
 
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie` — tą samą, którą
+importujesz w ćwiczeniach z działu I. Wpisz zapytanie i naciśnij
+**Wykonaj** albo ++ctrl+enter++. Przycisk **Przywróć bazę** cofa wszystko
+do stanu wyjściowego, więc nie da się tu niczego zepsuć.
+
+<div class="sql-trener" data-baza="obuwie" data-start="SELECT COUNT(*), MIN(cena), MAX(cena), AVG(cena) FROM produkt;"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. Składnia `SELECT`,
+    `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `GROUP BY` i `HAVING` jest ta sama
+    co w phpMyAdminie, ale poleceń administracyjnych (`CREATE USER`,
+    `GRANT`) ten silnik nie zna — te ćwiczysz w phpMyAdminie.
+
 ---
 
 ## Ćwiczenia
@@ -104,7 +120,11 @@ Wstawienie `WHERE` po `GROUP BY` spowoduje błąd składni.
     3. `SELECT AVG(cena) FROM produkt;`
 
 !!! question "Ćwiczenie 2. Liczenie produktów w kategoriach"
-    Napisz zapytanie, które wyświetli identyfikator kategorii oraz liczbę produktów przypisanych do tej kategorii.
+    Napisz zapytanie, które wyświetli identyfikator kategorii oraz liczbę
+    produktów przypisanych do tej kategorii. Wyjdą 4 wiersze — po jednym na
+    kategorię.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT id_kategorii, COUNT(*) FROM produkt GROUP BY id_kategorii;"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
@@ -114,7 +134,10 @@ Wstawienie `WHERE` po `GROUP BY` spowoduje błąd składni.
     ```
 
 !!! question "Ćwiczenie 3. Sumy i nazwy"
-    Połącz tabele `kategoria` i `produkt`. Wyświetl nazwę każdej kategorii oraz sumę cen wszystkich produktów w tej kategorii.
+    Połącz tabele `kategoria` i `produkt`. Wyświetl nazwę każdej kategorii oraz
+    sumę cen wszystkich produktów w tej kategorii.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT k.nazwa, SUM(p.cena) FROM kategoria k JOIN produkt p ON k.id_kategorii = p.id_kategorii GROUP BY k.nazwa;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql

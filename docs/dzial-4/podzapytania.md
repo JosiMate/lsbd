@@ -68,12 +68,32 @@ Na egzaminie INF.03 podzapytania pojawiają się w zadaniach o wyższym poziomie
 
 **Pułapka:** Pamiętaj o nawiasach! Podzapytanie bez nawiasów spowoduje błąd składni.
 
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie` — tą samą, którą
+importujesz w ćwiczeniach z działu I. Wpisz zapytanie i naciśnij
+**Wykonaj** albo ++ctrl+enter++. Przycisk **Przywróć bazę** cofa wszystko
+do stanu wyjściowego, więc nie da się tu niczego zepsuć.
+
+<div class="sql-trener" data-baza="obuwie" data-start="SELECT nazwa, cena FROM produkt WHERE cena &gt; (SELECT AVG(cena) FROM produkt);"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. Składnia `SELECT`,
+    `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `GROUP BY` i `HAVING` jest ta sama
+    co w phpMyAdminie, ale poleceń administracyjnych (`CREATE USER`,
+    `GRANT`) ten silnik nie zna — te ćwiczysz w phpMyAdminie.
+
 ---
 
 ## Ćwiczenia
 
-!!! question "Ćwiczenie 1. Powyżej średniej"
-    Napisz zapytanie, które wyświetli nazwy produktów, których cena jest niższa niż średnia cena produktów w całej bazie.
+!!! question "Ćwiczenie 1. Poniżej średniej"
+    Napisz zapytanie, które wyświetli nazwy produktów, których cena jest niższa
+    niż średnia cena produktów w całej bazie. Średnia to 312,15 zł, więc wyjdzie
+    5 wierszy.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa FROM produkt WHERE cena &lt; (SELECT AVG(cena) FROM produkt);"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -81,7 +101,11 @@ Na egzaminie INF.03 podzapytania pojawiają się w zadaniach o wyższym poziomie
     ```
 
 !!! question "Ćwiczenie 2. Dynamiczny filtr kategorii"
-    Napisz zapytanie, które wyświetli nazwy produktów należących do kategorii, której nazwa zaczyna się od litery „S”. Użyj podzapytania i operatora `IN`.
+    Napisz zapytanie, które wyświetli nazwy produktów należących do kategorii,
+    której nazwa zaczyna się od litery „S”. Użyj podzapytania i operatora `IN`.
+    Pasują dwie kategorie i razem 5 produktów.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa FROM produkt WHERE id_kategorii IN (SELECT id_kategorii FROM kategoria WHERE nazwa LIKE 'S%');"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
@@ -90,7 +114,10 @@ Na egzaminie INF.03 podzapytania pojawiają się w zadaniach o wyższym poziomie
     ```
 
 !!! question "Ćwiczenie 3. Najdroższy z najdroższych"
-    Wyświetl wszystkie dane produktu, który ma najwyższą cenę w całej bazie. (Spróbuj zrobić to za pomocą podzapytania w WHERE, a nie przez ORDER BY i LIMIT).
+    Wyświetl wszystkie dane produktu, który ma najwyższą cenę w całej bazie.
+    Zrób to podzapytaniem w `WHERE`, a nie przez `ORDER BY` i `LIMIT`.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT * FROM produkt WHERE cena = (SELECT MAX(cena) FROM produkt);"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql

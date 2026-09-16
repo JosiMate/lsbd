@@ -1,0 +1,212 @@
+{
+  "id": "lsbd-dzial-2",
+  "tytul": "Dział II. Model danych — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D2",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1 — encje, atrybuty, klucze",
+      "poziom": "Encje, atrybuty, klucze",
+      "polecenie": "Uzupełnij po lekcji o encjach i kluczach. Zapisz, jaką encję rozpisałeś i co wybrałeś na jej klucz główny — nazwy pojęć muszą być takie, jakich używa arkusz egzaminacyjny.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_data", "Data lekcji", ""],
+            ["z1_encja", "Encja, którą rozpisałeś w ćwiczeniu 2", "np. klient"],
+            ["z1_atrybuty", "Wypisane atrybuty tej encji", "oddziel przecinkami"],
+            ["z1_pk", "Wybrany klucz główny i powód, dla którego właśnie ten", ""],
+            ["z1_null", "Atrybut, który może zostać pusty, i taki, który pusty być nie może", ""],
+            ["z1_fk", "Klucz obcy, który pojawił się po wydzieleniu kolorów do osobnej tabeli", "ćwiczenie 3"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz, po czym w gotowej tabeli rozpoznajesz klucz główny, a po czym klucz obcy."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "efekt lekcji — zdjęcie kartki z rozpisaną encją: nazwa encji, lista atrybutów, podkreślony klucz główny"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2 — związki i ich liczebność",
+      "poziom": "Związki między encjami i ich liczebność",
+      "polecenie": "Uzupełnij po lekcji o związkach. Dla każdego wpisu podaj liczebność zapisaną tak, jak na lekcji: 1:1, 1:N albo N:M.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_data", "Data lekcji", ""],
+            ["z2_para_nm", "Para encji, dla której wyszedł Ci związek N:M", "ćwiczenie 1 albo 2"],
+            ["z2_laczaca", "Nazwa tabeli łączącej, którą dla tej pary zaprojektowałeś", ""],
+            ["z2_kolumny", "Kolumny tej tabeli łączącej", "razem z kluczami obcymi"],
+            ["z2_para_1n", "Przykład związku 1:N i tabela, w której stanął klucz obcy", ""],
+            ["z2_para_11", "Przykład związku 1:1 i powód, dla którego rozdzielenie tabel ma sens", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz własnymi słowami test dwóch pytań, którym rozpoznajesz liczebność związku z samego opisu słownego."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "efekt lekcji — zdjęcie szkicu bazy biblioteki: tabele z zaznaczonymi kluczami i liniami związków opisanymi liczebnością"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3 — diagram E/R",
+      "poziom": "Diagram E/R — od szkicu do struktury",
+      "polecenie": "Uzupełnij po lekcji o diagramach E/R. Zapisz, co znalazło się na Twoim rysunku sklepu z grami planszowymi i w jakiej kolejności trzeba te tabele zakładać.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_data", "Data lekcji", ""],
+            ["z3_notacja", "Notacja, w której rysowałeś diagram", "Chena albo kurza łapka"],
+            ["z3_encje", "Encje na Twoim diagramie", "wypisz nazwy"],
+            ["z3_zwiazki", "Związki między nimi wraz z liczebnością", "np. kategoria 1:N gra"],
+            ["z3_posrednia", "Tabela pośrednicząca dodana dla związku klient — gra", ""],
+            ["z3_kolejnosc", "Kolejność zakładania tabel", "która pierwsza i dlaczego"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_notatka",
+          "wiersze": 3,
+          "pytanie": "Opisz w krokach, jak z opisu słownego dochodzisz do diagramu — od wypisania rzeczowników do dorysowania kluczy obcych."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "efekt lekcji — zdjęcie narysowanego diagramu E/R z podkreślonymi kluczami głównymi i opisaną liczebnością każdego związku"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Lekcja 4 — postacie normalne",
+      "poziom": "Postacie normalne w praktyce",
+      "polecenie": "Uzupełnij po lekcji o normalizacji. Rozpisz, co dokładnie zmieniałeś na każdym etapie — samo „doprowadziłem do 3NF” nie wystarczy.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z4_data", "Data lekcji", ""],
+            ["z4_wyjsciowa", "Tabela wyjściowa, którą normalizowałeś", "przepisz jej kolumny"],
+            ["z4_1nf", "Co poprawiłeś, żeby tabela była w 1NF", "która kolumna łamała atomowość"],
+            ["z4_2nf", "Co wydzieliłeś na etapie 2NF", "który atrybut zależał od części klucza"],
+            ["z4_3nf", "Zależność przechodnia usunięta w 3NF", "np. kod pocztowy i miasto"],
+            ["z4_ile", "Ile tabel powstało na końcu", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_notatka",
+          "wiersze": 3,
+          "pytanie": "Wybierz jedną anomalię — wstawiania, aktualizacji albo usuwania — i opisz ją na przykładzie tabeli z tej lekcji."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z4_zrzut",
+          "opis": "efekt lekcji — zdjęcie projektu doprowadzonego do 3NF: wszystkie powstałe tabele z zaznaczonymi kluczami głównymi i obcymi"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Lekcja 5 — typy danych",
+      "poziom": "Typy danych i dobór ich do atrybutów",
+      "polecenie": "Uzupełnij po lekcji o typach danych. Przy każdym wyborze podaj powód — na egzaminie punktowane jest uzasadnienie, a nie sama nazwa typu, na przykład <code>DECIMAL(10,2)</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z5_data", "Data lekcji", ""],
+            ["z5_cena", "Typ dobrany do ceny i uzasadnienie", ""],
+            ["z5_stala", "Typ dobrany do pola o stałej długości znaków", "kod pocztowy, PESEL"],
+            ["z5_data_typ", "Typ dobrany do daty zamówienia", "sam dzień czy dzień z godziną"],
+            ["z5_unsigned", "Atrybut, przy którym dopisałeś UNSIGNED, i powód", ""],
+            ["z5_float", "Co pokazał eksperyment z wartością 19.99 w kolumnie typu FLOAT", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz, czym różni się CHAR od VARCHAR i przy którym atrybucie swojej tabeli wybrałeś który z nich."
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_zestawienie",
+          "wiersze": 5,
+          "pytanie": "Wypisz kolumny zaprojektowanej tabeli zamowienie — po jednej w wierszu, w układzie: nazwa kolumny, typ, powód wyboru."
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu to, co w tym dziale poszło nie tak. Konkretny moment — „nie wiedziałem, w której tabeli postawić klucz obcy” — jest wart więcej niż ogólne „było trudno”.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z6_najtrudniejszy",
+          "pytanie": "Który temat działu kosztował Cię najwięcej czasu?",
+          "opcje": [
+            "Encje, atrybuty, klucze",
+            "Związki między encjami i ich liczebność",
+            "Diagram E/R — od szkicu do struktury",
+            "Postacie normalne w praktyce",
+            "Typy danych i dobór ich do atrybutów"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z6_potkniecie",
+          "wiersze": 4,
+          "pytanie": "Opisz moment, w którym utknąłeś przy projektowaniu, i napisz, co ostatecznie pozwoliło Ci ruszyć dalej."
+        },
+        {
+          "typ": "tekst",
+          "id": "z6_pomoc",
+          "wiersze": 3,
+          "pytanie": "Skąd korzystałeś z pomocy: materiał z lekcji, kolega, nauczyciel, internet? Co okazało się najskuteczniejsze?"
+        }
+      ]
+    },
+    {
+      "nr": 7,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Którą czynność — rozpisanie encji, ustalenie liczebności związku, narysowanie diagramu, normalizację, dobór typów — musisz jeszcze przećwiczyć przed egzaminem?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy ktoś inny zbudowałby tę samą bazę wyłącznie na podstawie Twoich rysunków i zapisków? Czego ewentualnie brakuje?"
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@
 title: "Dział I. Środowisko pracy"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "Wymagania edukacyjne i bhp": wymagania-i-bhp.md
   - "Środowisko, import bazy i plik kwerend": srodowisko-import.md
   - "Systemy zarządzania bazami danych": szbd-przeglad.md

@@ -1,0 +1,180 @@
+{
+  "id": "lsbd-dzial-5",
+  "tytul": "Dział V. Struktura bazy — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D5",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1 — tworzenie tabel",
+      "poziom": "CREATE TABLE — tworzenie tabel z projektu",
+      "polecenie": "Uzupełnij po lekcji o poleceniu <code>CREATE TABLE</code>. Zapisz, jakie tabele założyłeś w bazie i po czym poznałeś, że serwer je przyjął.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_data", "Data lekcji", ""],
+            ["z1_tabele", "Nazwy tabel, które założyłeś, i liczba kolumn w każdej", ""],
+            ["z1_polecenie", "Jedno polecenie CREATE TABLE, które zadziałało", "przepisz dokładnie, razem ze średnikiem"],
+            ["z1_komunikat", "Komunikat serwera po wykonaniu tego polecenia", "przepisz dosłownie, także jeśli był to błąd"],
+            ["z1_typy", "Typy danych, które dobrałeś do kolumn tekstowych i liczbowych", "np. VARCHAR(50), INT UNSIGNED"],
+            ["z1_struktura", "Czym sprawdziłeś strukturę gotowej tabeli", "zakładka Struktura, polecenie DESCRIBE"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz jedną rzecz z tej lekcji, o której chcesz pamiętać na egzaminie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "efekt lekcji — zakładka Struktura założonej tabeli z listą kolumn i ich typów"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2 — klucze główne i obce",
+      "poziom": "Klucze główne i obce w SQL-u",
+      "polecenie": "Uzupełnij po lekcji o kluczach. Zapisz polecenie z klauzulą <code>FOREIGN KEY</code> i to, co serwer odpowiedział — także wtedy, gdy klucza nie dało się założyć za pierwszym razem.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_data", "Data lekcji", ""],
+            ["z2_pk", "Deklaracja klucza głównego, której użyłeś", "przepisz dokładnie"],
+            ["z2_fk", "Polecenie z klauzulą FOREIGN KEY ... REFERENCES", "przepisz dokładnie"],
+            ["z2_tabele", "Która tabela wskazuje na którą i przez jaką kolumnę", ""],
+            ["z2_blad", "Komunikat o błędzie przy zakładaniu klucza obcego", "przepisz dosłownie albo wpisz: bez błędu"],
+            ["z2_przyczyna", "Co okazało się przyczyną błędu", "niezgodny typ kolumn, brak indeksu, zła kolejność tabel"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz, po czym rozpoznasz na egzaminie, że kolumna ma być kluczem obcym, a nie zwykłą liczbą."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "efekt lekcji — widok relacji albo komunikat serwera po założeniu klucza obcego"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3 — zmiana istniejącej tabeli",
+      "poziom": "ALTER TABLE — rozbudowa istniejącej bazy",
+      "polecenie": "Uzupełnij po lekcji o poleceniu <code>ALTER TABLE</code>. Zapisz, co zmieniłeś w gotowej tabeli i czy dane w niej przetrwały zmianę.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_data", "Data lekcji", ""],
+            ["z3_add", "Polecenie ALTER TABLE ... ADD, które wykonałeś", "przepisz dokładnie"],
+            ["z3_modify", "Polecenie ALTER TABLE ... MODIFY albo CHANGE", "przepisz dokładnie"],
+            ["z3_komunikat", "Komunikat serwera po zmianie struktury", "przepisz dosłownie"],
+            ["z3_dane", "Co znalazło się w nowej kolumnie w istniejących wierszach", ""],
+            ["z3_kopia", "Czy przed zmianą zrobiłeś kopię bazy — nazwa pliku", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz, kiedy zamiast ALTER TABLE lepiej usunąć tabelę i zbudować ją od nowa — i czym to grozi."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "efekt lekcji — struktura tabeli po dodaniu i zmianie kolumny"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Lekcja 4 — skrypt struktury",
+      "poziom": "Skrypty tworzące strukturę",
+      "polecenie": "Uzupełnij po lekcji o skryptach. Zapisz nazwę pliku ze skryptem, kolejność poleceń w środku i wynik jego uruchomienia na pustej bazie.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z4_data", "Data lekcji", ""],
+            ["z4_plik", "Nazwa pliku ze skryptem", "razem z rozszerzeniem"],
+            ["z4_kolejnosc", "Kolejność poleceń CREATE TABLE w skrypcie", "wypisz nazwy tabel od pierwszej do ostatniej"],
+            ["z4_drop", "Kolejność poleceń DROP TABLE na początku skryptu", "wypisz nazwy tabel"],
+            ["z4_wynik", "Komunikat phpMyAdmina po zaimportowaniu skryptu", "przepisz dosłownie"],
+            ["z4_ile", "Ile tabel pojawiło się w bazie po uruchomieniu skryptu", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz, dlaczego kolejność DROP TABLE jest odwrotna do kolejności CREATE TABLE, własnymi słowami."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z4_zrzut",
+          "opis": "efekt lekcji — lista tabel bazy zbudowanej od zera z Twojego skryptu"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu to, co w tym dziale poszło nie tak. Konkretny komunikat błędu jest wart więcej niż ogólne „nie działało”.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z5_najtrudniejszy",
+          "pytanie": "Który temat działu kosztował Cię najwięcej czasu?",
+          "opcje": [
+            "CREATE TABLE — tworzenie tabel z projektu",
+            "Klucze główne i obce w SQL-u",
+            "ALTER TABLE — rozbudowa istniejącej bazy",
+            "Skrypty tworzące strukturę"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_komunikat",
+          "wiersze": 4,
+          "pytanie": "Przepisz komunikat błędu, który najbardziej Cię zatrzymał, i napisz, co ostatecznie go usunęło."
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_pomoc",
+          "wiersze": 3,
+          "pytanie": "Skąd korzystałeś z pomocy: materiał z lekcji, kolega, nauczyciel, internet? Co okazało się najskuteczniejsze?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Którą z czynności — założenie tabeli, deklarację klucza obcego, zmianę gotowej tabeli, napisanie skryptu — musisz jeszcze przećwiczyć przed egzaminem?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy ktoś inny odtworzyłby strukturę Twojej bazy wyłącznie na podstawie tego dziennika? Czego ewentualnie brakuje?"
+        }
+      ]
+    }
+  ]
+}

@@ -285,71 +285,28 @@ przewidywana zostały podane do wiadomości do **25 września**, zgodnie z § 26
 
 ## Wymagania na poszczególne oceny
 
-Rozwiń dział, żeby zobaczyć, co trzeba umieć na każdą ocenę. Wymagania wywodzą się
+Wymagania na każdą ocenę rozpisane są osobno dla każdego działu — na jego stronie
+**Przegląd działu**, razem ze spisem tematów i kartą pracy działu. Wywodzą się
 wprost z jednostki **INF.03.4** podstawy programowej kształcenia w zawodzie
-technik informatyk.
+technik informatyk i są kumulatywne: na ocenę wyższą trzeba spełniać także
+wszystkie niższe.
 
-??? abstract "Dział I. Środowisko pracy — instalacja, phpMyAdmin, import bazy"
+| Dział | Wymagania na oceny |
+| --- | --- |
+| Dział I. Środowisko pracy | [Przegląd działu](index.md) |
+| Dział II. Model danych | [Przegląd działu](../dzial-2/index.md) |
+| Dział III. SELECT — jedna tabela | [Przegląd działu](../dzial-3/index.md) |
+| Dział IV. Relacje i agregacja | [Przegląd działu](../dzial-4/index.md) |
+| Dział V. Struktura bazy | [Przegląd działu](../dzial-5/index.md) |
+| Dział VI. Modyfikacja danych | [Przegląd działu](../dzial-6/index.md) |
+| Dział VII. Administrowanie | [Przegląd działu](../dzial-7/index.md) |
+| Dział VIII. Baza w aplikacji | [Przegląd działu](../dzial-8/index.md) |
+| Dział IX. Zaawansowane programowanie w bazie | [Przegląd działu](../dzial-9/index.md) |
 
-    **Ocena dopuszczająca (2)** — *wymagania konieczne*
+!!! note "Trening egzaminacyjny"
 
-    - uruchamia serwer bazy danych i otwiera phpMyAdmina
-    - odnajduje bazę i tabelę na liście
-    - odczytuje nazwy kolumn i typy danych w widoku struktury
-
-    **Ocena dostateczna (3)** — *wymagania podstawowe* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - zakłada bazę danych i nadaje jej właściwe kodowanie
-    - importuje bazę z pliku `.sql` i sprawdza, czy import się powiódł
-    - zapisuje treść zapytania do pliku tekstowego zgodnie z poleceniem
-
-    **Ocena dobra (4)** — *wymagania rozszerzające* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - rozpoznaje przyczynę nieudanego importu i usuwa ją
-    - wyjaśnia, czym jest kodowanie znaków i skąd biorą się „krzaczki"
-    - wykonuje eksport bazy do pliku i sprawdza zawartość pliku
-
-    **Ocena bardzo dobra (5)** — *wymagania dopełniające* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - dobiera system zarządzania bazą danych do zastosowania i uzasadnia wybór
-    - konfiguruje serwer do pracy wielu użytkowników
-    - przygotowuje stanowisko do pracy egzaminacyjnej bez podpowiedzi
-
-    **Ocena celująca (6)** — *wymagania wykraczające* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - podejmuje zadania dodatkowe, w tym przygotowanie do części praktycznej egzaminu INF.03
-
-??? abstract "Dział IV. Relacje i agregacja — zapytania łączące tabele"
-
-    **Ocena dopuszczająca (2)** — *wymagania konieczne*
-
-    - wskazuje w strukturze bazy klucz główny i klucz obcy
-    - odczytuje, które kolumny łączą dwie tabele
-
-    **Ocena dostateczna (3)** — *wymagania podstawowe* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - pisze zapytanie łączące dwie tabele i wybierające z nich wskazane kolumny
-    - stosuje aliasy tabel, żeby skrócić zapis
-
-    **Ocena dobra (4)** — *wymagania rozszerzające* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - rozróżnia złączenie wewnętrzne i zewnętrzne i wskazuje, kiedy które daje inny wynik
-    - łączy zapytanie z warunkiem i sortowaniem
-    - stosuje funkcje agregujące z grupowaniem
-
-    **Ocena bardzo dobra (5)** — *wymagania dopełniające* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - łączy trzy tabele i uzasadnia kolejność złączeń
-    - stosuje `HAVING` i rozróżnia je od `WHERE`
-    - buduje podzapytania
-
-    **Ocena celująca (6)** — *wymagania wykraczające* *(spełnia wymagania na ocenę niższą, a ponadto)*
-
-    - rozwiązuje zadania z arkuszy egzaminacyjnych INF.03 dotyczące zapytań złożonych
-
-!!! note "Pozostałe działy"
-
-    Wymagania do działów II, III, V–IX powstają wraz z materiałami do nich.
+    Tematy z części **Trening egzaminacyjny** nie mają osobnych wymagań — utrwalają
+    umiejętności z działów I–IX i są oceniane według wymagań tych działów.
     Spis wszystkich działów i tematów jest na [stronie głównej](../index.md).
 
 ---

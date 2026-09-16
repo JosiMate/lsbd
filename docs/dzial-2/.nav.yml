@@ -5,6 +5,7 @@
 title: "Dział II. Model danych"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "Encje, atrybuty, klucze": encje-atrybuty-klucze.md
   - "Związki między encjami i ich liczebność": zwiazki-liczebnosc.md
   - "Diagram E/R — od szkicu do struktury": diagram-er.md

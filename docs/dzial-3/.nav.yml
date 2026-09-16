@@ -5,6 +5,7 @@
 title: "Dział III. SELECT — jedna tabela"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "SELECT, kolumny i aliasy": select-podstawy.md
   - "WHERE — warunki, operatory, LIKE, BETWEEN, IN": filtrowanie-warunki.md
   - "ORDER BY i LIMIT": sortowanie-limit.md

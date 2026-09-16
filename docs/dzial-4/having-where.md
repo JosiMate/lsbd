@@ -71,12 +71,31 @@ Na egzaminie INF.03 pułapka `WHERE` vs `HAVING` to klasyk.
 *   Jeśli warunek dotyczy czegoś, co jest w tabeli (np. `cena > 100`, `kolor = 'czarny'`) $\rightarrow$ użyj `WHERE`.
 *   Jeśli warunek dotyczy wyniku obliczeń (np. `SUM(cena) > 1000`, `COUNT(*) < 2`) $\rightarrow$ użyj `HAVING`.
 
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie` — tą samą, którą
+importujesz w ćwiczeniach z działu I. Wpisz zapytanie i naciśnij
+**Wykonaj** albo ++ctrl+enter++. Przycisk **Przywróć bazę** cofa wszystko
+do stanu wyjściowego, więc nie da się tu niczego zepsuć.
+
+<div class="sql-trener" data-baza="obuwie" data-start="SELECT id_kategorii, COUNT(*), AVG(cena) FROM produkt GROUP BY id_kategorii;"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. Składnia `SELECT`,
+    `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `GROUP BY` i `HAVING` jest ta sama
+    co w phpMyAdminie, ale poleceń administracyjnych (`CREATE USER`,
+    `GRANT`) ten silnik nie zna — te ćwiczysz w phpMyAdminie.
+
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Filtrowanie grup"
-    Napisz zapytanie, które wyświetli identyfikatory kategorii, w których średnia cena produktu jest wyższa niż 200 zł.
+    Napisz zapytanie, które wyświetli identyfikatory kategorii, w których średnia
+    cena produktu jest wyższa niż 200 zł. Przejdą 3 z 4 kategorii.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT id_kategorii, AVG(cena) FROM produkt GROUP BY id_kategorii HAVING AVG(cena) &gt; 200;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -87,26 +106,36 @@ Na egzaminie INF.03 pułapka `WHERE` vs `HAVING` to klasyk.
     ```
 
 !!! question "Ćwiczenie 2. Wąskie sito"
-    Wyświetl nazwy kategorii (dołączając tabelę `kategoria`), w których jest co najmniej 5 produktów.
+    Wyświetl nazwy kategorii (dołączając tabelę `kategoria`), w których są co
+    najmniej 3 produkty. W bazie `obuwie` pasują do tego dwie kategorie.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT k.nazwa, COUNT(*) FROM kategoria k JOIN produkt p ON k.id_kategorii = p.id_kategorii GROUP BY k.nazwa HAVING COUNT(*) &gt;= 3;"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
-    SELECT k.nazwa, COUNT(*) 
-    FROM kategoria k 
+    SELECT k.nazwa, COUNT(*)
+    FROM kategoria k
     JOIN produkt p ON k.id_kategorii = p.id_kategorii
-    GROUP BY k.nazwa 
-    HAVING COUNT(*) >= 5;
+    GROUP BY k.nazwa
+    HAVING COUNT(*) >= 3;
     ```
 
+    Podnieś próg do `>= 5` i wykonaj jeszcze raz — wynik będzie pusty. To nie
+    jest błąd zapytania: w tej bazie po prostu nie ma tak licznej kategorii.
+
 !!! question "Ćwiczenie 3. Podwójny filtr"
-    Wyświetl identyfikatory kategorii, w których jest więcej niż jeden produkt o kolorze 'czarny'.
+    Wyświetl identyfikatory kategorii, w których jest więcej niż jeden produkt
+    z materiału 'tkanina'. Najpierw `WHERE` odsiewa wiersze, dopiero potem
+    `HAVING` odsiewa grupy — wyjdzie jeden wiersz.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT id_kategorii, COUNT(*) FROM produkt WHERE material = 'tkanina' GROUP BY id_kategorii HAVING COUNT(*) &gt; 1;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql
-    SELECT id_kategorii, COUNT(*) 
-    FROM produkt 
-    WHERE kolor = 'czarny' 
-    GROUP BY id_kategorii 
+    SELECT id_kategorii, COUNT(*)
+    FROM produkt
+    WHERE material = 'tkanina'
+    GROUP BY id_kategorii
     HAVING COUNT(*) > 1;
     ```
 

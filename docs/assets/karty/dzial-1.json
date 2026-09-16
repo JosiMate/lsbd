@@ -1,0 +1,150 @@
+{
+  "id": "lsbd-dzial-1",
+  "tytul": "Dział I. Środowisko pracy — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D1",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1 — wymagania i bhp",
+      "poziom": "Wymagania edukacyjne i bhp",
+      "polecenie": "Uzupełnij po lekcji organizacyjnej. To jedyna lekcja w tym dziale bez pracy przy bazie — zapisz to, czego będziesz szukał przez cały rok: terminy, zasady oceniania i reguły obowiązujące w pracowni.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_data", "Data lekcji", ""],
+            ["z1_ocena", "Ocena, o którą Ci chodzi na koniec roku", "od 2 do 6"],
+            ["z1_wymaganie", "Jedno wymaganie na tę ocenę, którego jeszcze nie spełniasz", "przepisz z tabeli wymagań"],
+            ["z1_termin", "Ile dni ma termin dodatkowy na oddanie pracy obowiązkowej", ""],
+            ["z1_prog", "Próg zdawalności części praktycznej INF.03", "w procentach"],
+            ["z1_baza_nr", "Numer w dzienniku, do którego przypisana jest Twoja baza", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz dwie zasady bhp, które obowiązują tylko na tym przedmiocie, a nie w każdej pracowni komputerowej."
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_prace",
+          "wiersze": 3,
+          "pytanie": "Wypisz trzy rodzaje prac obowiązkowych na tym przedmiocie i napisz, gdzie sprawdzisz termin oddania każdej z nich."
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2 — środowisko i import bazy",
+      "poziom": "Środowisko, import bazy i plik kwerend",
+      "polecenie": "Uzupełnij po lekcji przy komputerze. Pracujesz na pliku <code>obuwie.sql</code>: zakładasz bazę, importujesz ją i sprawdzasz liczbami, że import się udał.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_data", "Data lekcji", ""],
+            ["z2_baza", "Nazwa założonej bazy i wybrane porównywanie znaków", "np. utf8mb4_general_ci"],
+            ["z2_tabele", "Ile tabel pojawiło się po imporcie i jak się nazywają", ""],
+            ["z2_wiersze", "Ile wierszy ma tabela produkt, a ile kategoria", "sprawdź przez SELECT COUNT(*)"],
+            ["z2_latin", "Które znaki zepsuły się w bazie z kodowaniem latin1_swedish_ci", ""],
+            ["z2_plik", "Nazwa pliku z zapytaniami i katalog, w którym go zapisałeś", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_notatka",
+          "wiersze": 3,
+          "pytanie": "Wypisz z pamięci kolejność czynności od uruchomienia XAMPP-a do potwierdzenia, że import się powiódł."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "efekt lekcji — cały ekran z nazwą bazy obuwie, listą tabel i widocznym paskiem zadań"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3 — przegląd SZBD",
+      "poziom": "Systemy zarządzania bazami danych",
+      "polecenie": "Uzupełnij po lekcji o systemach zarządzania bazami danych. Sprawdź, co faktycznie działa na Twoim stanowisku, i zapisz wyniki ćwiczeń z doboru SZBD oraz z limitów.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_data", "Data lekcji", ""],
+            ["z3_serwer", "Nazwa i wersja serwera na Twoim stanowisku", "wynik zapytania SELECT VERSION()"],
+            ["z3_silnik", "Domyślny silnik składowania tabel", ""],
+            ["z3_najnowsza", "Najnowsza stabilna wersja tego systemu znaleziona w sieci", ""],
+            ["z3_sytuacja_b", "SZBD wybrany do sytuacji B — cztery recepcjonistki w sieci lokalnej", ""],
+            ["z3_rekordy", "Ile rekordów po 500 bajtów mieści się w bazie MS Access do limitu 2 GB", "wynik obliczeń z ćwiczenia 3"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_notatka",
+          "wiersze": 3,
+          "pytanie": "Po czym poznasz w opisie potrzeb klienta, że baza plikowa nie wystarczy i trzeba modelu klient-serwer?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "efekt lekcji — cały ekran phpMyAdmina z widocznymi informacjami o serwerze baz danych albo z wynikiem zapytania o wersję"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu to, co w tym dziale poszło nie tak. Konkretny komunikat błędu jest wart więcej niż ogólne „nie działało”.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z4_najtrudniejszy",
+          "pytanie": "Który temat działu kosztował Cię najwięcej czasu?",
+          "opcje": [
+            "Wymagania edukacyjne i bhp",
+            "Środowisko, import bazy i plik kwerend",
+            "Systemy zarządzania bazami danych"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_komunikat",
+          "wiersze": 4,
+          "pytanie": "Przepisz komunikat błędu, który najbardziej Cię zatrzymał — przy starcie XAMPP-a albo przy imporcie — i napisz, co ostatecznie go usunęło."
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_pomoc",
+          "wiersze": 3,
+          "pytanie": "Skąd korzystałeś z pomocy: materiał z lekcji, kolega, nauczyciel, internet? Co okazało się najskuteczniejsze?"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Czy potrafisz dziś przejść całą drogę od uruchomienia serwera do sprawdzonego importu bez zaglądania do materiału? Który krok nadal musisz sprawdzać?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy ktoś inny odtworzyłby Twoją pracę wyłącznie na podstawie tego dziennika? Czego ewentualnie brakuje?"
+        }
+      ]
+    }
+  ]
+}

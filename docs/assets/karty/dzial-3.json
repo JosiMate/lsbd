@@ -1,0 +1,180 @@
+{
+  "id": "lsbd-dzial-3",
+  "tytul": "Dział III. SELECT — jedna tabela — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D3",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1 — SELECT i aliasy",
+      "poziom": "SELECT, kolumny i aliasy",
+      "polecenie": "Uzupełnij po lekcji o poleceniu <code>SELECT</code>. Zapisz zapytania wykonane na bazie <code>obuwie</code> i to, co zobaczyłeś w wyniku.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_data", "Data lekcji", ""],
+            ["z1_wszystko", "Zapytanie pobierające wszystkie dane z tabeli produkt", "przepisz dokładnie"],
+            ["z1_ile_wierszy", "Ile wierszy zwróciło to zapytanie", ""],
+            ["z1_kolumny", "Zapytanie wybierające tylko wskazane kolumny", "przepisz dokładnie"],
+            ["z1_alias", "Zapytanie z aliasem AS — przepisz je w całości", "przepisz dokładnie"],
+            ["z1_plik", "Nazwa pliku, w którym zapisałeś kwerendy z tej lekcji", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_notatka",
+          "wiersze": 3,
+          "pytanie": "Czym różni się wynik zapytania SELECT * FROM produkt od wyniku zapytania wymieniającego dwie kolumny? Napisz, co dokładnie się zmieniło w tabeli wyników."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "efekt lekcji — wynik zapytania z aliasami, tak żeby było widać nowe nagłówki kolumn"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2 — WHERE i filtrowanie",
+      "poziom": "WHERE — warunki, operatory, LIKE, BETWEEN, IN",
+      "polecenie": "Uzupełnij po lekcji o klauzuli <code>WHERE</code>. Przy każdym zapytaniu zanotuj, ile wierszy zostało po odfiltrowaniu.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_data", "Data lekcji", ""],
+            ["z2_porownanie", "Zapytanie z warunkiem porównania, np. na kolumnie cena", "przepisz dokładnie"],
+            ["z2_porownanie_ile", "Ile wierszy zwróciło to zapytanie", ""],
+            ["z2_like", "Zapytanie z operatorem LIKE", "przepisz dokładnie ze znakami % lub _"],
+            ["z2_like_ile", "Ile wierszy zwróciło zapytanie z LIKE", ""],
+            ["z2_zakres", "Zapytanie z BETWEEN albo z IN", "napisz, którego operatora użyłeś"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz jeden warunek, który za pierwszym razem zwrócił złą liczbę wierszy, i napisz, co w nim poprawiłeś."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "efekt lekcji — wynik zapytania z WHERE razem z widocznym paskiem liczby zwróconych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3 — sortowanie i LIMIT",
+      "poziom": "ORDER BY i LIMIT",
+      "polecenie": "Uzupełnij po lekcji o klauzulach <code>ORDER BY</code> i <code>LIMIT</code>. Zapisz zapytania oraz pierwszy wiersz, jaki się w nich pojawił.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_data", "Data lekcji", ""],
+            ["z3_sortowanie", "Zapytanie sortujące wynik według jednej kolumny", "przepisz dokładnie, z ASC albo DESC"],
+            ["z3_pierwszy", "Nazwa produktu, który wyszedł jako pierwszy w tym sortowaniu", ""],
+            ["z3_dwie_kolumny", "Zapytanie sortujące według dwóch kolumn", "przepisz dokładnie"],
+            ["z3_top", "Zapytanie typu „trzy najdroższe” albo „pięć najtańszych”", "przepisz dokładnie, z LIMIT"],
+            ["z3_top_ile", "Ile wierszy zwróciło zapytanie z LIMIT", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_notatka",
+          "wiersze": 3,
+          "pytanie": "W jakiej kolejności zapisujesz klauzule SELECT, FROM, WHERE, ORDER BY i LIMIT? Napisz tę kolejność z pamięci i zaznacz, gdzie się kiedyś pomyliłeś."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "efekt lekcji — wynik zestawienia z ORDER BY i LIMIT"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Lekcja 4 — wartości NULL",
+      "poziom": "Wartości NULL — pułapka, na której traci się punkty",
+      "polecenie": "Uzupełnij po lekcji o wartościach <code>NULL</code>. Porównaj, ile wierszy zwraca zapis <code>= NULL</code>, a ile <code>IS NULL</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z4_data", "Data lekcji", ""],
+            ["z4_rowna_null", "Zapytanie z błędnym zapisem = NULL, które sprawdziłeś", "przepisz dokładnie"],
+            ["z4_rowna_null_ile", "Ile wierszy zwróciło zapytanie z = NULL", ""],
+            ["z4_is_null", "Zapytanie z IS NULL na tej samej kolumnie", "przepisz dokładnie"],
+            ["z4_is_null_ile", "Ile wierszy zwróciło zapytanie z IS NULL", ""],
+            ["z4_is_not_null", "Zapytanie z IS NOT NULL i liczba zwróconych wierszy", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_notatka",
+          "wiersze": 3,
+          "pytanie": "Po czym w treści polecenia egzaminacyjnego poznasz, że trzeba użyć IS NULL? Podaj sformułowanie, którego będziesz szukał."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z4_zrzut",
+          "opis": "efekt lekcji — dwa wyniki obok siebie: pusty wynik zapytania z = NULL i wynik zapytania z IS NULL"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu to, co w tym dziale poszło nie tak. Konkretny komunikat błędu jest wart więcej niż ogólne „nie działało”.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z5_najtrudniejszy",
+          "pytanie": "Który temat działu kosztował Cię najwięcej czasu?",
+          "opcje": [
+            "SELECT, kolumny i aliasy",
+            "WHERE — warunki, operatory, LIKE, BETWEEN, IN",
+            "ORDER BY i LIMIT",
+            "Wartości NULL — pułapka, na której traci się punkty"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_komunikat",
+          "wiersze": 4,
+          "pytanie": "Przepisz komunikat błędu składni, który najbardziej Cię zatrzymał, i napisz, którą literę albo który znak trzeba było poprawić."
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_pomoc",
+          "wiersze": 3,
+          "pytanie": "Skąd korzystałeś z pomocy: materiał z lekcji, kolega, nauczyciel, internet? Co okazało się najskuteczniejsze?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Którą z czterech klauzul — SELECT, WHERE, ORDER BY z LIMIT, IS NULL — musisz jeszcze przećwiczyć, zanim usiądziesz do arkusza egzaminacyjnego?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy ktoś inny powtórzyłby Twoje zapytania wyłącznie na podstawie tego dziennika i dostał te same liczby wierszy? Czego ewentualnie brakuje?"
+        }
+      ]
+    }
+  ]
+}

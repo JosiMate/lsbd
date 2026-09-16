@@ -9,7 +9,11 @@
  *          data-start="SELECT * FROM produkt;"
  *          data-wzorzec="SELECT nazwa, cena FROM produkt WHERE cena > 200;"></div>
  *
- *   data-baza     — nazwa zestawu danych z obiektu BAZY (niżej)
+ *   data-baza     — nazwa zestawu danych z obiektu BAZY (niżej):
+ *                   „obuwie" — komplet danych, każdy produkt ma kategorię;
+ *                   „braki"  — ten sam sklep z dziurami: puste ceny, kolory
+ *                              i wysokości, produkty bez kategorii oraz jedna
+ *                              kategoria bez produktów (do NULL i LEFT JOIN)
  *   data-start    — treść wpisana do pola na starcie (opcjonalnie)
  *   data-wzorzec  — poprawne zapytanie; jeśli podane, trener porówna wynik
  *                   ucznia z wynikiem wzorca i powie, czy się zgadza
@@ -61,6 +65,41 @@
       " (8,'Biegacz 300',      349.00,'czarny','tkanina',11,4),",
       " (9,'Halówka Pro',      219.00,'biały','skóra ekologiczna',8,4),",
       " (10,'Trzewik Turysta', 399.00,'zielony','tkanina',22,1);",
+    ].join("\n"),
+
+    // Ten sam sklep, ale z brakami w danych — do tematów o wartościach NULL
+    // (dział III) i o złączeniach zewnętrznych (dział IV). Celowo różni się od
+    // zestawu „obuwie": kolumna cena dopuszcza NULL, kategoria „Kapcie" nie ma
+    // żadnego produktu, a dwa produkty nie mają kategorii. Dzięki temu widać
+    // różnicę między INNER JOIN a LEFT JOIN i między zerem a brakiem wartości.
+    braki: [
+      "CREATE TABLE kategoria (",
+      "  id_kategorii INTEGER PRIMARY KEY,",
+      "  nazwa        TEXT NOT NULL",
+      ");",
+      "CREATE TABLE produkt (",
+      "  id_produktu  INTEGER PRIMARY KEY,",
+      "  nazwa        TEXT NOT NULL,",
+      "  cena         REAL,",
+      "  kolor        TEXT,",
+      "  material     TEXT,",
+      "  wysokosc     INTEGER,",
+      "  id_kategorii INTEGER REFERENCES kategoria(id_kategorii)",
+      ");",
+      "INSERT INTO kategoria VALUES",
+      " (1,'Trzewiki'),(2,'Kozaki'),(3,'Sandały'),(4,'Sportowe'),(5,'Kapcie');",
+      "INSERT INTO produkt VALUES",
+      " (1,'Trzewik Alpin',    329.00,'czarny',   'skóra naturalna',  18,   1),",
+      " (2,'Trzewik Roboczy',  259.50,'brązowy',  'skóra naturalna',  NULL, 1),",
+      " (3,'Kozak Klasyk',     449.00,NULL,       'skóra naturalna',  34,   2),",
+      " (4,'Kozak Zimowy',     519.99,'bordowy',  'skóra naturalna',  36,   2),",
+      " (5,'Sandał Lato',      129.00,'beżowy',   'skóra ekologiczna', 4,   3),",
+      " (6,'Sandał Trekking',  NULL,  'szary',    'tkanina',           6,   3),",
+      " (7,'Biegacz 200',      279.00,'niebieski','tkanina',           9,   4),",
+      " (8,'Biegacz 300',        0.00,'czarny',   'tkanina',        NULL,   4),",
+      " (9,'Halówka Pro',      219.00,NULL,       'skóra ekologiczna', 8,   4),",
+      " (10,'Trzewik Turysta', 399.00,'zielony',  'tkanina',          22,NULL),",
+      " (11,'Wkładka Zima',    NULL,  NULL,       'filc',           NULL,NULL);",
     ].join("\n"),
   };
 

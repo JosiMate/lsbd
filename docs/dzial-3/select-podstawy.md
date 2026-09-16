@@ -67,12 +67,32 @@ W części praktycznej egzaminu **INF.03**, pierwsze zapytania zazwyczaj wymagaj
 
 Pamiętaj: czytaj polecenie dokładnie i wybieraj tylko te kolumny, o które prosi arkusz.
 
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie` — tą samą, którą
+importujesz w ćwiczeniach z działu I. Wpisz zapytanie i naciśnij
+**Wykonaj** albo ++ctrl+enter++. Przycisk **Przywróć bazę** cofa wszystko
+do stanu wyjściowego, więc nie da się tu niczego zepsuć.
+
+<div class="sql-trener" data-baza="obuwie" data-start="SELECT nazwa, cena FROM produkt;"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. Składnia `SELECT`,
+    `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `GROUP BY` i `HAVING` jest ta sama
+    co w phpMyAdminie, ale poleceń administracyjnych (`CREATE USER`,
+    `GRANT`) ten silnik nie zna — te ćwiczysz w phpMyAdminie.
+
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Lista produktów"
-    Otwórz phpMyAdmina i bazę `obuwie`. Napisz zapytanie, które wyświetli nazwy wszystkich produktów oraz ich wysokość.
+    Otwórz phpMyAdmina i bazę `obuwie`. Napisz zapytanie, które wyświetli nazwy
+    wszystkich produktów oraz ich wysokość. Sprawdź się w trenerze — wynik ma
+    mieć 10 wierszy.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa, wysokosc FROM produkt;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -80,7 +100,13 @@ Pamiętaj: czytaj polecenie dokładnie i wybieraj tylko te kolumny, o które pro
     ```
 
 !!! question "Ćwiczenie 2. Profesjonalna tabela"
-    Napisz zapytanie, które wyświetli nazwę produktu i jego cenę. Użyj aliasów, aby kolumny w wyniku nazywały się odpowiednio: `Model` oraz `Cena (zł)`.
+    Napisz zapytanie, które wyświetli nazwę produktu i jego cenę. Użyj aliasów,
+    aby kolumny w wyniku nazywały się odpowiednio: `Model` oraz `Cena (zł)`.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa AS &quot;Model&quot;, cena AS &quot;Cena (zł)&quot; FROM produkt;"></div>
+
+    Trener porównuje **wartości** w wyniku, a nie nagłówki kolumn — alias
+    sprawdź okiem na wyświetlonej tabelce.
 
 ??? success "Rozwiązanie 2"
     ```sql
@@ -88,7 +114,10 @@ Pamiętaj: czytaj polecenie dokładnie i wybieraj tylko te kolumny, o które pro
     ```
 
 !!! question "Ćwiczenie 3. Analiza struktury"
-    Przejrzyj strukturę tabeli `kategoria`. Napisz zapytanie, które pobierze tylko nazwy kategorii.
+    Przejrzyj strukturę tabeli `kategoria`. Napisz zapytanie, które pobierze
+    tylko nazwy kategorii.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa FROM kategoria;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql

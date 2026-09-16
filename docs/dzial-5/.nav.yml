@@ -5,6 +5,7 @@
 title: "Dział V. Struktura bazy"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "CREATE TABLE — tworzenie tabel z projektu": create-table.md
   - "Klucze główne i obce w SQL-u": klucze-sql.md
   - "ALTER TABLE — rozbudowa istniejącej bazy": alter-table.md

@@ -1,0 +1,211 @@
+{
+  "id": "lsbd-dzial-4",
+  "tytul": "Dział IV. Relacje i agregacja — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D4",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1 — złączenie dwóch tabel",
+      "poziom": "Zapytania z relacją (JOIN)",
+      "polecenie": "Uzupełnij po lekcji o <code>JOIN ... ON</code>. Najważniejsza jest tu liczba zwróconych wierszy — zapisz ją przy każdym zapytaniu, bo po niej poznasz, czy złączenie zadziałało.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_data", "Data lekcji", ""],
+            ["z1_kolumna", "Kolumna, po której złączyłeś tabele", "ta sama nazwa w obu tabelach"],
+            ["z1_kwerenda", "Zapytanie o nazwę i cenę buta oraz nazwę kategorii", "przepisz dokładnie"],
+            ["z1_ile", "Ile wierszy zwróciło to zapytanie", "poprawne złączenie zwraca tyle, ile jest produktów"],
+            ["z1_bez_warunku", "Ile wierszy zwróciło SELECT * FROM produkt, kategoria", "policz i porównaj z wierszem wyżej"],
+            ["z1_sportowe", "Ile wierszy zwróciło złączenie z warunkiem na kategorię Sportowe", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_notatka",
+          "wiersze": 3,
+          "pytanie": "Skąd wzięła się liczba wierszy w zapytaniu bez warunku złączenia? Rozpisz ją jako mnożenie dwóch liczb z bazy obuwie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "efekt lekcji — wynik złączenia z widoczną liczbą zwróconych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2 — złączenie zewnętrzne",
+      "poziom": "Złączenia zewnętrzne — LEFT JOIN i po co on jest",
+      "polecenie": "Uzupełnij po lekcji o <code>LEFT JOIN</code>. Porównaj liczby wierszy: zwykłe złączenie, złączenie zewnętrzne i to samo po zamianie tabel miejscami.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_data", "Data lekcji", ""],
+            ["z2_left", "Zapytanie wypisujące wszystkie kategorie i ich produkty", "przepisz dokładnie"],
+            ["z2_left_ile", "Ile wierszy zwróciło to zapytanie", ""],
+            ["z2_puste", "Ile kategorii bez żadnego produktu znalazłeś w bazie obuwie", "zapytanie z WHERE p.id_produktu IS NULL"],
+            ["z2_null", "Co zrobiłeś, żeby w wyniku w ogóle pojawiła się wartość NULL", ""],
+            ["z2_odwrotnie", "Ile wierszy po zamianie tabel miejscami: FROM produkt LEFT JOIN kategoria", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_notatka",
+          "wiersze": 3,
+          "pytanie": "Po czym w treści zadania poznajesz, że trzeba użyć LEFT JOIN, a nie zwykłego JOIN? Zapisz to własnymi słowami."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "efekt lekcji — wynik LEFT JOIN z widoczną wartością NULL w kolumnie z prawej tabeli"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3 — liczenie na grupach",
+      "poziom": "Funkcje agregujące i GROUP BY",
+      "polecenie": "Uzupełnij po lekcji o funkcjach <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code> i o <code>GROUP BY</code>. Wyniki przepisz dokładnie tak, jak pokazała je baza.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_data", "Data lekcji", ""],
+            ["z3_count", "Ile wierszy ma tabela produkt — wynik COUNT(*)", ""],
+            ["z3_srednia", "Średnia cena produktu — wynik AVG(cena)", "przepisz z wszystkimi miejscami po przecinku"],
+            ["z3_skrajne", "Najniższa i najwyższa cena — wyniki MIN i MAX", ""],
+            ["z3_grupy", "Zapytanie liczące produkty w każdej kategorii", "przepisz dokładnie"],
+            ["z3_grupy_ile", "Ile wierszy zwróciło zapytanie z GROUP BY", "tyle, ile powstało grup"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz zasadę mówiącą, które kolumny z SELECT muszą trafić do GROUP BY, i podaj własny przykład zapytania, które tę zasadę łamie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "efekt lekcji — zestawienie z nazwą kategorii i liczbą produktów w każdej z nich"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Lekcja 4 — filtrowanie grup",
+      "poziom": "HAVING kontra WHERE",
+      "polecenie": "Uzupełnij po lekcji o <code>HAVING</code>. Zapisz także komunikat błędu, który dostajesz, wpisując warunek z funkcją agregującą do <code>WHERE</code> — on jest tu najlepszym dowodem, że rozumiesz różnicę.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z4_data", "Data lekcji", ""],
+            ["z4_having", "Zapytanie z HAVING, które wykonałeś", "przepisz dokładnie"],
+            ["z4_przed", "Ile wierszy przed dodaniem HAVING", ""],
+            ["z4_po", "Ile wierszy po dodaniu HAVING", ""],
+            ["z4_where", "Warunek z tego samego zapytania, który musiał trafić do WHERE", ""],
+            ["z4_blad", "Komunikat błędu po wpisaniu warunku z COUNT do WHERE", "przepisz treść komunikatu"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_notatka",
+          "wiersze": 3,
+          "pytanie": "Napisz w jednym zdaniu, po czym rozpoznajesz, że warunek dotyczy całej grupy, a nie pojedynczego wiersza."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z4_zrzut",
+          "opis": "efekt lekcji — to samo zapytanie przed i po dodaniu HAVING, z widocznymi liczbami wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Lekcja 5 — zapytanie w zapytaniu",
+      "poziom": "Podzapytania",
+      "polecenie": "Uzupełnij po lekcji o podzapytaniach. Wykonaj każde podzapytanie najpierw osobno, żeby zobaczyć, co wstawia się w miejsce nawiasów — i tę wartość też zapisz.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z5_data", "Data lekcji", ""],
+            ["z5_skalarne", "Podzapytanie skalarne, które wykonałeś — z AVG albo MAX", "przepisz dokładnie"],
+            ["z5_wartosc", "Jaką wartość zwróciło samo podzapytanie wykonane osobno", ""],
+            ["z5_skalarne_ile", "Ile wierszy zwróciło całe zapytanie", ""],
+            ["z5_in", "Podzapytanie z operatorem IN", "przepisz dokładnie"],
+            ["z5_join", "To samo zadanie zapisane przez JOIN — ile wierszy zwróciło", "porównaj z liczbą wyżej"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_notatka",
+          "wiersze": 3,
+          "pytanie": "Kiedy w warunku wystarczy znak równości, a kiedy konieczny jest IN? Zapisz regułę i przykład, na którym ją sprawdziłeś."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z5_zrzut",
+          "opis": "efekt lekcji — wynik zapytania z podzapytaniem, z widoczną liczbą zwróconych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu to, co w tym dziale poszło nie tak. Konkretny komunikat błędu albo konkretna liczba wierszy jest warta więcej niż ogólne „nie działało”.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z6_najtrudniejszy",
+          "pytanie": "Który temat działu kosztował Cię najwięcej czasu?",
+          "opcje": [
+            "Zapytania z relacją (JOIN)",
+            "Złączenia zewnętrzne — LEFT JOIN i po co on jest",
+            "Funkcje agregujące i GROUP BY",
+            "HAVING kontra WHERE",
+            "Podzapytania"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z6_komunikat",
+          "wiersze": 4,
+          "pytanie": "Przepisz komunikat błędu, który najbardziej Cię zatrzymał w tym dziale, i napisz, co ostatecznie go usunęło."
+        },
+        {
+          "typ": "tekst",
+          "id": "z6_liczba",
+          "wiersze": 3,
+          "pytanie": "Czy któreś zapytanie wykonało się bez błędu, ale zwróciło złą liczbę wierszy? Napisz, ile wierszy wyszło, ile miało wyjść i po czym to poznałeś."
+        }
+      ]
+    },
+    {
+      "nr": 7,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Którą z umiejętności — złączenie dwóch tabel, złączenie zewnętrzne, grupowanie z GROUP BY, filtrowanie grup przez HAVING, podzapytanie — musisz jeszcze przećwiczyć przed egzaminem?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy ktoś inny odtworzyłby Twoją pracę wyłącznie na podstawie tego dziennika? Czego ewentualnie brakuje?"
+        }
+      ]
+    }
+  ]
+}

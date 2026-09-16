@@ -55,28 +55,58 @@ W części praktycznej INF.03 wprowadzanie danych jest jednym z podstawowych zad
 **Najczęstsze pułapki:**
 *   **Kolejność wartości:** Jeśli używasz Wariantu 1 (bez listy kolumn), musisz podać wartości w identycznej kolejności, w jakiej kolumny są w tabeli. Pomylenie ceny z kolorem spowoduje błąd.
 *   **Szybki błąd z cudzysłowami:** Próba wpisania liczby w cudzysłowach lub tekstu bez nich.
-*   **Brak danych NOT NULL:** Jeśli kolumna jest zdefiniowana jako `NOT NULL`, a Ty pominiesz ją w liście kolumn i nie podasz wartości $\rightarrow$ baza odrzuci rekord.
+*   **Brak danych NOT NULL:** jeśli kolumna jest zdefiniowana jako `NOT NULL`, a Ty pominiesz ją w liście kolumn i nie podasz wartości — baza odrzuci rekord.
+
+## 4. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie`. Tu zmieniasz dane, więc
+liczy się jedna rzecz: **po każdej modyfikacji sprawdź `SELECT`-em, co się
+naprawdę stało**. Przycisk **Przywróć bazę** cofa wszystko do stanu
+wyjściowego, więc możesz próbować bez obaw.
+
+<div class="sql-trener" data-baza="obuwie" data-start="INSERT INTO kategoria (nazwa) VALUES ('Kapcie');
+SELECT * FROM kategoria;"></div>
+
+!!! warning "Trener ocenia wynik ostatniego polecenia"
+
+    Samo `INSERT` nie zwraca wierszy — trener napisze tylko, że
+    polecenie się wykonało. Żeby zobaczyć efekt i żeby trener mógł sprawdzić
+    Twoją pracę, dopisz pod spodem `SELECT`, tak jak w polu wyżej.
 
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Dodawanie kategorii"
-    Dodaj do tabeli `kategoria` trzy nowe kategorie: „Sandały”, „Trampki” oraz „Buty robocze”. Użyj bezpiecznego wariantu z listą kolumn.
+    Dodaj do tabeli `kategoria` trzy nowe kategorie: „Kapcie”, „Trampki” oraz
+    „Buty robocze”. Użyj bezpiecznego wariantu z listą kolumn, a na końcu
+    dopisz `SELECT * FROM kategoria;` — tabela ma mieć 7 wierszy.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="INSERT INTO kategoria (nazwa) VALUES ('Kapcie'); INSERT INTO kategoria (nazwa) VALUES ('Trampki'); INSERT INTO kategoria (nazwa) VALUES ('Buty robocze'); SELECT * FROM kategoria;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
-    INSERT INTO kategoria (nazwa) VALUES ('Sandały');
+    INSERT INTO kategoria (nazwa) VALUES ('Kapcie');
     INSERT INTO kategoria (nazwa) VALUES ('Trampki');
     INSERT INTO kategoria (nazwa) VALUES ('Buty robocze');
+    SELECT * FROM kategoria;
     ```
+
+    Kategorii „Sandały” nie dopisujemy — ona już w tej bazie jest. Tabela
+    `kategoria` nie ma ograniczenia `UNIQUE` na nazwie, więc baza przyjęłaby
+    duplikat bez słowa protestu. To jeden z powodów, dla których warto
+    najpierw sprawdzić `SELECT`-em, co w tabeli już stoi.
 
 !!! question "Ćwiczenie 2. Wprowadzanie produktów"
     Dodaj do tabeli `produkt` buta o następujących parametrach:
     - Nazwa: „Nike Zoom”
     - Cena: 450.00
     - Kolor: „pomarańczowy”
-    - Kategoria: 1 (załóż, że kategoria 1 istnieje)
+    - Kategoria: 1 (to kategoria „Trzewiki”, istnieje w bazie)
+
+    Na końcu dopisz `SELECT nazwa, cena, kolor FROM produkt WHERE nazwa = 'Nike Zoom';`
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="INSERT INTO produkt (nazwa, cena, kolor, id_kategorii) VALUES ('Nike Zoom', 450.00, 'pomarańczowy', 1); SELECT nazwa, cena, kolor FROM produkt WHERE nazwa = 'Nike Zoom';"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql

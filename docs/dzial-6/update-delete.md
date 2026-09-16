@@ -73,14 +73,41 @@ W zadaniach praktycznych INF.03 modyfikacja danych pojawia się często jako ele
 
 **Typowe polecenia:**
 *   „Zmień cenę produktów z kategorii X o 10%” $\rightarrow$ `UPDATE` z obliczeniem `cena * 1.1`.
-*   „Usuń wszystkich klientów, którzy nie mają podanego adresu e-mail” $\rightarrow$ `DELETE` z `WHERE email IS NULL`.
+*   „Usuń wszystkich klientów, którzy nie mają podanego adresu e-mail” — `DELETE` z `WHERE email IS NULL`.
+
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie`. Tu zmieniasz dane, więc
+liczy się jedna rzecz: **po każdej modyfikacji sprawdź `SELECT`-em, co się
+naprawdę stało**. Przycisk **Przywróć bazę** cofa wszystko do stanu
+wyjściowego, więc możesz próbować bez obaw.
+
+<div class="sql-trener" data-baza="obuwie" data-start="UPDATE produkt SET cena = cena + 20 WHERE id_kategorii = 2;
+SELECT nazwa, cena FROM produkt WHERE id_kategorii = 2;"></div>
+
+!!! warning "Trener ocenia wynik ostatniego polecenia"
+
+    Samo `UPDATE` nie zwraca wierszy — trener napisze tylko, że
+    polecenie się wykonało. Żeby zobaczyć efekt i żeby trener mógł sprawdzić
+    Twoją pracę, dopisz pod spodem `SELECT`, tak jak w polu wyżej.
+
+!!! danger "Sprawdź tu, ile kosztuje zapomniany WHERE"
+
+    Wykonaj w trenerze `UPDATE produkt SET cena = 0;` a potem
+    `SELECT nazwa, cena FROM produkt;`. Wszystkie dziesięć butów kosztuje teraz
+    zero. W bazie egzaminacyjnej nie ma przycisku **Przywróć bazę** — jest
+    tylko kopia zapasowa, jeżeli zdążyłeś ją zrobić.
 
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Podwyżka cen"
-    Wszystkie produkty w kategorii nr 2 podlegają podwyżce. Zmień ich ceny na wartość o 20 zł wyższą niż obecna.
+    Wszystkie produkty w kategorii nr 2 podlegają podwyżce. Zmień ich ceny na
+    wartość o 20 zł wyższą niż obecna, a potem sprawdź wynik `SELECT`-em —
+    zmienią się dwa wiersze.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="UPDATE produkt SET cena = cena + 20 WHERE id_kategorii = 2; SELECT nazwa, cena FROM produkt WHERE id_kategorii = 2;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -90,23 +117,40 @@ W zadaniach praktycznych INF.03 modyfikacja danych pojawia się często jako ele
     ```
 
 !!! question "Ćwiczenie 2. Korekta błędu"
-    W tabeli `klient` odkryto, że klient o id = 7 ma błędne nazwisko. Zmień je na „Kowalski”.
+    W tabeli `produkt` odkryto, że but o `id_produktu` = 7 ma błędną nazwę.
+    Zmień ją na „Biegacz 250” i sprawdź `SELECT`-em, że zmienił się dokładnie
+    jeden wiersz.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="UPDATE produkt SET nazwa = 'Biegacz 250' WHERE id_produktu = 7; SELECT id_produktu, nazwa FROM produkt WHERE id_produktu = 7;"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
-    UPDATE klient 
-    SET nazwisko = 'Kowalski' 
-    WHERE id_klienta = 7;
+    UPDATE produkt
+    SET nazwa = 'Biegacz 250'
+    WHERE id_produktu = 7;
+    SELECT id_produktu, nazwa FROM produkt WHERE id_produktu = 7;
     ```
 
+    Warunek oparty o klucz główny to najbezpieczniejszy `WHERE`, jaki można
+    napisać — trafia w dokładnie jeden wiersz albo w żaden.
+
 !!! question "Ćwiczenie 3. Usuwanie niepotrzebnych danych"
-    Usuń z tabeli `produkt` wszystkie buty, których cena przekracza 1000 zł (uznajemy je za zbyt drogie dla naszych klientów).
+    Usuń z tabeli `produkt` wszystkie buty droższe niż 400 zł (uznajemy je za
+    zbyt drogie dla naszych klientów). Sprawdź `SELECT`-em, ile wierszy
+    zostało — powinno być 8 z 10.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="DELETE FROM produkt WHERE cena &gt; 400; SELECT nazwa, cena FROM produkt;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql
-    DELETE FROM produkt 
-    WHERE cena > 1000;
+    DELETE FROM produkt
+    WHERE cena > 400;
+    SELECT nazwa, cena FROM produkt;
     ```
+
+    Zmień próg na 1000 zł i wykonaj jeszcze raz (po **Przywróć bazę**).
+    Nie zniknie nic — bo w tej bazie nie ma buta za tysiąc złotych. Zapytanie
+    wykonane bez błędu nie znaczy jeszcze, że zrobiło to, o co prosił arkusz.
 
 !!! note "Co oddajesz"
     Wyniki wszystkich trzech ćwiczeń wpisujesz do karty pracy na dole tej strony, a gotowy dokument oddajesz przez **Zadania w Dzienniku VULCAN**.

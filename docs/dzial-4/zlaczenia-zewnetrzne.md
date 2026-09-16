@@ -16,9 +16,9 @@ W poprzedniej lekcji poznaliśmy `INNER JOIN`. Był on idealny, gdy chcieliśmy 
 
 Przypomnijmy: `INNER JOIN` działa jak filtr. Wyświetla tylko te wiersze, dla których znaleziono dopasowanie w obu tabelach.
 
-Jeśli w naszej bazie mamy:
-*   Kategorię "Buty sportowe" $\rightarrow$ ma 10 produktów.
-*   Kategorię "Obuwie specjalistyczne" $\rightarrow$ nie ma jeszcze żadnego produktu.
+Jeśli w bazie mamy:
+*   kategorię **Sportowe** — ma trzy produkty,
+*   kategorię **Kapcie** — nie ma jeszcze żadnego produktu,
 
 Zapytanie:
 ```sql
@@ -26,7 +26,7 @@ SELECT k.nazwa, p.nazwa
 FROM kategoria k 
 JOIN produkt p ON k.id_kategorii = p.id_kategorii;
 ```
-**Wynik:** Zobaczymy tylko "Buty sportowe". Kategoria "Obuwie specjalistyczne" całkowicie zniknie z listy, bo nie ma powiązanego produktu. W wielu sytuacjach biznesowych to błąd – chcemy wiedzieć o wszystkich kategoriach, niezależnie od tego, czy są zapełnione.
+**Wynik:** zobaczymy tylko **Sportowe**. Kategoria **Kapcie** całkowicie zniknie z listy, bo nie ma powiązanego produktu. W wielu sytuacjach to błąd — chcemy wiedzieć o wszystkich kategoriach, niezależnie od tego, czy są zapełnione.
 
 ## 2. Rozwiązanie: LEFT JOIN (Złączenie lewostronne)
 
@@ -68,16 +68,43 @@ Na egzaminie INF.03 `LEFT JOIN` pojawia się rzadziej niż `INNER JOIN`, ale gdy
 
 **Słowa klucze w poleceniu:**
 *   „wszystkie kategorie, niezależnie od tego czy mają produkty” $\rightarrow$ `LEFT JOIN`
-*   „wyświetl kategorie, które nie posiadają żadnego produktu” $\rightarrow$ `LEFT JOIN` + `WHERE ... IS NULL`
+*   „wyświetl kategorie, które nie posiadają żadnego produktu” → `LEFT JOIN` + `WHERE ... IS NULL`
 
-**Pułapka:** Nie pomyl kolejności tabel! Jeśli napiszesz `FROM produkt LEFT JOIN kategoria`, otrzymasz wszystkie produkty (co w tym przypadku da ten sam wynik co INNER JOIN, bo każdy produkt ma kategorię). Aby otrzymać wszystkie kategorie, `kategoria` musi być po lewej stronie (pierwsza po `FROM`).
+**Pułapka:** nie pomyl kolejności tabel. `FROM kategoria LEFT JOIN produkt` daje wszystkie kategorie, a `FROM produkt LEFT JOIN kategoria` — wszystkie produkty. To dwa różne pytania i dwa różne wyniki.
+
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Trener niżej pracuje na wariancie bazy o nazwie `braki`: ten sam sklep, ale
+z dziurami w danych — są produkty bez ceny, bez koloru i bez wysokości, dwa
+produkty nie mają przypisanej kategorii, a kategoria **Kapcie** nie ma ani
+jednego produktu. Na komplecie danych z bazy `obuwie` nie dałoby się tego
+pokazać, bo tam żadne pole nie jest puste.
+
+W polu niżej stoi `LEFT JOIN` z tabeli `kategoria`. Wykonaj je — wyjdzie
+**10 wierszy**, a w ostatnim zobaczysz `Kapcie` i `NULL`. Potem usuń słowo
+`LEFT` i wykonaj jeszcze raz: zostanie **9 wierszy** i kategoria bez produktów
+zniknie.
+
+<div class="sql-trener" data-baza="braki" data-start="SELECT k.nazwa, p.nazwa FROM kategoria k
+LEFT JOIN produkt p ON k.id_kategorii = p.id_kategorii;"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. `JOIN`, `LEFT JOIN`,
+    `GROUP BY` i `HAVING` działają identycznie jak w phpMyAdminie. Zapisu
+    `RIGHT JOIN` starsze wersje SQLite nie znają — na egzaminie i tak
+    wystarcza `LEFT JOIN` z zamienioną kolejnością tabel.
 
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Pełna lista kategorii"
-    Napisz zapytanie, które wyświetli nazwy wszystkich kategorii oraz nazwy przypisanych do nich produktów. Pamiętaj, aby kategorie bez produktów również znalazły się w wyniku.
+    Napisz zapytanie, które wyświetli nazwy wszystkich kategorii oraz nazwy
+    przypisanych do nich produktów. Pamiętaj, aby kategorie bez produktów
+    również znalazły się w wyniku — razem 10 wierszy.
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT k.nazwa, p.nazwa FROM kategoria k LEFT JOIN produkt p ON k.id_kategorii = p.id_kategorii;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -87,7 +114,10 @@ Na egzaminie INF.03 `LEFT JOIN` pojawia się rzadziej niż `INNER JOIN`, ale gdy
     ```
 
 !!! question "Ćwiczenie 2. Poszukiwanie pustych kategorii"
-    Napisz zapytanie, które wyświetli tylko nazwy tych kategorii, które nie mają przypisanego ani jednego produktu.
+    Napisz zapytanie, które wyświetli tylko nazwy tych kategorii, które nie mają
+    przypisanego ani jednego produktu. Wyjdzie jeden wiersz.
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT k.nazwa FROM kategoria k LEFT JOIN produkt p ON k.id_kategorii = p.id_kategorii WHERE p.id_produktu IS NULL;"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
@@ -98,7 +128,11 @@ Na egzaminie INF.03 `LEFT JOIN` pojawia się rzadziej niż `INNER JOIN`, ale gdy
     ```
 
 !!! question "Ćwiczenie 3. Analiza produktów"
-    Wyobraź sobie, że w tabeli `produkt` dopuszczasz brak przypisanej kategorii (`id_kategorii IS NULL`). Napisz zapytanie, które wyświetli wszystkie produkty, w tym te, które nie należą do żadnej kategorii.
+    W bazie `braki` dwa produkty nie mają przypisanej kategorii
+    (`id_kategorii IS NULL`). Napisz zapytanie, które wyświetli wszystkie
+    produkty, w tym te dwa — razem 11 wierszy.
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT p.nazwa, k.nazwa FROM produkt p LEFT JOIN kategoria k ON p.id_kategorii = k.id_kategorii;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql

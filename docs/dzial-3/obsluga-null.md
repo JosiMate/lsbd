@@ -70,12 +70,36 @@ Na egzaminie INF.03 pułapka z NULL pojawia się często w zapytaniach typu „w
 2. Nigdy nie pisz `WHERE kolumna = NULL` ani `WHERE kolumna != NULL`.
 3. Jeśli musisz wybrać rekordy, które mają jakąkolwiek wartość (niezależnie od tego, jaka), użyj `IS NOT NULL`.
 
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Trener niżej pracuje na wariancie bazy o nazwie `braki`: ten sam sklep, ale
+z dziurami w danych — są produkty bez ceny, bez koloru i bez wysokości, dwa
+produkty nie mają przypisanej kategorii, a kategoria **Kapcie** nie ma ani
+jednego produktu. Na komplecie danych z bazy `obuwie` nie dałoby się tego
+pokazać, bo tam żadne pole nie jest puste.
+
+Zacznij od pułapki: poniżej wpisany jest błędny zapis `= NULL`. Naciśnij
+**Wykonaj** i zobacz, że nie wraca żaden wiersz, mimo że trzy produkty nie
+mają koloru. Potem zamień `= NULL` na `IS NULL` i wykonaj jeszcze raz.
+
+<div class="sql-trener" data-baza="braki" data-start="SELECT nazwa, kolor FROM produkt WHERE kolor = NULL;"></div>
+
+!!! tip "Sprawdzian w jednym zapytaniu"
+
+    Wpisz do trenera `SELECT COUNT(*), COUNT(cena), COUNT(kolor) FROM produkt;`
+    Wyjdzie **11, 9, 8** — bo `COUNT(*)` liczy wiersze, a `COUNT(kolumna)`
+    liczy tylko te, w których coś jest. Ta różnica to gotowe pytanie
+    egzaminacyjne.
+
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Poszukiwanie pustek"
-    Napisz zapytanie, które wyświetli nazwy produktów, które nie mają przypisanej wysokości (pole `wysokosc` jest puste).
+    Napisz zapytanie, które wyświetli nazwy produktów, które nie mają przypisanej
+    wysokości (pole `wysokosc` jest puste). W bazie `braki` są takie trzy.
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT nazwa FROM produkt WHERE wysokosc IS NULL;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -84,6 +108,9 @@ Na egzaminie INF.03 pułapka z NULL pojawia się często w zapytaniach typu „w
 
 !!! question "Ćwiczenie 2. Tylko kompletne dane"
     Wyświetl wszystkie dane produktów, które mają podaną cenę ORAZ podany kolor.
+    Zostanie 7 z 11 wierszy.
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT * FROM produkt WHERE cena IS NOT NULL AND kolor IS NOT NULL;"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
@@ -91,9 +118,15 @@ Na egzaminie INF.03 pułapka z NULL pojawia się często w zapytaniach typu „w
     ```
 
 !!! question "Ćwiczenie 3. Pułapka z zerem"
-    W tabeli `produkt` mamy buty o cenie 0 zł oraz buty z ceną `NULL`. Napisz dwa oddzielne zapytania:
-    1. Znajdź buty, które są darmowe (cena wynosi 0).
-    2. Znajdź buty, których cena nie została jeszcze określona.
+    W tabeli `produkt` jest jeden but o cenie 0 zł (gratis do zestawu) i dwa
+    z ceną `NULL` (jeszcze niewycenione). Napisz dwa oddzielne zapytania:
+
+    1. Znajdź buty, które są darmowe (cena wynosi 0) — jeden wiersz.
+    2. Znajdź buty, których cena nie została jeszcze określona — dwa wiersze.
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT nazwa FROM produkt WHERE cena = 0;"></div>
+
+    <div class="sql-trener" data-baza="braki" data-wzorzec="SELECT nazwa FROM produkt WHERE cena IS NULL;"></div>
 
 ??? success "Rozwiązanie 3"
     1. `SELECT nazwa FROM produkt WHERE cena = 0;`

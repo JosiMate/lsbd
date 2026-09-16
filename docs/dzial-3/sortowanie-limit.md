@@ -75,12 +75,30 @@ W zadaniach praktycznych INF.03 często pojawiają się polecenia typu: „wyśw
     1. `SELECT` $\rightarrow$ 2. `FROM` $\rightarrow$ 3. `WHERE` $\rightarrow$ 4. `ORDER BY` $\rightarrow$ 5. `LIMIT`.
     Wpisanie `LIMIT` przed `WHERE` spowoduje błąd składni.
 
+## 5. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie` — tą samą, którą
+importujesz w ćwiczeniach z działu I. Wpisz zapytanie i naciśnij
+**Wykonaj** albo ++ctrl+enter++. Przycisk **Przywróć bazę** cofa wszystko
+do stanu wyjściowego, więc nie da się tu niczego zepsuć.
+
+<div class="sql-trener" data-baza="obuwie" data-start="SELECT nazwa, cena FROM produkt ORDER BY cena DESC LIMIT 3;"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. Składnia `SELECT`,
+    `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `GROUP BY` i `HAVING` jest ta sama
+    co w phpMyAdminie, ale poleceń administracyjnych (`CREATE USER`,
+    `GRANT`) ten silnik nie zna — te ćwiczysz w phpMyAdminie.
+
 ---
 
 ## Ćwiczenia
 
 !!! question "Ćwiczenie 1. Alfabetyczna lista"
     Wypisz nazwy wszystkich produktów w kolejności alfabetycznej.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa FROM produkt ORDER BY nazwa ASC;"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
@@ -90,13 +108,18 @@ W zadaniach praktycznych INF.03 często pojawiają się polecenia typu: „wyśw
 !!! question "Ćwiczenie 2. Najtańsza piątka"
     Wyświetl nazwy i ceny 5 najtańszych produktów w sklepie.
 
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa, cena FROM produkt ORDER BY cena ASC LIMIT 5;"></div>
+
 ??? success "Rozwiązanie 2"
     ```sql
     SELECT nazwa, cena FROM produkt ORDER BY cena ASC LIMIT 5;
     ```
 
 !!! question "Ćwiczenie 3. Najdroższy but każdego koloru"
-    Wyświetl nazwę, kolor i cenę produktów, sortując je najpierw według koloru (rosnąco), a potem według ceny (malejąco).
+    Wyświetl nazwę, kolor i cenę produktów, sortując je najpierw według koloru
+    (rosnąco), a potem według ceny (malejąco).
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa, kolor, cena FROM produkt ORDER BY kolor ASC, cena DESC;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql

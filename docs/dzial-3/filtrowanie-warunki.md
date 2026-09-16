@@ -37,7 +37,7 @@ Często jeden warunek to za mało. Możemy budować złożone filtry:
 
 *   **AND** (I) — oba warunki muszą być spełnione jednocześnie.
     ```sql
-    SELECT nazwa FROM produkt WHERE cena < 200 AND kolor = 'czarny';
+    SELECT nazwa FROM produkt WHERE cena < 300 AND kolor = 'niebieski';
     ```
 *   **OR** (LUB) — wystarczy, że przynajmniej jeden z warunków jest spełniony.
     ```sql
@@ -66,7 +66,7 @@ Gdy nie znamy dokładnej nazwy produktu, ale chcemy znaleźć wszystkie buty dan
 *   `LIKE '_a%'` $\rightarrow$ wszystko, gdzie drugim znakiem jest litera 'a'.
 
 ```sql
-SELECT nazwa FROM produkt WHERE nazwa LIKE 'Adidas%';
+SELECT nazwa FROM produkt WHERE nazwa LIKE 'Trzewik%';
 ```
 
 ## 4. Operatory BETWEEN i IN
@@ -92,28 +92,54 @@ Na egzaminie INF.03 zapytania z filtrowaniem są standardem. Najczęstsze pułap
 *   **Błąd w LIKE:** Pomylenie `%` z `_`. Pamiętaj: `%` to "dowolna ilość", `_` to "dokładnie jeden znak".
 *   **Słowo kluczowe NOT:** Używaj go, gdy polecenie brzmi: „wyświetl produkty, które NIE należą do...”.
 
+## 6. Ćwicz na żywej bazie { #cwicz-na-zywej-bazie }
+
+Poniżej działa prawdziwy silnik SQL z bazą `obuwie` — tą samą, którą
+importujesz w ćwiczeniach z działu I. Wpisz zapytanie i naciśnij
+**Wykonaj** albo ++ctrl+enter++. Przycisk **Przywróć bazę** cofa wszystko
+do stanu wyjściowego, więc nie da się tu niczego zepsuć.
+
+<div class="sql-trener" data-baza="obuwie" data-start="SELECT nazwa, cena, kolor FROM produkt WHERE cena &lt; 300;"></div>
+
+!!! info "To SQLite, nie MariaDB"
+
+    Trener liczy w przeglądarce, na silniku SQLite. Składnia `SELECT`,
+    `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `GROUP BY` i `HAVING` jest ta sama
+    co w phpMyAdminie, ale poleceń administracyjnych (`CREATE USER`,
+    `GRANT`) ten silnik nie zna — te ćwiczysz w phpMyAdminie.
+
 ---
 
 ## Ćwiczenia
 
-!!! question "Ćwiczenie 1. Tanie i czarne buty"
-    Napisz zapytanie, które wyświetli nazwy produktów, których cena jest mniejsza niż 150 zł ORAZ kolor jest czarny.
+!!! question "Ćwiczenie 1. Tańsze czarne buty"
+    Napisz zapytanie, które wyświetli nazwy produktów, których cena jest
+    mniejsza niż 400 zł ORAZ kolor jest czarny. W bazie `obuwie` pasują do tego
+    dwa buty.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa FROM produkt WHERE cena &lt; 400 AND kolor = 'czarny';"></div>
 
 ??? success "Rozwiązanie 1"
     ```sql
-    SELECT nazwa FROM produkt WHERE cena < 150 AND kolor = 'czarny';
+    SELECT nazwa FROM produkt WHERE cena < 400 AND kolor = 'czarny';
     ```
 
-!!! question "Ćwiczenie 2. Markowe obuwie"
-    Napisz zapytanie, które wyświetli wszystkie dane produktów, których nazwa zaczyna się od słowa "Nike" lub "Adidas".
+!!! question "Ćwiczenie 2. Trzewiki i kozaki"
+    Napisz zapytanie, które wyświetli wszystkie dane produktów, których nazwa
+    zaczyna się od słowa „Trzewik” albo „Kozak”. Wynik ma mieć 5 wierszy.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT * FROM produkt WHERE nazwa LIKE 'Trzewik%' OR nazwa LIKE 'Kozak%';"></div>
 
 ??? success "Rozwiązanie 2"
     ```sql
-    SELECT * FROM produkt WHERE nazwa LIKE 'Nike%' OR nazwa LIKE 'Adidas%';
+    SELECT * FROM produkt WHERE nazwa LIKE 'Trzewik%' OR nazwa LIKE 'Kozak%';
     ```
 
 !!! question "Ćwiczenie 3. Zakres cenowy"
-    Napisz zapytanie, które wyświetli nazwy i ceny produktów, których cena mieści się w przedziale od 120 do 300 zł. Użyj operatora `BETWEEN`.
+    Napisz zapytanie, które wyświetli nazwy i ceny produktów, których cena mieści
+    się w przedziale od 120 do 300 zł. Użyj operatora `BETWEEN`.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa, cena FROM produkt WHERE cena BETWEEN 120 AND 300;"></div>
 
 ??? success "Rozwiązanie 3"
     ```sql
@@ -121,11 +147,14 @@ Na egzaminie INF.03 zapytania z filtrowaniem są standardem. Najczęstsze pułap
     ```
 
 !!! question "Ćwiczenie 4. Wybór kolorów"
-    Napisz zapytanie, które wyświetli nazwy produktów, których kolor to: 'czerwony', 'żółty' lub 'pomarańczowy'. Użyj operatora `IN`.
+    Napisz zapytanie, które wyświetli nazwy produktów, których kolor to:
+    'czarny', 'szary' lub 'biały'. Użyj operatora `IN`.
+
+    <div class="sql-trener" data-baza="obuwie" data-wzorzec="SELECT nazwa FROM produkt WHERE kolor IN ('czarny', 'szary', 'biały');"></div>
 
 ??? success "Rozwiązanie 4"
     ```sql
-    SELECT nazwa FROM produkt WHERE kolor IN ('czerwony', 'żółty', 'pomarańczowy');
+    SELECT nazwa FROM produkt WHERE kolor IN ('czarny', 'szary', 'biały');
     ```
 
 !!! note "Co oddajesz"
