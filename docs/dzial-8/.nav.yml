@@ -1,0 +1,11 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział VIII. Baza w aplikacji"
+append_unmatched: true
+nav:
+  - "Połączenie aplikacji z bazą": polaczenie-aplikacja.md
+  - "Operacje CRUD w kodzie aplikacji": operacje-crud.md
+  - "Bezpieczeństwo — SQL Injection i Prepared Statements": sql-injection.md
+  - "Zarządzanie połączeniami i błędy": zarzadzanie-polaczeniami.md
