@@ -113,11 +113,22 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| Połączenie z bazą z poziomu PHP | *w przygotowaniu* |
-| Wyświetlanie wyników zapytania na stronie | *w przygotowaniu* |
+| **[Połączenie aplikacji z bazą](dzial-8/polaczenie-aplikacja.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Operacje CRUD w kodzie aplikacji](dzial-8/operacje-crud.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Bezpieczeństwo — SQL Injection i Prepared Statements](dzial-8/sql-injection.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Zarządzanie połączeniami i błędy](dzial-8/zarzadzanie-polaczeniami.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | Kodowanie znaków — skąd biorą się „krzaczki" | *w przygotowaniu* |
 
-### Dział IX. Trening egzaminacyjny
+### Dział IX. Zaawansowane programowanie w bazie
+
+| Temat | Materiały |
+| --- | --- |
+| **[Widoki — wirtualne tabele](dzial-9/widoki.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Transakcje — spójność i ACID](dzial-9/transakcje.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Procedury i funkcje](dzial-9/procedury-funkcje.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Wyzwalacze (Triggers)](dzial-9/wyzwalacze.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+
+### Trening egzaminacyjny
 
 | Temat | Materiały |
 | --- | --- |
