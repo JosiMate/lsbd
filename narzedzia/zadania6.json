@@ -31,6 +31,70 @@
       "oddajesz": "arkusz z pomiarami, wykres i wnioski — z wyraźnym wskazaniem kroku, który warto przećwiczyć jeszcze raz"
     }
   ],
+  "Dział II. Model danych": [
+    {
+      "ozn": "A",
+      "tytul": "Projekt bazy dla lokalnej firmy",
+      "wymaga": "po temacie „Diagram E/R — od szkicu do struktury”",
+      "opis": [
+        "Wybierz małą, istniejącą firmę (np. fryzjer, warsztat, sklep osiedlowy). Przeprowadź krótki wywiad lub analizę ich potrzeb i zaprojektuj model danych.",
+        "Stwórz kompletny diagram E/R, definiując encje, atrybuty oraz związki wraz z ich liczebnością. Uzasadnij wybór kluczy głównych dla każdej tabeli."
+      ],
+      "oddajesz": "opis firmy, diagram E/R oraz uzasadnienie struktury"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Laboratorium normalizacji",
+      "wymaga": "po temacie „Postacie normalne w praktyce”",
+      "opis": [
+        "Przygotuj arkusz kalkulacyjny z celowo źle zaprojektowaną tabelą (tzw. „tabelą potworem”), która zawiera redundantne dane i narusza 1., 2. i 3. postać normalną.",
+        "Przeprowadź proces normalizacji krok po kroku, pokazując przekształcenia tabeli do każdej z postaci normalnych. Dla każdego etapu opisz, jaki problem (anomalia) został rozwiązany."
+      ],
+      "oddajesz": "tabelę wyjściową oraz dokumentację procesu normalizacji z opisem zmian"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Analiza standardów modelowania",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Porównaj dwie różne notacje diagramów E/R (np. notację Chena oraz notację Crow's Foot). Stwórz ten sam model danych w obu standardach.",
+        "Wypisz w tabeli zalety i wady obu podejść z perspektywy osoby projektującej oraz osoby, która ma na podstawie diagramu wdrożyć bazę w SQL."
+      ],
+      "oddajesz": "dwa warianty tego samego diagramu oraz tabelę porównawczą notacji"
+    }
+  ],
+  "Dział III. SELECT — jedna tabela": [
+    {
+      "ozn": "A",
+      "tytul": "Wielki maraton filtrowania",
+      "wymaga": "po temacie „WHERE — warunki, operatory, LIKE, BETWEEN, IN”",
+      "opis": [
+        "Stwórz zestaw 15 zaawansowanych zapytań do bazy `obuwie`, które wymagają jednoczesnego użycia co najmniej trzech różnych operatorów w jednym `WHERE` (np. kombinacje `LIKE`, `BETWEEN` i `NOT IN`).",
+        "Każde zapytanie musi mieć konkretny cel biznesowy (np. „Znajdź produkty marki X, których cena jest w przedziale Y, ale nazwa nie zawiera słowa Z”)."
+      ],
+      "oddajesz": "listę zapytań wraz z opisem celu każdego z nich i zrzutami wyników"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Profilowanie danych w tabeli",
+      "wymaga": "po temacie „ORDER BY i LIMIT”",
+      "opis": [
+        "Wykorzystując jedynie instrukcje `SELECT` z sortowaniem i ograniczaniem, przeprowadź analizę statystyczną tabeli produkt.",
+        "Znajdź: 5 najdroższych produktów, 5 najtańszych, 10 produktów z najkrótszą nazwą oraz sprawdź, czy w bazie istnieją rekordy z pustymi polami (NULL) w kluczowych kolumnach. Zestaw wyniki w raporcie."
+      ],
+      "oddajesz": "raport z analizy danych zawierający kwerendy i wnioski"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Podręcznik filtrowania dla początkujących",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Opracuj interaktywny poradnik w formie dokumentu, który tłumaczy logikę filtrowania w SQL. Dla każdego operatora (`=`, `<>`, `LIKE`, `IN`, `BETWEEN`, `IS NULL`) stwórz przykład „Złe zapytanie $\rightarrow$ Dlaczego nie działa $\rightarrow$ Poprawne zapytanie”.",
+        "Dodaj sekcję o kolejności wykonywania warunków w klauzuli `WHERE` i wpływie nawiasów na wynik."
+      ],
+      "oddajesz": "kompletny poradnik z przykładami i wyjaśnieniami"
+    }
+  ],
   "Dział IV. Relacje i agregacja": [
     {
       "ozn": "A",
@@ -61,6 +125,166 @@
         "Dla każdej z nich wykonaj to samo zapytanie w czterech wariantach: `JOIN`, `LEFT JOIN`, `RIGHT JOIN` i zapis z przecinkiem. Zestaw liczby zwróconych wierszy w tabeli i wyjaśnij każdą różnicę."
       ],
       "oddajesz": "plik `.sql` z przygotowaną bazą, tabelę wyników dwanaście na raz i wyjaśnienia — z odpowiedzią, który wariant jest bezpieczny, gdy nie znasz danych"
+    }
+  ],
+  "Dział V. Struktura bazy": [
+    {
+      "ozn": "A",
+      "tytul": "Budowa bazy z rozbudowanej specyfikacji",
+      "wymaga": "po temacie „CREATE TABLE — tworzenie tabel z projektu”",
+      "opis": [
+        "Otrzymasz opis systemu zarządzania biblioteką (książki, autorzy, wypożyczenia, czytelnicy, kary). Zaimplementuj tę bazę w SQL, dbając o poprawność typów danych i kluczy.",
+        "Dodaj wszystkie niezbędne więzy spójności: klucze główne, obce oraz ograniczenia `NOT NULL` i `UNIQUE` tam, gdzie wymaga tego logika biznesowa."
+      ],
+      "oddajesz": "skrypt `.sql` tworzący strukturę bazy oraz opis podjętych decyzji projektowych"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Testowanie więzów spójności",
+      "wymaga": "po temacie „Klucze główne i obce w SQL-u”",
+      "opis": [
+        "Stwórz bazę danych i celowo spróbuj złamać każde z ograniczeń: spróbuj dodać duplikat do klucza głównego, wstawić `NULL` do kolumny `NOT NULL` oraz dodać rekord z nieistniejącym kluczem obcym.",
+        "Dla każdej próby zapisz treść błędu zwróconego przez MariaDB i wyjaśnij, dlaczego system zablokował tę operację."
+      ],
+      "oddajesz": "dokumentację prób (kwerenda $\rightarrow$ błąd $\rightarrow$ wyjaśnienie)"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Analiza wpływu ALTER TABLE",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Zaimplementuj bazę z dużą ilością danych (np. 1000 rekordów). Wykonaj serię operacji `ALTER TABLE`: zmień typ kolumny, dodaj nowy klucz obcy do istniejącej tabeli i usuń kolumnę.",
+        "Zbadaj i opisz, co dzieje się z istniejącymi danymi podczas tych zmian. Czy dane zostały utracone? Czy system wymusił spójność? Zaproponuj bezpieczną procedurę aktualizacji struktury bazy na działającym systemie."
+      ],
+      "oddajesz": "raport z eksperymentu oraz propozycję bezpiecznego procesu aktualizacji"
+    }
+  ],
+  "Dział VI. Modyfikacja danych": [
+    {
+      "ozn": "A",
+      "tytul": "Masowa migracja danych",
+      "wymaga": "po temacie „Import i eksport danych”",
+      "opis": [
+        "Przygotuj plik tekstowy (CSV) z danymi o produktach w nieprawidłowym formacie. Napisz skrypt lub użyj narzędzi phpMyAdmin, aby poprawnie zaimportować te dane do bazy.",
+        "Zastosuj transformację danych podczas importu (np. zmiana formatu daty lub konwersja walut), aby dane w bazie były spójne."
+      ],
+      "oddajesz": "plik CSV, skrypt/opis importu oraz zrzut końcowej tabeli"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Projekt czyszczenia danych",
+      "wymaga": "po temacie „UPDATE i DELETE — i dlaczego zawsze z WHERE”",
+      "opis": [
+        "Otrzymasz bazę danych z „brudnymi” danymi: duplikaty nazw, błędne ceny (ujemne), niespójne nazwy miast. Zaprojektuj i wykonaj serię zapytań `UPDATE` i `DELETE`, aby oczyścić bazę.",
+        "Stwórz raport „Przed i Po”, pokazujący liczbę naprawionych rekordów dla każdego rodzaju błędu."
+      ],
+      "oddajesz": "listę wykonanych kwerend naprawczych oraz raport z efektami czyszczenia"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Symulacja procesu biznesowego",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Zaprojektuj sekwencję operacji SQL, która realizuje proces zamówienia w sklepie: sprawdzenie stanu magazynowego $\rightarrow$ dodanie zamówienia $\rightarrow$ aktualizacja ilości produktów w magazynie $\rightarrow$ dodanie wpisu do historii klienta.",
+        "Opisz, jak zapewnić, aby w przypadku błędu w połowie procesu dane nie zostały pozostawione w stanie niepełnym (koncepcja atomowości)."
+      ],
+      "oddajesz": "dokumentację procesu z kwerendami i analizą ryzyka"
+    }
+  ],
+  "Dział VII. Administrowanie": [
+    {
+      "ozn": "A",
+      "tytul": "Macierz uprawnień dla firmy",
+      "wymaga": "po temacie „Uprawnienia — GRANT i REVOKE”",
+      "opis": [
+        "Zaprojektuj system uprawnień dla firmy z trzema rolami: Administrator, Magazynier i Sprzedawca. Każda rola musi mieć inny zestaw uprawnień do konkretnych tabel (np. Sprzedawca może tylko czytać ceny i dodawać zamówienia).",
+        "Zaimplementuj tę strukturę w SQL, tworząc użytkowników i nadając im precyzyjne uprawnienia."
+      ],
+      "oddajesz": "tabelę uprawnień (macierz) oraz skrypt SQL tworzący użytkowników i nadając im role"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Symulacja Disaster Recovery",
+      "wymaga": "po temacie „Kopia zapasowa i przywracanie bazy”",
+      "opis": [
+        "Przeprowadź pełny cykl zarządzania kopiami: wykonaj zrzut bazy, wprowadź celowe, krytyczne zmiany (np. usunięcie kluczowej tabeli), a następnie przywróć bazę do stanu pierwotnego.",
+        "Przetestuj różne metody przywracania (cała baza vs pojedyncza tabela) i porównaj czas oraz łatwość wykonania każdej z nich."
+      ],
+      "oddajesz": "dziennik działań z zrzutami ekranu i wnioskami z testów"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Audyt wydajności administracyjnej",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Zbadaj wpływ różnych ustawień serwera MariaDB na szybkość działania prostych kwerend. Porównaj działanie bazy z włączoną i wyłączoną synchronizacją dyskową (innodb_flush_log_at_trx_commit).",
+        "Opracuj rekomendacje konfiguracji dla dwóch scenariuszy: maksymalne bezpieczeństwo danych oraz maksymalna szybkość zapisu."
+      ],
+      "oddajesz": "wyniki pomiarów i dokument z rekomendacjami ustawień"
+    }
+  ],
+  "Dział VIII. Baza w aplikacji": [
+    {
+      "ozn": "A",
+      "tytul": "Budowa aplikacji CRUD",
+      "wymaga": "po temacie „Operacje CRUD w kodzie aplikacji”",
+      "opis": [
+        "Stwórz w wybranym języku (PHP/Python) prostą aplikację webową do zarządzania listą zadań (To-Do List) lub biblioteką gier. Aplikacja musi pozwalać na dodawanie, wyświetlanie, edycję i usuwanie rekordów z bazy danych.",
+        "Zastosuj pełną separację logiki od danych, korzystając z plików konfiguracyjnych dla danych połączenia."
+      ],
+      "oddajesz": "kod źródłowy aplikacji oraz instrukcję uruchomienia"
+    },
+    {
+      "ozn": "B",
+      "tytul": "Audyt bezpieczeństwa aplikacji",
+      "wymaga": "po temacie „Bezpieczeństwo — SQL Injection i Prepared Statements”",
+      "opis": [
+        "Znajdź w sieci prosty, podatny na ataki projekt aplikacji (np. w PHP). Przeprowadź na nim atak SQL Injection, aby przejąć dane administratora.",
+        "Następnie przepisz cały kod aplikacji, stosując Prepared Statements, i udowodnij, że ten sam atak przestał działać."
+      ],
+      "oddajesz": "dokumentację ataku (zrzuty ekranu) oraz poprawiony, bezpieczny kod"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Analiza metod połączeń",
+      "wymaga": "po całym dziale",
+      "opis": [
+        "Przeprowadź badanie porównawcze trzech sposobów komunikacji z bazą danych (np. czysty SQL przez PDO, użycie biblioteki typu MySQLi oraz proste podejście z ORM).",
+        "Porównaj je pod kątem: szybkości pisania kodu, bezpieczeństwa, wydajności oraz łatwości utrzymania. Wskaż, kiedy warto przejść z czystego SQL na ORM."
+      ],
+      "oddajesz": "raport z analizy z przykładami kodu dla każdego podejścia"
+    }
+  ],
+  "Dział IX. Zaawansowane programowanie w bazie": [
+    {
+      "ozn": "A",
+      "tytul": "Automatyzacja reguł biznesowych",
+      "wymaga": "po temacie „Wyzwalacze (Triggers)”",
+      "opis": [
+        "Zaimplementuj w bazie system automatycznego logowania zmian (audyt). Stwórz trigger, który przy każdej aktualizacji ceny produktu w tabeli `produkt` automatycznie zapisze starą cenę, nową cenę, datę zmiany i ID użytkownika w tabeli `historia_cen`.",
+        "Udowodnij działanie triggera, wykonując serię zmian i pokazując wynik w tabeli historii."
+      ],
+      "oddajesz": "skrypt tworzący trigger oraz raport z testów"
+    },
+    {
+      "ozn": "B",
+      "tytul": "System zarządzania bazą w procedurach",
+      "wymaga": "po temacie „Procedury i funkcje”",
+      "opis": [
+        "Zastąp standardowe zapytania CRUD zestawem procedur składowanych. Stwórz procedury do: bezpiecznego dodawania produktu, aktualizacji stanów magazynowych po zamówieniu oraz generowania raportu miesięcznej sprzedaży.",
+        "Zaimplementuj w procedurach obsługę błędów i walidację danych wejściowych."
+      ],
+      "oddajesz": "zbiór procedur SQL oraz instrukcję ich wywoływania"
+    },
+    {
+      "ozn": "C",
+      "tytul": "Wirtualny system raportowy",
+      "wymaga": "po temacie „Widoki — wirtualne tabele”",
+      "opis": [
+        "Zaprojektuj zestaw widoków, które ukrywają złożoność bazy przed użytkownikiem końcowym. Stwórz widoki dla: zestawienia sprzedaży dla managera, listy klientów z zaległościami dla księgowości oraz aktualnych promocji dla sprzedawcy.",
+        "Zanalizuj wpływ użycia widoków na wydajność zapytania w porównaniu do bezpośredniego łączenia tabel w aplikacji."
+      ],
+      "oddajesz": "skrypt tworzący widoki oraz analizę wydajnościową"
     }
   ]
 }
