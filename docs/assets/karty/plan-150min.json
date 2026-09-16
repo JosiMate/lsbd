@@ -1,0 +1,53 @@
+{
+  "id": "lsbd-plan-150min",
+  "tytul": "Plan na 150 minut — kolejność pracy",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-PLAN",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Własny harmonogram pracy",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Na podstawie lekcji stwórz własną checklistę krok po kroku dla swojego idealnego przebiegu egzaminu. Podziel ją na etapy czasowe (np. 0-15 min, 15-45 min itd.) i przypisz do każdego etapu konkretne czynności.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_harmonogram",
+          "wiersze": 10,
+          "pytanie": "Twój harmonogram pracy (etapy i czynności):"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Analiza ryzyka",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Wypisz trzy sytuacje awaryjne, które mogą wystąpić podczas egzaminu (np. błąd importu, zawieszenie komputera). Dla każdej z nich zaproponuj szybką reakcję, która pozwoli Ci nie stracić zbyt wiele czasu.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["Sytuacja 1", "Reakcja", ""],
+            ["Sytuacja 2", "Reakcja", ""],
+            ["Sytuacja 3", "Reakcja", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Strategia dokumentacji",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Zaprojektuj sposób organizacji zrzutów ekranu i pliku kwerend. Jak nazwiesz pliki z obrazami? W jakiej strukturze zapiszesz zapytania w pliku tekstowym, aby egzaminator mógł je łatwo sprawdzić?",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_organizacja",
+          "wiersze": 5,
+          "pytanie": "Opisz swój system organizacji dokumentacji:"
+        }
+      ]
+    }
+  ]
+}

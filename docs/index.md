@@ -132,9 +132,9 @@ Ciebie i nie ma nic wspólnego z ocenami.
 
 | Temat | Materiały |
 | --- | --- |
-| Plan na 150 minut — kolejność pracy przy arkuszu | *w przygotowaniu* |
-| Pełne zadanie praktyczne — przebieg i samoocena | *w przygotowaniu* |
-| Najczęstsze błędy i ile kosztują w punktach | *w przygotowaniu* |
+| **[Plan na 150 minut — kolejność pracy przy arkuszu](trening/plan-150min.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Pełne zadanie praktyczne — przebieg i samoocena](trening/zadanie-praktyczne.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Najczęstsze błędy i ile kosztują w punktach](trening/bledy-punkty.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 </div>
 

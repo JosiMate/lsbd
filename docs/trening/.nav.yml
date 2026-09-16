@@ -1,0 +1,7 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+title: "Trening egzaminacyjny"
+append_unmatched: true
+nav:
+  - "Plan na 150 minut": plan-150min.md
+  - "Pełne zadanie praktyczne": zadanie-praktyczne.md
+  - "Najczęstsze błędy i punkty": bledy-punkty.md
