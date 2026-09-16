@@ -5,6 +5,7 @@
 title: "Dział IX. Zaawansowane programowanie w bazie"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "Widoki — wirtualne tabele": widoki.md
   - "Transakcje — spójność i ACID": transakcje.md
   - "Procedury i funkcje": procedury-funkcje.md

@@ -1,0 +1,12 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział VII. Administrowanie"
+append_unmatched: true
+nav:
+  - "Przegląd działu": index.md
+  - "Konta użytkowników — CREATE USER": create-user.md
+  - "Uprawnienia — GRANT i REVOKE": grant-revoke.md
+  - "Kopia zapasowa i przywracanie bazy": backup-recovery.md
+  - "Spójność bazy i diagnostyka": diagnostics.md

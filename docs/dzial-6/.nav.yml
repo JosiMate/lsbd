@@ -5,6 +5,7 @@
 title: "Dział VI. Modyfikacja danych"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "INSERT — wprowadzanie danych": insert.md
   - "UPDATE i DELETE — i dlaczego zawsze z WHERE": update-delete.md
   - "Import i eksport danych": import-eksport.md

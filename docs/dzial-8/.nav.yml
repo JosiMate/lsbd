@@ -5,6 +5,7 @@
 title: "Dział VIII. Baza w aplikacji"
 append_unmatched: true
 nav:
+  - "Przegląd działu": index.md
   - "Połączenie aplikacji z bazą": polaczenie-aplikacja.md
   - "Operacje CRUD w kodzie aplikacji": operacje-crud.md
   - "Bezpieczeństwo — SQL Injection i Prepared Statements": sql-injection.md
