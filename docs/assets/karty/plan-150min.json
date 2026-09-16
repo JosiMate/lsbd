@@ -28,9 +28,36 @@
         {
           "typ": "tabela",
           "wiersze": [
-            ["Sytuacja 1", "Reakcja", ""],
-            ["Sytuacja 2", "Reakcja", ""],
-            ["Sytuacja 3", "Reakcja", ""]
+            [
+              "z2_s1",
+              "Sytuacja awaryjna 1",
+              "np. import pliku .sql kończy się błędem"
+            ],
+            [
+              "z2_r1",
+              "Reakcja na sytuację 1",
+              ""
+            ],
+            [
+              "z2_s2",
+              "Sytuacja awaryjna 2",
+              ""
+            ],
+            [
+              "z2_r2",
+              "Reakcja na sytuację 2",
+              ""
+            ],
+            [
+              "z2_s3",
+              "Sytuacja awaryjna 3",
+              ""
+            ],
+            [
+              "z2_r3",
+              "Reakcja na sytuację 3",
+              ""
+            ]
           ]
         }
       ]

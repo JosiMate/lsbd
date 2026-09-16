@@ -1,0 +1,80 @@
+{
+  "id": "lsbd-zadanie-praktyczne",
+  "tytul": "Pełne zadanie praktyczne — przebieg i samoocena",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-TRENING",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Warunki i przebieg treningu",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Wykonaj zadanie treningowe w warunkach opisanych w sekcji 1: bez notatek, bez internetu, ze stoperem. Po zakończeniu wypełnij poniższe rubryki — zanim zajrzysz do klucza.",
+      "pola": [
+        { "typ": "tabela", "wiersze": [
+          ["z1_data", "Data treningu", ""],
+          ["z1_limit", "Ustawiony limit czasu", "150 albo 90 minut"],
+          ["z1_czas", "Ile czasu realnie zajęło", ""],
+          ["z1_polecen", "Ile poleceń było w arkuszu", ""],
+          ["z1_zrobione", "Ile poleceń udało się wykonać", ""],
+          ["z1_plik", "Nazwa pliku z kwerendami", "np. kwerendy.txt"],
+          ["z1_zrzuty", "Ile zrzutów ekranu zapisałeś", ""]
+        ]},
+        { "typ": "wybor", "id": "z1_warunki",
+          "pytanie": "Czy udało się utrzymać warunki egzaminacyjne przez cały czas",
+          "opcje": ["tak, bez żadnej pomocy", "raz zajrzałem do notatek", "kilka razy korzystałem z pomocy"] },
+        { "typ": "zrzut", "id": "z1_zrzut",
+          "opis": "jeden z Twoich zrzutów z treningu — z widocznym zapytaniem, wynikiem i paskiem zadań" }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Samoocena zapytań według klucza",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Sprawdź każde swoje zapytanie czterema kryteriami z sekcji 3: typ złączenia, warunek w <code>WHERE</code>, agregacja z <code>GROUP BY</code>, średnik na końcu. Wpisz wynik sprawdzenia, a nie samo „dobrze”.",
+      "pola": [
+        { "typ": "tabela", "wiersze": [
+          ["z2_p1", "Polecenie 1 — co sprawdziłeś i z jakim wynikiem", "np. LEFT JOIN OK, WHERE za szerokie"],
+          ["z2_p2", "Polecenie 2 — co sprawdziłeś i z jakim wynikiem", ""],
+          ["z2_p3", "Polecenie 3 — co sprawdziłeś i z jakim wynikiem", ""],
+          ["z2_p4", "Polecenie 4 — co sprawdziłeś i z jakim wynikiem", ""],
+          ["z2_poprawne", "Ile zapytań uznajesz za w pełni poprawne", ""]
+        ]},
+        { "typ": "tekst", "id": "z2_dokumentacja", "wiersze": 4,
+          "pytanie": "Sprawdź dokumentację: czy na każdym zrzucie widać pasek zadań i treść zapytania, i czy kwerendy w pliku są identyczne z uruchomionymi? Wypisz, co wymagało poprawy." }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Analiza własnego błędu",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wybierz jedno zapytanie, które nie wyszło. Nie poprzestawaj na poprawnej odpowiedzi — odpowiedz na trzy pytania z sekcji 4.",
+      "pola": [
+        { "typ": "tekst", "id": "z3_zapytanie", "wiersze": 4,
+          "pytanie": "Przepisz swoje błędne zapytanie i pod spodem wersję poprawioną." },
+        { "typ": "tekst", "id": "z3_dlaczego", "wiersze": 4,
+          "pytanie": "Dlaczego myślałeś, że pierwsza wersja zadziała? Co w treści polecenia zrozumiałeś inaczej, niż było napisane?" },
+        { "typ": "wybor", "id": "z3_rodzaj",
+          "pytanie": "Z czego wynikał ten błąd",
+          "opcje": ["z logiki — źle połączyłem tabele albo źle ustawiłem warunek",
+                    "ze składni — nie pamiętałem zapisu",
+                    "z pośpiechu — wiedziałem, jak to zrobić, ale się pomyliłem",
+                    "z niezrozumienia polecenia"] },
+        { "typ": "tekst", "id": "z3_plan", "wiersze": 4,
+          "pytanie": "Który dział serwisu musisz powtórzyć przed egzaminem i jakie konkretne ćwiczenie zrobisz jeszcze raz?" }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        { "typ": "tekst", "id": "s_trudne", "wiersze": 3,
+          "pytanie": "Co było najtrudniejsze: sam SQL, czas, czy dokumentowanie pracy?" },
+        { "typ": "tekst", "id": "s_wnioski", "wiersze": 3,
+          "pytanie": "Gdybyś pisał ten arkusz jutro na egzaminie, co zrobiłbyś inaczej?" }
+      ]
+    }
+  ]
+}

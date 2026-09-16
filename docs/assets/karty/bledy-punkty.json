@@ -1,0 +1,76 @@
+{
+  "id": "lsbd-bledy-punkty",
+  "tytul": "Najczęstsze błędy i ile kosztują w punktach",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-BLEDY",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Cennik błędów z pamięci",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Zamknij stronę i wypełnij tabelę z pamięci — dopiero potem sprawdź się z sekcjami 1 i 2. Przy koszcie pisz tak, jak w materiale: całkowita utrata, część punktów, utrata punktów za zrzut.",
+      "pola": [
+        { "typ": "tabela", "wiersze": [
+          ["z1_skladnia", "Błąd składniowy — ile kosztuje", ""],
+          ["z1_zlaczenie", "Błędny typ złączenia — ile kosztuje", ""],
+          ["z1_warunek", "Błędny warunek w WHERE — ile kosztuje", ""],
+          ["z1_groupby", "Funkcja agregująca bez GROUP BY — ile kosztuje", ""],
+          ["z1_kolumna", "Pominięta kolumna w SELECT — ile kosztuje", ""],
+          ["z1_pasek", "Zrzut bez paska zadań — ile kosztuje", ""],
+          ["z1_rozbieznosc", "Kod w pliku inny niż na zrzucie — ile kosztuje", ""]
+        ]},
+        { "typ": "tekst", "id": "z1_najdrozszy", "wiersze": 3,
+          "pytanie": "Który z tych błędów jest najdroższy i jednocześnie najłatwiejszy do uniknięcia? Uzasadnij." }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Znajdź błąd i wyceń go",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Wróć do własnych rozwiązań z poprzedniego tematu albo do dowolnego ćwiczenia z działów III–VII. Znajdź trzy błędy, które sam popełniłeś, i wyceń każdy według tabel z tej lekcji.",
+      "pola": [
+        { "typ": "tabela", "wiersze": [
+          ["z2_b1_opis", "Błąd 1 — na czym polegał", ""],
+          ["z2_b1_koszt", "Błąd 1 — szacowany koszt", ""],
+          ["z2_b2_opis", "Błąd 2 — na czym polegał", ""],
+          ["z2_b2_koszt", "Błąd 2 — szacowany koszt", ""],
+          ["z2_b3_opis", "Błąd 3 — na czym polegał", ""],
+          ["z2_b3_koszt", "Błąd 3 — szacowany koszt", ""]
+        ]},
+        { "typ": "tekst", "id": "z2_merytoryczne", "wiersze": 4,
+          "pytanie": "Które z tych trzech to błędy merytoryczne, a które formalne? Dlaczego błąd formalny bywa droższy od merytorycznego, choć z SQL-em nie ma nic wspólnego?" }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Zostały dwie minuty",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Trzy sytuacje z końcówki egzaminu. Przy każdej zdecyduj, co robisz, i uzasadnij decyzję rachunkiem punktów, a nie przeczuciem.",
+      "pola": [
+        { "typ": "wybor", "id": "z3_kolumna",
+          "pytanie": "W działającym zapytaniu brakuje jednej z trzech kolumn w SELECT. Zostały 2 minuty",
+          "opcje": ["poprawiam i uruchamiam ponownie", "zostawiam tak, jak jest", "zależy, czy jestem pewny poprawki"] },
+        { "typ": "tekst", "id": "z3_kolumna_uzasadnienie", "wiersze": 3,
+          "pytanie": "Uzasadnij swój wybór: ile punktów ryzykujesz, a ile możesz odzyskać?" },
+        { "typ": "tekst", "id": "z3_bledne", "wiersze": 4,
+          "pytanie": "Jedno zapytanie na pewno jest błędne i nie umiesz go naprawić. Co mimo to robisz z nim przed oddaniem pracy i po co?" },
+        { "typ": "tekst", "id": "z3_administracja", "wiersze": 3,
+          "pytanie": "Dlaczego polecenia CREATE USER i GRANT warto wykonać wcześniej, nawet jeśli w arkuszu stoją na końcu?" }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        { "typ": "tekst", "id": "s_trudne", "wiersze": 3,
+          "pytanie": "Który z opisanych błędów popełniasz najczęściej?" },
+        { "typ": "tekst", "id": "s_wnioski", "wiersze": 3,
+          "pytanie": "Wypisz trzy rzeczy, które sprawdzisz na egzaminie zanim oddasz pracę.",
+          "podpowiedz": "1.  2.  3." }
+      ]
+    }
+  ]
+}
