@@ -1,0 +1,11 @@
+# Kolejność i nazwy tematów w tym dziale — wtyczka awesome-nav.
+# Plik dopisany bez wpisu niżej trafi na koniec listy (append_unmatched)
+# i dostanie tytuł z nagłówka pierwszego poziomu.
+
+title: "Dział IX. Zaawansowane programowanie w bazie"
+append_unmatched: true
+nav:
+  - "Widoki — wirtualne tabele": widoki.md
+  - "Transakcje — spójność i ACID": transakcje.md
+  - "Procedury i funkcje": procedury-funkcje.md
+  - "Wyzwalacze (Triggers)": wyzwalacze.md
