@@ -1,0 +1,177 @@
+{
+  "id": "lsbd-podzapytania",
+  "tytul": "Podzapytania",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-PODZAP",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Poniżej średniej",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Wyświetl nazwy produktów, których cena jest niższa niż średnia cena produktów w całej bazie. Średniej nie wpisuj z palca — ma ją policzyć podzapytanie.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania",
+          "podpowiedz": "SELECT … FROM produkt WHERE cena < (SELECT … );"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_srednia",
+              "Wartość zwrócona przez samo podzapytanie",
+              "wykonaj je osobno"
+            ],
+            [
+              "z1_ile",
+              "Liczba wierszy w wyniku całego zapytania",
+              ""
+            ],
+            [
+              "z1_ile_wyzej",
+              "Liczba wierszy po zmianie znaku < na >",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_suma",
+          "wiersze": 3,
+          "pytanie": "Dodaj do siebie obie liczby wierszy i porównaj z liczbą wszystkich produktów. Czy suma się zgadza? Jeśli nie — który produkt nie trafił do żadnej z grup i dlaczego?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Dynamiczny filtr kategorii",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Wyświetl nazwy produktów należących do kategorii, której nazwa zaczyna się od litery „S”. Użyj podzapytania z operatorem <code>IN</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_podzapytanie",
+              "Co zwraca samo podzapytanie — wypisz identyfikatory",
+              "po przecinku"
+            ],
+            [
+              "z2_ile_kat",
+              "Ile kategorii pasuje do wzorca 'S%'",
+              ""
+            ],
+            [
+              "z2_ile",
+              "Liczba wierszy w wyniku całego zapytania",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_rowna",
+          "wiersze": 4,
+          "pytanie": "Zamień IN na znak = i wykonaj zapytanie ponownie. Co się stało — przepisz komunikat błędu albo opisz wynik, i wyjaśnij, od czego to zależy."
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_werdykt",
+          "pytanie": "Kiedy znak = przy podzapytaniu jest bezpieczny?",
+          "opcje": [
+            "zawsze, IN to tylko dłuższy zapis",
+            "gdy podzapytanie na pewno zwraca dokładnie jedną wartość",
+            "tylko wtedy, gdy podzapytanie sięga do innej tabeli"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Najdroższy z najdroższych, dwa razy",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Wyświetl wszystkie dane produktu o najwyższej cenie — podzapytaniem w <code>WHERE</code>, bez <code>ORDER BY</code> i <code>LIMIT</code>. Potem rozwiąż Ćwiczenie 2 drugi raz, tym razem złączeniem, i porównaj oba podejścia.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_max_kod",
+          "wiersze": 3,
+          "pytanie": "Treść zapytania z podzapytaniem MAX"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_max_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z3_max_nazwa",
+              "Nazwa i cena znalezionego produktu",
+              ""
+            ],
+            [
+              "z3_limit_ile",
+              "Liczba wierszy w wersji z ORDER BY cena DESC LIMIT 1",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_remis",
+          "wiersze": 4,
+          "pytanie": "Gdyby dwa produkty miały identyczną, najwyższą cenę — który z tych dwóch zapisów pokazałby oba, a który tylko jeden? Uzasadnij."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_join_kod",
+          "wiersze": 4,
+          "pytanie": "Ćwiczenie 2 napisane złączeniem zamiast podzapytania — treść zapytania"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_porownanie",
+          "wiersze": 4,
+          "pytanie": "Oba zapytania dają tę samą listę nazw. Podaj jeden powód, dla którego na egzaminie wybrałbyś wersję z JOIN, i jeden, dla którego wybrałbyś podzapytanie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "wynik zapytania z MAX — cały ekran z paskiem zadań, widoczna treść zapytania i wynik"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Które z zapytań tej lekcji umiesz już napisać bez zaglądania w notatki, a które musisz przećwiczyć jeszcze raz?"
+        }
+      ]
+    }
+  ]
+}

@@ -39,7 +39,7 @@ CREATE TABLE produkt (
     nazwa VARCHAR(100) NOT NULL,
     cena DECIMAL(10,2),
     id_kategorii INT,
-    FOREIGN KEY (id_//kategorii) REFERENCES kategoria(id_kategorii)
+    FOREIGN KEY (id_kategorii) REFERENCES kategoria(id_kategorii)
 );
 ```
 
@@ -161,7 +161,6 @@ Na egzaminie praktycznym INF.03 import bazy z pliku `.sql` jest pierwszym punkte
       "Zapisywanie skryptu w formacie .txt",
       "Użycie zapytania SELECT na początku skryptu"
     ],
-    "//poprawna": 1,
     "poprawna": 1,
     "wyjasnienie": "Użycie DROP TABLE IF EXISTS na początku skryptu czyści bazę z poprzednich wersji struktury, pozwalając na świeży start przy każdym uruchomieniu."
   }

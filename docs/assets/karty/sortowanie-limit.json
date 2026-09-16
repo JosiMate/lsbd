@@ -1,0 +1,175 @@
+{
+  "id": "lsbd-sortowanie-limit",
+  "tytul": "ORDER BY i LIMIT",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-SORT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lista alfabetyczna i najtańsza piątka",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenia 1 i 2. Wypisz nazwy wszystkich produktów w kolejności alfabetycznej, a następnie nazwy i ceny pięciu najtańszych produktów. Odczytaj z wyniku wartości skrajne.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kw_alfabet",
+              "Zapytanie sortujące alfabetycznie — treść",
+              "przepisz dokładnie, ze średnikiem"
+            ],
+            [
+              "z1_pierwsza",
+              "Pierwsza nazwa na liście",
+              ""
+            ],
+            [
+              "z1_ostatnia",
+              "Ostatnia nazwa na liście",
+              ""
+            ],
+            [
+              "z1_kw_top5",
+              "Zapytanie o pięć najtańszych — treść",
+              ""
+            ],
+            [
+              "z1_top5_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_najtanszy",
+              "Nazwa i cena najtańszego produktu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z widoczną treścią zapytania o pięć najtańszych produktów i jego wynikiem"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Dwa poziomy sortowania i własny ranking",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 3. Wypisz nazwę, kolor i cenę produktów, sortując najpierw po kolorze rosnąco, a w obrębie koloru po cenie malejąco. Potem ułóż samodzielnie zapytanie wypisujące trzy najdroższe produkty w sklepie.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kw_dwie",
+              "Zapytanie z sortowaniem po dwóch kolumnach — treść",
+              ""
+            ],
+            [
+              "z2_pierwszy_kolor",
+              "Który kolor jest pierwszy w wyniku",
+              ""
+            ],
+            [
+              "z2_pierwszy_wiersz",
+              "Pierwszy wiersz wyniku",
+              "nazwa, kolor, cena"
+            ],
+            [
+              "z2_kw_top3",
+              "Zapytanie o trzy najdroższe produkty — treść",
+              ""
+            ],
+            [
+              "z2_top3_nazwy",
+              "Nazwy trzech najdroższych produktów",
+              "w kolejności z wyniku"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_rola_drugiej",
+          "wiersze": 4,
+          "pytanie": "Usuń z pierwszego zapytania drugi warunek sortowania (cena DESC) i wykonaj je ponownie. Na czym konkretnie widać różnicę w wyniku i w jakiej sytuacji druga kolumna w ORDER BY niczego by nie zmieniła?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "LIMIT bez ORDER BY i kolejność klauzul",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wykonaj <code>SELECT nazwa, cena FROM produkt LIMIT 3;</code> oraz <code>SELECT nazwa, cena FROM produkt ORDER BY cena DESC LIMIT 3;</code> i porównaj wyniki. Następnie celowo wpisz <code>LIMIT</code> przed <code>WHERE</code> i zapisz komunikat, który zwróci serwer.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_bez_order",
+              "Wynik zapytania z samym LIMIT 3",
+              "trzy nazwy w kolejności z ekranu"
+            ],
+            [
+              "z3_z_order",
+              "Wynik zapytania z ORDER BY cena DESC LIMIT 3",
+              "trzy nazwy w kolejności z ekranu"
+            ],
+            [
+              "z3_pokrywa",
+              "Czy zbiory tych trzech produktów się pokrywają",
+              ""
+            ],
+            [
+              "z3_kw_bledne",
+              "Zapytanie z LIMIT postawionym przed WHERE — treść",
+              ""
+            ],
+            [
+              "z3_komunikat",
+              "Komunikat serwera dla błędnego zapytania",
+              "przepisz dosłownie"
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Polecenie brzmi „wyświetl trzy najdroższe produkty”. Uczeń napisał SELECT nazwa, cena FROM produkt LIMIT 3; i trafił w trzy drogie buty. Jak to ocenić?",
+          "opcje": [
+            "poprawnie — wynik zgadza się z oczekiwanym",
+            "niepoprawnie — zapytanie nie zawiera sortowania, więc wynik jest przypadkowy",
+            "niepoprawnie — LIMIT nie działa bez WHERE"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_wniosek",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij, dlaczego LIMIT bez ORDER BY nie tworzy rankingu, i wypisz z pamięci poprawną kolejność klauzul w zapytaniu na jednej tabeli."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Jak zapamiętasz, kiedy użyć ASC, a kiedy DESC, czytając polecenie z arkusza?"
+        }
+      ]
+    }
+  ]
+}

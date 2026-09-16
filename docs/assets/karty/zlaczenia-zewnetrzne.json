@@ -1,0 +1,165 @@
+{
+  "id": "lsbd-zlaczenia-zewnetrzne",
+  "tytul": "Złączenia zewnętrzne — LEFT JOIN i po co on jest",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-LEFT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Pełna lista kategorii",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Nazwy wszystkich kategorii wraz z nazwami przypisanych produktów — kategorie bez produktów też mają się znaleźć w wyniku. Potem wykonaj to samo zapytanie ze zwykłym <code>JOIN</code> i porównaj liczby wierszy.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania z LEFT JOIN",
+          "podpowiedz": "SELECT … FROM kategoria k LEFT JOIN produkt p ON …;"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_ile_left",
+              "Liczba wierszy — wersja z LEFT JOIN",
+              ""
+            ],
+            [
+              "z1_ile_inner",
+              "Liczba wierszy — ta sama treść, ale JOIN zamiast LEFT JOIN",
+              ""
+            ],
+            [
+              "z1_roznica",
+              "O ile wierszy różnią się wyniki",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_null",
+          "wiersze": 3,
+          "pytanie": "W której kolumnie wyniku pojawiło się NULL i przy których kategoriach? Wypisz ich nazwy."
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Poszukiwanie pustych kategorii",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Wyświetl nazwy tylko tych kategorii, do których nie jest przypisany ani jeden produkt. Użyj <code>LEFT JOIN</code> i warunku <code>IS NULL</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kolumna",
+              "Na której kolumnie postawiłeś warunek IS NULL",
+              "nazwa kolumny z aliasem tabeli"
+            ],
+            [
+              "z2_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z2_nazwy",
+              "Nazwy pustych kategorii",
+              "po przecinku"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego",
+          "wiersze": 4,
+          "pytanie": "Dlaczego warunek IS NULL odcina akurat kategorie z produktami, a zostawia puste? Opisz, co robi LEFT JOIN, zanim WHERE zacznie działać."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "wynik zapytania z widoczną jego treścią i liczbą zwróconych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Kolejność tabel decyduje o wyniku",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Wykonaj <code>SELECT p.nazwa, k.nazwa FROM produkt p LEFT JOIN kategoria k ON p.id_kategorii = k.id_kategorii;</code>, a potem to samo z zamienioną kolejnością tabel. Zestaw wyniki i wyjaśnij różnicę.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_prod_left",
+              "FROM produkt LEFT JOIN kategoria — liczba wierszy",
+              ""
+            ],
+            [
+              "z3_kat_left",
+              "FROM kategoria LEFT JOIN produkt — liczba wierszy",
+              ""
+            ],
+            [
+              "z3_inner",
+              "FROM produkt JOIN kategoria — liczba wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_rowne",
+          "wiersze": 4,
+          "pytanie": "Który z tych trzech wariantów dał w bazie obuwie taki sam wynik jak INNER JOIN? Wyjaśnij, co w danych sprawia, że tak wyszło."
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_wybor",
+          "pytanie": "Polecenie brzmi: „wyświetl wszystkie kategorie, niezależnie od tego, czy mają produkty”. Którą tabelę wpisujesz zaraz po FROM?",
+          "opcje": [
+            "kategoria",
+            "produkt",
+            "kolejność nie ma znaczenia"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_pytanie",
+          "wiersze": 3,
+          "pytanie": "Czy istnieją w bazie obuwie produkty z NULL w kolumnie id_kategorii? Napisz, jak to sprawdziłeś, i jaki był wynik."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Po czym w treści polecenia egzaminacyjnego poznasz, że trzeba użyć LEFT JOIN, a nie zwykłego JOIN?"
+        }
+      ]
+    }
+  ]
+}

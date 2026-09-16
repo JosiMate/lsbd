@@ -1,0 +1,176 @@
+{
+  "id": "lsbd-filtrowanie-warunki",
+  "tytul": "WHERE — warunki, operatory, LIKE, BETWEEN, IN",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-WHERE",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Dwa filtry na tabeli produkt",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenia 1 i 3. Wykonaj zapytanie wypisujące nazwy produktów tańszych niż 150 zł i jednocześnie czarnych, a potem zapytanie wypisujące nazwy i ceny produktów z przedziału od 120 do 300 zł — w drugim użyj operatora <code>BETWEEN</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kw_and",
+              "Zapytanie z warunkiem AND — treść",
+              "przepisz dokładnie, ze średnikiem"
+            ],
+            [
+              "z1_and_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_kw_between",
+              "Zapytanie z BETWEEN — treść",
+              "przepisz dokładnie, ze średnikiem"
+            ],
+            [
+              "z1_between_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_cudzyslowy",
+              "Które wartości w tych zapytaniach ująłeś w apostrofy, a których nie",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z widoczną treścią zapytania z BETWEEN i jego wynikiem"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "LIKE i IN — dobór operatora",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenia 2 i 4. Napisz zapytanie wypisujące wszystkie dane produktów, których nazwa zaczyna się od „Nike” albo „Adidas”, oraz zapytanie wypisujące nazwy produktów w kolorze czerwonym, żółtym lub pomarańczowym. Drugie z nich zapisz dwa razy: raz z operatorem <code>IN</code>, raz przez <code>OR</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kw_like",
+              "Zapytanie z LIKE — treść",
+              "przepisz dokładnie"
+            ],
+            [
+              "z2_like_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z2_kw_in",
+              "Zapytanie z IN — treść",
+              ""
+            ],
+            [
+              "z2_kw_or",
+              "To samo zapytanie zapisane przez OR — treść",
+              ""
+            ],
+            [
+              "z2_in_ile",
+              "Liczba wierszy z IN",
+              ""
+            ],
+            [
+              "z2_or_ile",
+              "Liczba wierszy z OR",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_wzorce",
+          "wiersze": 4,
+          "pytanie": "Zamień w zapytaniu wzorzec 'Nike%' kolejno na '%Nike%' i na '_ike%'. Zapisz, ile wierszy zwróciło każde z trzech zapytań, i wyjaśnij różnicę znakami % i _."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego_in",
+          "wiersze": 3,
+          "pytanie": "Skoro oba zapisy z zadania dają ten sam wynik, po co w SQL istnieje operator IN?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "AND przed OR — jeden nawias, dwa wyniki",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wykonaj dwa zapytania różniące się wyłącznie nawiasem: <code>WHERE kolor = 'czarny' OR kolor = 'biały' AND cena &lt; 100</code> oraz <code>WHERE (kolor = 'czarny' OR kolor = 'biały') AND cena &lt; 100</code>. Porównaj wyniki i rozstrzygnij, który zapis odpowiada poleceniu „wyświetl czarne i białe buty tańsze niż 100 zł”.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_bez_nawiasu_ile",
+              "Liczba wierszy — zapis bez nawiasu",
+              ""
+            ],
+            [
+              "z3_z_nawiasem_ile",
+              "Liczba wierszy — zapis z nawiasem",
+              ""
+            ],
+            [
+              "z3_roznica",
+              "Przykładowy wiersz, który pojawia się tylko w jednym wyniku",
+              "podaj nazwę, kolor i cenę"
+            ],
+            [
+              "z3_ktory_kolor",
+              "W którym zapisie warunek ceny dotyczy obu kolorów",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Który zapis realizuje polecenie „czarne i białe buty tańsze niż 100 zł”?",
+          "opcje": [
+            "zapis bez nawiasu",
+            "zapis z nawiasem",
+            "oba, bo AND i OR są równorzędne"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_wyjasnienie",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij różnicę, odwołując się do pierwszeństwa AND przed OR: jak baza rozumie każdy z tych dwóch warunków i dlaczego brak nawiasu jest na egzaminie błędem merytorycznym, a nie składniowym."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Który operator (LIKE, BETWEEN, IN, nawiasy) sprawił najwięcej kłopotu?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Jak sprawdzisz na egzaminie, czy Twój warunek WHERE naprawdę odpowiada treści polecenia?"
+        }
+      ]
+    }
+  ]
+}

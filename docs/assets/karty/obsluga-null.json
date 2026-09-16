@@ -1,0 +1,176 @@
+{
+  "id": "lsbd-obsluga-null",
+  "tytul": "Wartości NULL — pułapka, na której traci się punkty",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-NULL",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "IS NULL i IS NOT NULL",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenia 1 i 2. Wypisz nazwy produktów, które nie mają podanej wysokości, a następnie wszystkie dane produktów, które mają jednocześnie podaną cenę i podany kolor.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kw_is_null",
+              "Zapytanie z IS NULL — treść",
+              "przepisz dokładnie, ze średnikiem"
+            ],
+            [
+              "z1_is_null_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_kw_not_null",
+              "Zapytanie z IS NOT NULL — treść",
+              ""
+            ],
+            [
+              "z1_not_null_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_oznaczenie",
+              "Jak phpMyAdmin oznacza w wyniku brak wartości",
+              "zapisz to, co widzisz w komórce"
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "wynik zapytania z IS NULL — widoczna treść zapytania i kolumna z pustymi wartościami"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Zero to nie to samo co brak ceny",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 3. Napisz dwa osobne zapytania: jedno znajdujące buty darmowe (cena wynosi 0), drugie — buty, dla których ceny jeszcze nie ustalono. Sprawdź, czy któryś produkt trafia do obu wyników.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kw_zero",
+              "Zapytanie o cenę równą 0 — treść",
+              ""
+            ],
+            [
+              "z2_zero_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z2_kw_null",
+              "Zapytanie o nieustaloną cenę — treść",
+              ""
+            ],
+            [
+              "z2_null_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z2_wspolne",
+              "Czy któryś produkt występuje w obu wynikach",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_roznica",
+          "wiersze": 4,
+          "pytanie": "Wyjaśnij różnicę między ceną 0 a ceną NULL na przykładzie sklepu z obuwiem: co oznacza każdy z tych zapisów dla sprzedawcy i dlaczego baza traktuje je jako dwa różne stany."
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Dlaczego znak równości nie znajduje pustek",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wykonaj cztery zapytania na tabeli <code>produkt</code>: zliczenie wszystkich wierszy, <code>WHERE kolor = NULL</code>, <code>WHERE kolor IS NULL</code> oraz <code>WHERE cena &lt; 500</code>. Zestaw liczby wierszy i rozstrzygnij, gdzie giną brakujące rekordy.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_wszystkie_ile",
+              "Wszystkie wiersze tabeli produkt",
+              ""
+            ],
+            [
+              "z3_rowne_null_ile",
+              "WHERE kolor = NULL — liczba wierszy",
+              ""
+            ],
+            [
+              "z3_is_null_ile",
+              "WHERE kolor IS NULL — liczba wierszy",
+              ""
+            ],
+            [
+              "z3_mniej_500_ile",
+              "WHERE cena < 500 — liczba wierszy",
+              ""
+            ],
+            [
+              "z3_brakujace",
+              "Ile wierszy nie trafiło do wyniku WHERE cena < 500 i dlaczego",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Zapytanie WHERE kolor = NULL zwróciło pusty wynik. Co to znaczy?",
+          "opcje": [
+            "w tabeli nie ma produktów bez koloru",
+            "porównanie z NULL nigdy nie jest prawdą, więc warunek nie przepuszcza żadnego wiersza",
+            "zapytanie zawiera błąd składni i nie zostało wykonane"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_wyjasnienie",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij, dlaczego WHERE kolor = NULL daje pusty wynik nawet przy produktach bez koloru, i dlaczego wiersze z ceną NULL nie pojawiły się w wyniku warunku cena < 500, choć logicznie nie są droższe niż 500."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_polecenia",
+          "wiersze": 3,
+          "pytanie": "Wypisz trzy sformułowania z treści polecenia egzaminacyjnego, po których poznasz, że trzeba użyć IS NULL albo IS NOT NULL."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Czy przed tą lekcją zdarzyło Ci się napisać = NULL? Co teraz napiszesz zamiast tego?"
+        }
+      ]
+    }
+  ]
+}

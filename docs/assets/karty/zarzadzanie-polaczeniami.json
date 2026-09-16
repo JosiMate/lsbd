@@ -1,0 +1,189 @@
+{
+  "id": "lsbd-zarzadzanie-polaczeniami",
+  "tytul": "Zarządzanie połączeniami i błędy",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-POLACZ",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Ile połączeń trzyma serwer",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Odczytaj w phpMyAdminie liczbę otwartych połączeń poleceniem <code>SHOW STATUS LIKE 'Threads_connected';</code> oraz limit serwera poleceniem <code>SHOW VARIABLES LIKE 'max_connections';</code>. Zrób pomiar przed otwarciem swojej strony PHP, przy otwartej stronie z uśpieniem na kilka sekund i po jej zakończeniu. Na koniec dopisz w kodzie jawne zamknięcie połączenia.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_przed",
+              "Threads_connected przed otwarciem strony",
+              ""
+            ],
+            [
+              "z1_w_trakcie",
+              "Threads_connected w trakcie działania strony",
+              ""
+            ],
+            [
+              "z1_po",
+              "Threads_connected po zakończeniu strony",
+              ""
+            ],
+            [
+              "z1_limit",
+              "Wartość max_connections na tym serwerze",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_zamkniecie",
+          "wiersze": 3,
+          "pytanie": "Przepisz linię kodu, którą zamykasz połączenie, i napisz, w którym miejscu pliku ją umieściłeś."
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_wniosek",
+          "wiersze": 3,
+          "pytanie": "Ile stron takich jak Twoja mogłoby działać jednocześnie, zanim serwer odmówi nowych połączeń? Pokaż obliczenie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z widocznym wynikiem SHOW STATUS i wartością Threads_connected"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Trzy grupy błędów i własna obsługa",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Wywołaj na swoim stanowisku po jednym błędzie z każdej grupy opisanej w lekcji: błąd łączności, błąd autoryzacji i błąd wykonania zapytania. Sam zdecyduj, co zmienić, żeby dany błąd wystąpił. Obsłuż je w kodzie blokiem <code>try … catch</code> tak, aby strona wypisała własny komunikat zamiast surowej treści wyjątku.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_lacznosc_co",
+              "Błąd łączności — co zmieniłeś, żeby go wywołać",
+              ""
+            ],
+            [
+              "z2_lacznosc_tresc",
+              "Błąd łączności — komunikat serwera",
+              ""
+            ],
+            [
+              "z2_autoryzacja_co",
+              "Błąd autoryzacji — co zmieniłeś",
+              ""
+            ],
+            [
+              "z2_autoryzacja_tresc",
+              "Błąd autoryzacji — komunikat serwera",
+              ""
+            ],
+            [
+              "z2_wykonanie_co",
+              "Błąd wykonania zapytania — co zmieniłeś",
+              ""
+            ],
+            [
+              "z2_wykonanie_tresc",
+              "Błąd wykonania zapytania — komunikat serwera",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_catch",
+          "wiersze": 6,
+          "pytanie": "Przepisz swój blok try i catch razem z komunikatami, które widzi użytkownik strony."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego_wlasny",
+          "wiersze": 4,
+          "pytanie": "Dlaczego nie należy pokazywać użytkownikowi surowej treści wyjątku? Co takiego jest w tych komunikatach, czego nie powinien zobaczyć ktoś z zewnątrz?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "strona z własnym komunikatem po jednym z wywołanych błędów"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Ile kosztuje otwieranie połączenia",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Napisz plik <code>pomiar.php</code> w dwóch wariantach. Wariant A w pętli 200 razy otwiera nowe połączenie z bazą <code>obuwie</code>, wykonuje jedno zapytanie i zamyka połączenie. Wariant B otwiera połączenie raz i wykonuje to samo zapytanie 200 razy. Zmierz czas obu wariantów funkcją <code>microtime(true)</code> i wypisz go na stronie.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_zapytanie",
+              "Zapytanie powtarzane w obu wariantach",
+              ""
+            ],
+            [
+              "z3_czas_a",
+              "Czas wariantu A w sekundach",
+              ""
+            ],
+            [
+              "z3_czas_b",
+              "Czas wariantu B w sekundach",
+              ""
+            ],
+            [
+              "z3_stosunek",
+              "Ile razy wariant B okazał się szybszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_pula",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij na podstawie własnego pomiaru, co zyskuje aplikacja korzystająca z puli połączeń. Który etap nawiązywania sesji zostaje w niej pominięty?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_wyciek",
+          "wiersze": 4,
+          "pytanie": "Co stałoby się z serwerem, gdyby wariant A nie zamykał połączeń? Podaj komunikat błędu, który by się wtedy pojawił, i powiąż go z odczytanym wcześniej limitem serwera."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "strona pomiar.php z wypisanymi czasami obu wariantów"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Który z trzech rodzajów błędów najtrudniej było wywołać celowo i dlaczego?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po jakim objawie w działającej aplikacji rozpoznasz wyciek połączeń?"
+        }
+      ]
+    }
+  ]
+}

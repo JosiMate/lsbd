@@ -1,0 +1,228 @@
+{
+  "id": "lsbd-dzial-9",
+  "tytul": "Dział IX. Zaawansowane programowanie w bazie",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-DZ9",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Co powstało na lekcji o widokach",
+      "poziom": "Widoki — wirtualne tabele",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t1_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t1_obiekt",
+              "Nazwy widoków, które powstały w bazie obuwie",
+              ""
+            ],
+            [
+              "t1_wiersze",
+              "Liczba wierszy zwróconych przez ostatni widok",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t1_co",
+          "wiersze": 4,
+          "pytanie": "Co zrobiłeś na tej lekcji i jak sprawdziłeś w bazie, że widok pokazuje właściwe dane?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t1_zrzut",
+          "opis": "efekt z tej lekcji — wynik odczytu widoku w phpMyAdminie"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Co powstało na lekcji o transakcjach",
+      "poziom": "Transakcje — spójność i ACID",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t2_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t2_tabela",
+              "Tabela, na której wykonywałeś transakcję",
+              ""
+            ],
+            [
+              "t2_zakonczenie",
+              "Czym kończyłeś blok — COMMIT czy ROLLBACK",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t2_co",
+          "wiersze": 4,
+          "pytanie": "Co zrobiłeś na tej lekcji i co pokazał SELECT na zmienianym wierszu po zakończeniu transakcji?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t2_zrzut",
+          "opis": "efekt z tej lekcji — stan wiersza w bazie po COMMIT albo po ROLLBACK"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Co powstało na lekcji o procedurach i funkcjach",
+      "poziom": "Procedury i funkcje",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t3_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t3_obiekt",
+              "Nazwy procedur i funkcji, które powstały w bazie",
+              ""
+            ],
+            [
+              "t3_wywolanie",
+              "Polecenie, którym je uruchamiałeś",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t3_co",
+          "wiersze": 4,
+          "pytanie": "Co zrobiłeś na tej lekcji i jaki wynik zwróciła procedura albo funkcja po uruchomieniu?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t3_zrzut",
+          "opis": "efekt z tej lekcji — wynik wywołania procedury albo zapytania z funkcją"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Co powstało na lekcji o wyzwalaczach",
+      "poziom": "Wyzwalacze (Triggers)",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t4_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t4_obiekt",
+              "Nazwy wyzwalaczy, które powstały w bazie",
+              ""
+            ],
+            [
+              "t4_zdarzenie",
+              "Zdarzenie i moment, na które reagują",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t4_co",
+          "wiersze": 4,
+          "pytanie": "Co zrobiłeś na tej lekcji i co zmieniło się w tabelach po zadziałaniu wyzwalacza?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t4_zrzut",
+          "opis": "efekt z tej lekcji — zawartość tabeli dopisanej przez wyzwalacz"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Co było trudne",
+      "poziom": "podsumowanie działu",
+      "polecenie": "Wróć do czterech lekcji tego działu i wskaż miejsca, w których utknąłeś.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "d9_najtrudniejszy",
+          "pytanie": "Temat, który sprawił najwięcej kłopotu",
+          "opcje": [
+            "Widoki",
+            "Transakcje i zasady ACID",
+            "Procedury i funkcje",
+            "Wyzwalacze"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 5,
+          "pytanie": "Opisz konkretnie, co było trudne: jaki błąd zwracała baza, którego polecenia nie dało się wykonać, czego nie rozumiałeś."
+        },
+        {
+          "typ": "tekst",
+          "id": "d9_pomoc",
+          "wiersze": 3,
+          "pytanie": "Co pomogło ruszyć dalej: komunikat błędu, przykład z lekcji, kolega, nauczyciel, dokumentacja?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Samoocena",
+      "poziom": "podsumowanie działu",
+      "polecenie": "Zajrzyj do wymagań na oceny na stronie tego działu i oceń się uczciwie. Ta rubryka nie jest oceną — jest podstawą do rozmowy.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "d9_poziom",
+          "pytanie": "Wymagania, które według mnie spełniam w tym dziale",
+          "opcje": [
+            "konieczne (2)",
+            "podstawowe (3)",
+            "rozszerzające (4)",
+            "dopełniające (5)",
+            "wykraczające (6)"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij: który obiekt bazy potrafisz napisać samodzielnie, bez zaglądania do materiału?"
+        },
+        {
+          "typ": "tekst",
+          "id": "d9_braki",
+          "wiersze": 3,
+          "pytanie": "Czego jeszcze nie umiesz i co konkretnie zrobisz, żeby to nadrobić?"
+        }
+      ]
+    }
+  ]
+}

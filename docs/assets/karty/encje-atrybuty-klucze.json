@@ -11,15 +11,51 @@
       "poziom": "wymagania podstawowe · ocena 3",
       "polecenie": "Otwórz bazę `obuwie` w phpMyAdminie, odczytaj strukturę tabeli `produkt`. Wypisz nazwy atrybutów, ich typy i wskaż klucz główny oraz obcy.",
       "pola": [
-        {"typ": "tabela", "wiersze": [
-          ["Nazwa atrybutu", "Typ danych", "Uwagi (np. czy to klucz)"],
-          ["", "", ""],
-          ["", "", ""],
-          ["", "", ""],
-          ["", "", ""],
-          ["", "", ""],
-          ["", "", ""]
-        ]}
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_a1",
+              "Atrybut 1 — nazwa, typ, uwagi",
+              "np. id_produktu — INT — klucz główny"
+            ],
+            [
+              "z1_a2",
+              "Atrybut 2 — nazwa, typ, uwagi",
+              ""
+            ],
+            [
+              "z1_a3",
+              "Atrybut 3 — nazwa, typ, uwagi",
+              ""
+            ],
+            [
+              "z1_a4",
+              "Atrybut 4 — nazwa, typ, uwagi",
+              ""
+            ],
+            [
+              "z1_a5",
+              "Atrybut 5 — nazwa, typ, uwagi",
+              ""
+            ],
+            [
+              "z1_a6",
+              "Atrybut 6 — nazwa, typ, uwagi",
+              ""
+            ],
+            [
+              "z1_klucz_glowny",
+              "Klucz główny tabeli produkt",
+              ""
+            ],
+            [
+              "z1_klucz_obcy",
+              "Klucz obcy i tabela, do której prowadzi",
+              ""
+            ]
+          ]
+        }
       ]
     },
     {
@@ -28,16 +64,47 @@
       "poziom": "wymagania rozszerzające · ocena 4",
       "polecenie": "Zaprojektuj nową encję `klient` dla sklepu obuwniczego. Wymyśl 5-6 atrybutów, wskaż klucz główny, uzasadnij wybór typów i decyzję o NULL/NOT NULL.",
       "pola": [
-        {"typ": "tabela", "wiersze": [
-          ["Atrybut", "Typ danych", "NULL/NOT NULL", "Klucz główny?"],
-          ["", "", "", ""],
-          ["", "", "", ""],
-          ["", "", "", ""],
-          ["", "", "", ""],
-          ["", "", "", ""],
-          ["", "", "", ""]
-        ]},
-        {"typ": "tekst", "id": "uzasadnienie_typow", "wiersze": 4, "pytanie": "Uzasadnij krótko dobór typów danych i użycie NULL w co najmniej dwóch atrybutach:"}
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_a1",
+              "Atrybut 1 — nazwa, typ, NULL/NOT NULL, czy klucz główny",
+              "np. id_klienta — INT — NOT NULL — klucz główny"
+            ],
+            [
+              "z2_a2",
+              "Atrybut 2 — nazwa, typ, NULL/NOT NULL, czy klucz główny",
+              ""
+            ],
+            [
+              "z2_a3",
+              "Atrybut 3 — nazwa, typ, NULL/NOT NULL, czy klucz główny",
+              ""
+            ],
+            [
+              "z2_a4",
+              "Atrybut 4 — nazwa, typ, NULL/NOT NULL, czy klucz główny",
+              ""
+            ],
+            [
+              "z2_a5",
+              "Atrybut 5 — nazwa, typ, NULL/NOT NULL, czy klucz główny",
+              ""
+            ],
+            [
+              "z2_a6",
+              "Atrybut 6 — nazwa, typ, NULL/NOT NULL, czy klucz główny",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "uzasadnienie_typow",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij krótko dobór typów danych i użycie NULL w co najmniej dwóch atrybutach:"
+        }
       ]
     },
     {
@@ -46,9 +113,24 @@
       "poziom": "wymagania dopełniające · ocena 5",
       "polecenie": "Zaproponuj wydzielenie kolorów do osobnej tabeli. Zapisz/wymień kolumny przed zmianą oraz w nowej strukturze (dwie tabele), wskaż klucz obcy i zalety tego rozwiązania.",
       "pola": [
-        {"typ": "tekst", "id": "struktura_przed", "wiersze": 3, "pytanie": "Struktura 'przed' (tabela produkt):"},
-        {"typ": "tekst", "id": "struktura_po", "wiersze": 5, "pytanie": "Struktura 'po' (tabele produkt i kolor) z widocznym kluczem obcym:"},
-        {"typ": "tekst", "id": "wyjasnienie_zyskow", "wiersze": 3, "pytanie": "Co zyskujemy na takiej refaktoryzacji bazy?"}
+        {
+          "typ": "tekst",
+          "id": "struktura_przed",
+          "wiersze": 3,
+          "pytanie": "Struktura 'przed' (tabela produkt):"
+        },
+        {
+          "typ": "tekst",
+          "id": "struktura_po",
+          "wiersze": 5,
+          "pytanie": "Struktura 'po' (tabele produkt i kolor) z widocznym kluczem obcym:"
+        },
+        {
+          "typ": "tekst",
+          "id": "wyjasnienie_zyskow",
+          "wiersze": 3,
+          "pytanie": "Co zyskujemy na takiej refaktoryzacji bazy?"
+        }
       ]
     },
     {
@@ -57,8 +139,18 @@
       "poziom": "",
       "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
       "pola": [
-        {"typ": "tekst", "id": "s_trudne", "wiersze": 3, "pytanie": "Co sprawiło kłopot w tym temacie?"},
-        {"typ": "tekst", "id": "s_wnioski", "wiersze": 2, "pytanie": "Czy po tej lekcji potrafisz wyraźnie odróżnić klucz główny od klucza obcego?"}
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Czy po tej lekcji potrafisz wyraźnie odróżnić klucz główny od klucza obcego?"
+        }
       ]
     }
   ]

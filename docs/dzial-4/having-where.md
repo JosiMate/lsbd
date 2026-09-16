@@ -164,7 +164,7 @@ Na egzaminie INF.03 pułapka `WHERE` vs `HAVING` to klasyk.
 Wypełnij kartę na tej stronie, a potem pobierz gotowy dokument Worda i oddaj
 go przez **Zadania w Dzienniku VULCAN**.
 
-<div class="karta-pracy" data-//karta="having-where"></div>
+<div class="karta-pracy" data-karta="having-where"></div>
 
 ---
 

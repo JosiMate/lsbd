@@ -1,0 +1,189 @@
+{
+  "id": "lsbd-transakcje",
+  "tytul": "Transakcje — spójność i ACID",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-TRANS",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Transakcja zakończona zatwierdzeniem",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W zakładce <strong>SQL</strong> phpMyAdmina wykonaj <strong>jednym uruchomieniem</strong> blok: <code>START TRANSACTION;</code>, zmiana ceny wybranego produktu, zmiana jego <code>id_kategorii</code> na inną istniejącą kategorię, a na końcu <code>COMMIT;</code>. Przed blokiem i po nim odczytaj ten wiersz zapytaniem <code>SELECT</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_sql",
+          "wiersze": 6,
+          "pytanie": "Przepisz cały blok transakcji, który wykonałeś jednym uruchomieniem."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_produkt",
+              "Wybrany produkt — id_produktu i nazwa",
+              ""
+            ],
+            [
+              "z1_cena_przed",
+              "Cena przed transakcją",
+              ""
+            ],
+            [
+              "z1_cena_po",
+              "Cena po COMMIT",
+              ""
+            ],
+            [
+              "z1_kategoria_przed",
+              "id_kategorii przed transakcją",
+              ""
+            ],
+            [
+              "z1_kategoria_po",
+              "id_kategorii po COMMIT",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_select",
+          "wiersze": 2,
+          "pytanie": "Jakim zapytaniem sprawdziłeś stan wiersza przed transakcją i po niej?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "wynik SELECT po COMMIT z widocznym zmienionym wierszem tabeli produkt"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "To samo, ale zakończone wycofaniem",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Powtórz tę samą parę zmian, ale zamiast <code>COMMIT;</code> zakończ blok poleceniem <code>ROLLBACK;</code>. Wewnątrz bloku, pomiędzy zmianami a zakończeniem, wstaw jeszcze jeden <code>SELECT</code> na zmienianym wierszu. Potem przypisz swoją obserwację do właściwej zasady ACID.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_cena_przed",
+              "Cena przed rozpoczęciem transakcji",
+              ""
+            ],
+            [
+              "z2_cena_w_trakcie",
+              "Cena odczytana wewnątrz transakcji, po UPDATE",
+              ""
+            ],
+            [
+              "z2_cena_po",
+              "Cena po wykonaniu ROLLBACK",
+              ""
+            ],
+            [
+              "z2_zasada",
+              "Zasada ACID, którą właśnie zaobserwowałeś",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_wyjasnienie",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij, co stało się z danymi po ROLLBACK i dlaczego baza nie została w stanie niespójnym."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_autocommit",
+          "wiersze": 4,
+          "pytanie": "Co stałoby się z tymi samymi poleceniami, gdybyś pominął START TRANSACTION? Odnieś się do ustawienia autocommit i sprawdź jego wartość poleceniem SELECT @@autocommit."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "wynik SELECT po ROLLBACK, pokazujący wartość sprzed transakcji"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Dwie sesje na jednym wierszu",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Otwórz dwie konsole MariaDB z katalogu XAMPP-a (<code>mysql -u root obuwie</code>). W pierwszej rozpocznij transakcję i wykonaj <code>UPDATE</code> na wierszu o <code>id_produktu = 1</code>, ale jej nie zatwierdzaj. W drugiej sesji najpierw odczytaj ten wiersz poleceniem <code>SELECT</code>, a potem spróbuj go zaktualizować. Obserwuj, co się dzieje, i dopiero na końcu zatwierdź pierwszą transakcję.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_sesja1",
+              "Polecenie UPDATE wykonane w pierwszej sesji",
+              ""
+            ],
+            [
+              "z3_select_druga",
+              "Cena odczytana w drugiej sesji przed COMMIT pierwszej",
+              ""
+            ],
+            [
+              "z3_zachowanie",
+              "Jak zachowała się druga sesja przy próbie UPDATE",
+              ""
+            ],
+            [
+              "z3_czas",
+              "Po ilu sekundach druga sesja zwróciła wynik albo błąd",
+              ""
+            ],
+            [
+              "z3_komunikat",
+              "Komunikat, który otrzymała druga sesja",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_izolacja",
+          "wiersze": 5,
+          "pytanie": "Powiąż odczyt z drugiej sesji z zasadą izolacji. Dlaczego druga sesja nie widziała jeszcze niezatwierdzonej zmiany?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_blokada",
+          "wiersze": 4,
+          "pytanie": "Co zablokowało drugą sesję i jak ta blokada została zdjęta? Jak doprowadzić dwie sesje do wzajemnego zakleszczenia?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "obie konsole widoczne obok siebie — pierwsza z otwartą transakcją, druga oczekująca lub z komunikatem"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy wykonywaniu transakcji w phpMyAdminie albo w konsoli?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Podaj jedną operację w bazie obuwie, której nie wykonałbyś bez transakcji, i napisz dlaczego."
+        }
+      ]
+    }
+  ]
+}

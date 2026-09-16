@@ -1,0 +1,172 @@
+{
+  "id": "lsbd-agregacja-groupby",
+  "tytul": "Funkcje agregujące i GROUP BY",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-AGG",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Trzy proste statystyki",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Napisz trzy oddzielne zapytania do tabeli <code>produkt</code>: liczba wszystkich produktów, najniższa cena, średnia cena. Wpisz treść każdego zapytania i jego wynik.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_count_kod",
+              "Liczba produktów — treść zapytania",
+              "przepisz dokładnie"
+            ],
+            [
+              "z1_count_wynik",
+              "Liczba produktów — wynik",
+              ""
+            ],
+            [
+              "z1_min_kod",
+              "Najniższa cena — treść zapytania",
+              ""
+            ],
+            [
+              "z1_min_wynik",
+              "Najniższa cena — wynik",
+              ""
+            ],
+            [
+              "z1_avg_kod",
+              "Średnia cena — treść zapytania",
+              ""
+            ],
+            [
+              "z1_avg_wynik",
+              "Średnia cena — wynik",
+              "przepisz z ekranu, z miejscami po przecinku"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_ile_wierszy",
+          "wiersze": 3,
+          "pytanie": "Ile wierszy zwróciło każde z tych trzech zapytań? Dlaczego tyle, skoro tabela produkt ma ich znacznie więcej?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Liczenie produktów w kategoriach",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Wyświetl identyfikator kategorii oraz liczbę produktów do niej przypisanych. Grupuj po <code>id_kategorii</code>, bez łączenia tabel.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania",
+          "podpowiedz": "SELECT … FROM produkt GROUP BY …;"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_ile_grup",
+              "Liczba zwróconych wierszy, czyli liczba grup",
+              ""
+            ],
+            [
+              "z2_najwieksza",
+              "Identyfikator kategorii z największą liczbą produktów",
+              ""
+            ],
+            [
+              "z2_suma",
+              "Suma wszystkich liczb z kolumny COUNT(*)",
+              "policz ręcznie"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_kontrola",
+          "wiersze": 3,
+          "pytanie": "Porównaj ostatnią liczbę z wynikiem COUNT(*) z zadania 1. Czy się zgadzają? Jeśli nie, napisz, co mogło tę różnicę spowodować."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "wynik grupowania z widoczną treścią zapytania i liczbą zwróconych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Złota zasada GROUP BY na próbie",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wykonaj w phpMyAdminie zapytanie opisane na stronie jako <strong>BŁĘDNE</strong>: <code>SELECT nazwa, COUNT(*) FROM produkt GROUP BY id_kategorii;</code>. Zapisz dokładnie, co pojawiło się na ekranie. Potem wykonaj Ćwiczenie 3 — nazwa kategorii i suma cen jej produktów.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_reakcja",
+              "Co zrobił serwer z zapytaniem BŁĘDNYM",
+              "komunikat błędu albo wynik"
+            ],
+            [
+              "z3_tresc",
+              "Jeśli był komunikat — przepisz go dosłownie; jeśli był wynik — podaj liczbę wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_ocena",
+          "wiersze": 4,
+          "pytanie": "Nawet gdy serwer takie zapytanie wykona, jego wynik jest niewiarygodny. Wyjaśnij, skąd baza bierze wartość w kolumnie nazwa i dlaczego na egzaminie takie zapytanie nie dostanie punktu."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_cw3",
+          "wiersze": 4,
+          "pytanie": "Ćwiczenie 3 — treść zapytania: nazwa kategorii i suma cen produktów w tej kategorii",
+          "podpowiedz": "SELECT k.nazwa, SUM(…) FROM kategoria k JOIN produkt p ON … GROUP BY …;"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_wynik",
+          "wiersze": 6,
+          "pytanie": "Przepisz wynik Ćwiczenia 3: nazwa kategorii i suma cen"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_brak",
+          "wiersze": 3,
+          "pytanie": "Czy w wyniku Ćwiczenia 3 znalazły się wszystkie kategorie z tabeli kategoria? Jeśli nie — czego brakuje i jakim złączeniem można to naprawić?"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Wypisz z pamięci kolejność klauzul: SELECT, FROM, JOIN, WHERE, GROUP BY, ORDER BY — i zaznacz, w którym miejscu najłatwiej Ci się pomylić."
+        }
+      ]
+    }
+  ]
+}

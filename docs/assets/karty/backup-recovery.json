@@ -1,0 +1,192 @@
+{
+  "id": "lsbd-backup-recovery",
+  "tytul": "Kopia zapasowa i przywracanie bazy",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-BACKUP",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Symulacja awarii bazy obuwie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 3. Wykonaj pełny eksport bazy <code>obuwie</code> do pliku <code>.sql</code>, usuń z niej wszystkie tabele (<code>DROP TABLE</code> albo zakładka <strong>Operacje</strong>), a potem przywróć bazę z pliku. Zanim usuniesz tabele, policz wiersze — inaczej nie będziesz miał z czym porównać stanu po imporcie. Przy okazji otwórz plik zrzutu w Notatniku i znajdź linię ustawiającą kodowanie znaków.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_plik",
+              "Nazwa pliku zrzutu",
+              ""
+            ],
+            [
+              "z1_rozmiar",
+              "Rozmiar pliku zrzutu",
+              "w kB"
+            ],
+            [
+              "z1_produkt_przed",
+              "Liczba wierszy w tabeli produkt przed usunięciem tabel",
+              ""
+            ],
+            [
+              "z1_produkt_po",
+              "Liczba wierszy w tabeli produkt po przywróceniu",
+              ""
+            ],
+            [
+              "z1_kategoria_po",
+              "Liczba wierszy w tabeli kategoria po przywróceniu",
+              ""
+            ],
+            [
+              "z1_kodowanie",
+              "Linia z pliku zrzutu ustawiająca kodowanie znaków",
+              "przepisz ją dokładnie"
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin po imporcie — lista tabel bazy obuwie z liczbą rekordów"
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_kroki",
+          "wiersze": 4,
+          "pytanie": "Wypisz w punktach czynności, które wykonałeś od eksportu do sprawdzenia danych, tak aby kolega odtworzył tę procedurę bez dopytywania."
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Plan kopii według zasady 3-2-1",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 1. Firma ma bazę o rozmiarze 10 MB, dane zmieniają się raz na kilka dni. Rozpisz dla niej plan kopii zapasowych zgodny z zasadą 3-2-1. Podaj konkretne nośniki i miejsca dostępne w pracowni albo w domu, a nie ogólne stwierdzenia w rodzaju „dysk i chmura”.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kopia1",
+              "Kopia 1 — nośnik i miejsce",
+              ""
+            ],
+            [
+              "z2_kopia2",
+              "Kopia 2 — nośnik i miejsce",
+              ""
+            ],
+            [
+              "z2_kopia3",
+              "Kopia 3 — nośnik i miejsce",
+              ""
+            ],
+            [
+              "z2_nosniki",
+              "Dwa różne rodzaje nośników, które wykorzystałeś",
+              ""
+            ],
+            [
+              "z2_poza",
+              "Która kopia leży poza siedzibą firmy",
+              ""
+            ],
+            [
+              "z2_czestotliwosc",
+              "Jak często wykonujesz kopię",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_typ",
+          "pytanie": "Jaki typ kopii wybierasz dla tej bazy?",
+          "opcje": [
+            "pełny",
+            "przyrostowy",
+            "pełny raz w tygodniu i przyrostowy codziennie"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_uzasadnienie",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij wybrany typ kopii i jej częstotliwość. Ile pracy traci firma, jeśli awaria zdarzy się tuż przed kolejną kopią?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Dobór strategii i to, czego nie ma w zrzucie",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 2. Porównaj dwie firmy: sklep internetowy z bazą 40 GB działający całą dobę, do którego zamówienia spływają co minutę, oraz hurtownię z bazą 10 MB aktualizowaną raz w tygodniu. Dobierz każdej z nich strategię kopii, oszacuj maksymalną stratę danych po awarii i wskaż, co poza plikiem <code>.sql</code> trzeba odtworzyć, żeby system znów działał.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_sklep_strategia",
+              "Sklep internetowy — strategia kopii",
+              ""
+            ],
+            [
+              "z3_sklep_strata",
+              "Sklep internetowy — maksymalna strata danych",
+              "w godzinach lub minutach"
+            ],
+            [
+              "z3_hurtownia_strategia",
+              "Hurtownia — strategia kopii",
+              ""
+            ],
+            [
+              "z3_hurtownia_strata",
+              "Hurtownia — maksymalna strata danych",
+              ""
+            ],
+            [
+              "z3_brakuje",
+              "Czego nie znajdziesz w zrzucie jednej bazy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_uzasadnienie",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij dobór strategii dla obu firm. Dlaczego rozwiązanie dobre dla hurtowni nie nadaje się dla sklepu, a rozwiązanie sklepu byłoby dla hurtowni przesadą?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_uprawnienia",
+          "wiersze": 4,
+          "pytanie": "Opisz, co musisz zrobić po imporcie, żeby konta i uprawnienia z poprzednich lekcji znów działały na odtworzonej bazie. Skąd wynika ta dodatkowa praca?"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy symulacji awarii i przywracaniu bazy?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Czy kopia, której nigdy nie próbowano przywrócić, jest kopią zapasową? Uzasadnij jednym zdaniem."
+        }
+      ]
+    }
+  ]
+}

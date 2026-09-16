@@ -1,0 +1,118 @@
+{
+  "id": "lsbd-insert",
+  "tytul": "INSERT — wprowadzanie danych",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-INSERT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Trzy nowe kategorie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W bazie <code>obuwie</code> dodaj do tabeli <code>kategoria</code> pozycje „Sandały”, „Trampki” i „Buty robocze”. Użyj wariantu z listą kolumn, czyli <code>INSERT INTO kategoria (nazwa) VALUES (...)</code>. Po wykonaniu odczytaj z tabeli nadane numery.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_kwerenda", "Treść jednego z wykonanych poleceń INSERT", "przepisz dokładnie, ze średnikiem"],
+            ["z1_id_sandaly", "id_kategorii nadane pozycji Sandały", ""],
+            ["z1_id_trampki", "id_kategorii nadane pozycji Trampki", ""],
+            ["z1_id_robocze", "id_kategorii nadane pozycji Buty robocze", ""],
+            ["z1_wierszy", "Liczba wierszy w tabeli kategoria po dodaniu", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_autoincrement",
+          "wiersze": 3,
+          "pytanie": "Dlaczego w poleceniu nie podawałeś wartości dla kolumny id_kategorii?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "zawartość tabeli kategoria po dodaniu trzech pozycji, z widocznymi numerami id_kategorii"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Produkt i celowo wywołany błąd",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Dodaj do tabeli <code>produkt</code> but o nazwie „Nike Zoom”, cenie 450.00, kolorze „pomarańczowy” i kategorii nr 1. Następnie samodzielnie ułóż i wykonaj drugie polecenie <code>INSERT</code>, które pominie kolumnę <code>nazwa</code>. Zapisz komunikat, którym baza odrzuci ten drugi zapis, i popraw polecenie tak, aby przeszło.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_kwerenda", "Polecenie dodające Nike Zoom", "przepisz dokładnie"],
+            ["z2_id_produktu", "Nadane id_produktu", ""],
+            ["z2_kwerenda_bledna", "Polecenie, które baza odrzuciła", ""],
+            ["z2_komunikat", "Komunikat błędu z phpMyAdmina", "numer błędu i treść"],
+            ["z2_poprawka", "Polecenie po poprawce", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego",
+          "wiersze": 4,
+          "pytanie": "Dlaczego baza odrzuciła drugie polecenie? Odpowiedz, odwołując się do ograniczenia NOT NULL w strukturze tabeli produkt."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "ekran phpMyAdmina z widoczną treścią odrzuconego polecenia i komunikatem błędu"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Analiza wadliwego zapytania",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Przeanalizuj zapytanie <code>INSERT INTO kategoria VALUES ('Buty trekkingowe');</code> — najpierw na papierze, dopiero potem sprawdź je w phpMyAdminie.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Co jest przyczyną błędu w tym zapytaniu?",
+          "opcje": [
+            "liczba podanych wartości nie zgadza się z liczbą kolumn tabeli",
+            "nazwa kategorii została zapisana w pojedynczych cudzysłowach",
+            "w tabeli kategoria nie wolno używać polecenia INSERT",
+            "zapytanie nie kończy się poprawnie postawionym średnikiem"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_uzasadnienie",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij swój wybór i podaj dwa różne poprawne zapisy tego samego zamiaru — jeden z listą kolumn, drugi bez niej."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_porownanie",
+          "wiersze": 5,
+          "pytanie": "Który z dwóch wariantów INSERT jest bezpieczniejszy przy pracy na cudzej bazie i dlaczego? Odnieś się do kolejności kolumn i do kolumn z autoinkrementacją."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy wprowadzaniu danych?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po czym poznasz następnym razem, że wartość trzeba ująć w cudzysłowy, a kiedy nie?"
+        }
+      ]
+    }
+  ]
+}

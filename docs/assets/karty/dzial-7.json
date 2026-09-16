@@ -1,0 +1,260 @@
+{
+  "id": "lsbd-dzial-7",
+  "tytul": "Dział VII. Administrowanie — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D7",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1. Konta użytkowników",
+      "poziom": "Konta użytkowników — CREATE USER",
+      "polecenie": "Wypełnij po lekcji o poleceniu <code>CREATE USER</code>. Konta zakładasz na własnym stanowisku XAMPP, zalogowany jako <code>root</code> — zapisz nie tylko polecenia, ale też komunikaty, którymi odpowiedział serwer.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "z1_konta",
+              "Konta, które założyłeś — nazwa wraz z hostem",
+              ""
+            ],
+            [
+              "z1_usuniete",
+              "Konta, które usunąłeś",
+              ""
+            ],
+            [
+              "z1_komunikat",
+              "Komunikat serwera po ostatnim wykonanym poleceniu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_polecenia",
+          "wiersze": 4,
+          "pytanie": "Przepisz polecenia CREATE USER i DROP USER, które wykonałeś na swoim stanowisku."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "zakładka Konta użytkowników w phpMyAdmin z widocznymi kontami, które założyłeś"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2. Uprawnienia",
+      "poziom": "Uprawnienia — GRANT i REVOKE",
+      "polecenie": "Wypełnij po lekcji o poleceniach <code>GRANT</code> i <code>REVOKE</code>. Uprawnienia nadajesz na własnym stanowisku z konta <code>root</code>, na bazie <code>obuwie</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "z2_konto",
+              "Konto, któremu nadałeś uprawnienia",
+              ""
+            ],
+            [
+              "z2_uprawnienia",
+              "Nadane uprawnienia",
+              ""
+            ],
+            [
+              "z2_poziom",
+              "Poziom uprawnień: globalny, bazy czy tabeli",
+              ""
+            ],
+            [
+              "z2_odebrane",
+              "Uprawnienie odebrane poleceniem REVOKE",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_grants",
+          "wiersze": 4,
+          "pytanie": "Przepisz wynik polecenia SHOW GRANTS dla konta, nad którym pracowałeś na tej lekcji."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "wynik SHOW GRANTS albo komunikat o braku uprawnień zwrócony kontu z ograniczonymi prawami"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3. Kopia zapasowa i przywracanie",
+      "poziom": "Kopia zapasowa i przywracanie bazy",
+      "polecenie": "Wypełnij po lekcji o kopiach zapasowych. Wpisz dane pliku zrzutu, który powstał, i wynik sprawdzenia bazy <code>obuwie</code> po przywróceniu.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "z3_plik",
+              "Nazwa pliku zrzutu",
+              ""
+            ],
+            [
+              "z3_rozmiar",
+              "Rozmiar pliku zrzutu",
+              "w kB"
+            ],
+            [
+              "z3_gdzie",
+              "Gdzie przechowujesz kopię poza dyskiem stanowiska",
+              ""
+            ],
+            [
+              "z3_wiersze",
+              "Liczba wierszy w tabeli produkt po przywróceniu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_procedura",
+          "wiersze": 5,
+          "pytanie": "Opisz w punktach, co zrobiłeś przy symulacji awarii — tak, żeby kolega odtworzył tę procedurę bez pytania Cię o szczegóły."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "lista tabel bazy obuwie z liczbą rekordów po przywróceniu z pliku"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Lekcja 4. Spójność i diagnostyka",
+      "poziom": "Spójność bazy i diagnostyka",
+      "polecenie": "Wypełnij po lekcji o diagnostyce. Wpisz komunikat błędu, który udało Ci się wywołać, oraz wynik analizy zapytania poleceniem <code>EXPLAIN</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z4_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "z4_blad",
+              "Komunikat błędu spójności, który wywołałeś",
+              "razem z numerem błędu"
+            ],
+            [
+              "z4_type",
+              "Wartość kolumny type w wyniku EXPLAIN",
+              ""
+            ],
+            [
+              "z4_indeks",
+              "Polecenie CREATE INDEX, jeżeli je wykonałeś",
+              ""
+            ],
+            [
+              "z4_type_po",
+              "Wartość kolumny type po założeniu indeksu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_wnioski",
+          "wiersze": 4,
+          "pytanie": "Co konkretnie zmieniło się w planie wykonania zapytania po założeniu indeksu?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z4_zrzut",
+          "opis": "wynik SHOW PROCESSLIST albo EXPLAIN z widocznymi nazwami kolumn"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu miejsca, w których utknąłeś w całym dziale. To najcenniejsza część dziennika — do niej wrócisz przed egzaminem.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z5_lekcja",
+              "Na której z czterech lekcji utknąłeś najdłużej",
+              ""
+            ],
+            [
+              "z5_komunikat",
+              "Komunikat błędu, który kosztował Cię najwięcej czasu",
+              ""
+            ],
+            [
+              "z5_czas",
+              "Ile mniej więcej minut zajęło rozwiązanie problemu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_jak",
+          "wiersze": 4,
+          "pytanie": "Jak rozwiązałeś ten problem — samodzielnie, z dokumentacji, z pomocą kolegi czy nauczyciela? Opisz, co ostatecznie zadziałało."
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_inaczej",
+          "wiersze": 3,
+          "pytanie": "Co zrobiłbyś inaczej, gdybyś zaczynał ten dział od nowa?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Które z czterech zadań administratora — konta, uprawnienia, kopie zapasowe, diagnostyka — wykonasz dziś bez zaglądania do materiałów, a przy którym nadal potrzebujesz instrukcji?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy Twój dziennik spełnia kryterium z opisu działu: czy ktoś inny odtworzy Twoją pracę na jego podstawie? Co byś do niego dopisał?"
+        }
+      ]
+    }
+  ]
+}

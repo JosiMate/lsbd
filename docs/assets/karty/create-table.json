@@ -1,0 +1,178 @@
+{
+  "id": "lsbd-create-table",
+  "tytul": "CREATE TABLE — tworzenie tabel z projektu",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-CREATE",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Tabela klient od zera",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W bazie <code>obuwie</code> utwórz tabelę <code>klient</code> z kolumnami: <code>id_klienta</code> (klucz główny, automatyczny wzrost), <code>imie</code> i <code>nazwisko</code> (tekst, obowiązkowe) oraz <code>email</code> (tekst, opcjonalny). Polecenie wykonaj w zakładce <strong>SQL</strong>, a efekt sprawdź w zakładce <strong>Struktura</strong>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_sql",
+          "wiersze": 7,
+          "pytanie": "Przepisz dokładnie polecenie CREATE TABLE, które wykonałeś.",
+          "podpowiedz": "CREATE TABLE klient ("
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kolumny",
+              "Liczba kolumn w widoku Struktura",
+              ""
+            ],
+            [
+              "z1_typ_id",
+              "Typ kolumny id_klienta odczytany ze Struktury",
+              ""
+            ],
+            [
+              "z1_null_email",
+              "Kolumna email — rubryka Null (Tak/Nie)",
+              ""
+            ],
+            [
+              "z1_komunikat",
+              "Komunikat phpMyAdmina po wykonaniu polecenia",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "zakładka Struktura tabeli klient z listą kolumn i oznaczeniem klucza głównego"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Kolejność tworzenia tabel",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Masz cztery tabele: <code>klient</code>, <code>produkt</code>, <code>zamowienie</code> (odwołuje się do <code>klient</code>) oraz <code>pozycja_zamowienia</code> (odwołuje się do <code>zamowienie</code> i do <code>produkt</code>). Ustal kolejność ich tworzenia i zapisz, z czego ta kolejność wynika.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kolejnosc_1",
+              "Tabela tworzona jako pierwsza",
+              ""
+            ],
+            [
+              "z2_kolejnosc_2",
+              "Tabela tworzona jako druga",
+              ""
+            ],
+            [
+              "z2_kolejnosc_3",
+              "Tabela tworzona jako trzecia",
+              ""
+            ],
+            [
+              "z2_kolejnosc_4",
+              "Tabela tworzona jako czwarta",
+              ""
+            ],
+            [
+              "z2_bez_fk",
+              "Które z tych tabel nie mają żadnego klucza obcego",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_obuwie",
+          "pytanie": "W bazie obuwie tabela produkt ma kolumnę id_kategorii wskazującą na tabelę kategoria. Którą z tych dwóch tabel trzeba utworzyć jako pierwszą?",
+          "opcje": [
+            "kategoria",
+            "produkt",
+            "kolejność nie ma znaczenia"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_zasada",
+          "wiersze": 4,
+          "pytanie": "Po czym poznajesz w projekcie, że jedna tabela musi powstać przed drugą? Odpowiedz, opierając się na zasadzie zależności z punktu 2 lekcji."
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Błąd w CREATE TABLE — komunikat i poprawka",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Wykonaj w zakładce <strong>SQL</strong> polecenie tworzące tabelę <code>miasto</code> w takiej postaci, jak w lekcji — razem z nadmiarowym przecinkiem po kolumnie <code>kod_pocztowy</code>. Zanotuj komunikat błędu, popraw polecenie i wykonaj je ponownie.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_numer",
+              "Numer błędu zgłoszony przez MariaDB",
+              "np. #1064"
+            ],
+            [
+              "z3_tresc",
+              "Fragment komunikatu wskazujący miejsce błędu",
+              ""
+            ],
+            [
+              "z3_poprawka",
+              "Linia polecenia po poprawce",
+              ""
+            ],
+            [
+              "z3_kolumny_po",
+              "Liczba kolumn tabeli miasto po udanym wykonaniu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "okno phpMyAdmina z czerwonym komunikatem błędu i treścią wykonanego polecenia"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_analiza",
+          "wiersze": 5,
+          "pytanie": "Dlaczego MariaDB pokazuje w komunikacie fragment zaczynający się za przecinkiem, a nie sam przecinek? Wyjaśnij, jak czytać taki komunikat, żeby szybciej trafić do miejsca błędu."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_pozostale",
+          "wiersze": 4,
+          "pytanie": "Punkt 3 lekcji wymienia cztery typowe błędy przy CREATE TABLE. Który z pozostałych trzech jest najtrudniejszy do wykrycia i dlaczego nie zawsze kończy się komunikatem błędu?"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy pisaniu poleceń CREATE TABLE?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Co sprawdzisz w swoim poleceniu, zanim naciśniesz Wykonaj następnym razem?"
+        }
+      ]
+    }
+  ]
+}

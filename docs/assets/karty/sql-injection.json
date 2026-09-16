@@ -1,0 +1,165 @@
+{
+  "id": "lsbd-sql-injection",
+  "tytul": "Bezpieczeństwo — SQL Injection i Prepared Statements",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-INJEKCJA",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Podatny formularz na własnym stanowisku",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W katalogu <code>htdocs</code> załóż plik <code>szukaj.php</code> z jednym polem formularza. Zbuduj w nim zapytanie o produkt przez sklejenie tekstu, czyli tak, jak w niebezpiecznym przykładzie z lekcji. Wpisz w pole nazwę istniejącego produktu, a potem ciąg <code>' OR '1'='1</code> i porównaj, co strona wypisała za każdym razem.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_kod",
+          "wiersze": 4,
+          "pytanie": "Przepisz linię kodu, w której tekst z formularza jest doklejany do zapytania SQL."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_wpis_normalny",
+              "Wpisana nazwa produktu",
+              ""
+            ],
+            [
+              "z1_wynik_normalny",
+              "Liczba wyników dla tej nazwy",
+              ""
+            ],
+            [
+              "z1_wynik_atak",
+              "Liczba wyników po wpisaniu ciągu z apostrofem",
+              ""
+            ],
+            [
+              "z1_wszystkie",
+              "Liczba wszystkich wierszy w tabeli produkt",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_wniosek",
+          "wiersze": 3,
+          "pytanie": "Jak brzmiało całe zapytanie wysłane do bazy po wpisaniu ciągu z apostrofem? Przepisz je i wyjaśnij, dlaczego jego warunek jest zawsze prawdziwy."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "strona szukaj.php z wynikiem po wpisaniu ciągu z apostrofem"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Ten sam formularz na zapytaniu parametryzowanym",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Przerób <code>szukaj.php</code> na zapytanie parametryzowane: przygotuj szablon z placeholderem metodą <code>prepare</code>, przekaż wartość osobno i wykonaj zapytanie metodą <code>execute</code>. Powtórz oba wpisy z zadania 1.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 5,
+          "pytanie": "Przepisz trzy linie kodu: przygotowanie zapytania, przekazanie wartości i wykonanie."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_szablon",
+              "Szablon zapytania wysłany do bazy",
+              ""
+            ],
+            [
+              "z2_placeholder",
+              "Użyty rodzaj placeholdera",
+              ""
+            ],
+            [
+              "z2_wynik_normalny",
+              "Liczba wyników dla nazwy produktu",
+              ""
+            ],
+            [
+              "z2_wynik_atak",
+              "Liczba wyników po wpisaniu ciągu z apostrofem",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego",
+          "wiersze": 4,
+          "pytanie": "Dlaczego po tej zmianie ciąg z apostrofem nie zwraca już wszystkich produktów? Odnieś się do momentu, w którym serwer analizuje zapytanie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "strona szukaj.php po przeróbce, z pustym wynikiem dla ciągu z apostrofem"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Ocena cudzego kodu i próba na kopii",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Oceń kod, w którym identyfikator z adresu strony jest doklejany do zapytania: <code>SELECT * FROM produkt_kopia WHERE id_produktu = $id</code>. Załóż kopię tabeli, uruchom taką stronę i wpisz w adresie wartość <code>1; DROP TABLE produkt_kopia; --</code>. Zapisz, co naprawdę się stało — nie to, czego się spodziewałeś.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Czy tabela produkt_kopia po tej próbie nadal istnieje?",
+          "opcje": [
+            "istnieje bez zmian",
+            "istnieje, ale zmieniła zawartość",
+            "została usunięta"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_co_sie_stalo",
+          "wiersze": 4,
+          "pytanie": "Opisz, co wyświetliła strona i co pokazuje lista tabel bazy obuwie w phpMyAdminie po tej próbie."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_wyjasnienie",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij, dlaczego skutek był taki, a nie inny. Czy sterownik pozwolił wykonać dwa polecenia w jednym zapytaniu? Czy to znaczy, że kod jest bezpieczny?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_poprawka",
+          "wiersze": 4,
+          "pytanie": "Zapisz poprawioną, bezpieczną wersję tego fragmentu kodu."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy przerabianiu strony na zapytanie parametryzowane?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po czym w cudzym kodzie rozpoznasz w ciągu kilku sekund, że jest podatny na wstrzykiwanie SQL?"
+        }
+      ]
+    }
+  ]
+}

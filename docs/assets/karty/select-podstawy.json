@@ -1,0 +1,176 @@
+{
+  "id": "lsbd-select-podstawy",
+  "tytul": "SELECT, kolumny i aliasy",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-SELECT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Wybór kolumn zamiast gwiazdki",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenia 1 i 3. W bazie <code>obuwie</code> wykonaj zapytanie wypisujące <code>nazwa</code> i <code>wysokosc</code> z tabeli <code>produkt</code>, a potem zapytanie wypisujące same nazwy kategorii z tabeli <code>kategoria</code>. Treść zapytań przepisz dokładnie tak, jak je wykonałeś w zakładce <strong>SQL</strong>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kw_produkt",
+              "Zapytanie o nazwy i wysokości produktów — treść",
+              "przepisz dokładnie, ze średnikiem"
+            ],
+            [
+              "z1_produkt_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_kw_kategoria",
+              "Zapytanie o nazwy kategorii — treść",
+              "przepisz dokładnie, ze średnikiem"
+            ],
+            [
+              "z1_kategoria_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_naglowki",
+              "Nagłówki kolumn w wyniku pierwszego zapytania",
+              "wypisz po przecinku"
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z widoczną treścią pierwszego zapytania i jego wynikiem"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Aliasy i cudzysłów",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Napisz zapytanie wypisujące nazwę i cenę produktu tak, aby kolumny w wyniku nazywały się <code>Model</code> oraz <code>Cena (zł)</code>. Następnie wykonaj to samo zapytanie jeszcze raz, ale usuń cudzysłowy wokół drugiego aliasu i zapisz, co zwróci serwer.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_kw",
+              "Zapytanie z aliasami — treść",
+              "przepisz dokładnie"
+            ],
+            [
+              "z2_naglowki",
+              "Nagłówki kolumn widoczne w wyniku",
+              ""
+            ],
+            [
+              "z2_kw_bez",
+              "Zapytanie po usunięciu cudzysłowów — treść",
+              ""
+            ],
+            [
+              "z2_komunikat",
+              "Co zwrócił serwer — komunikat błędu albo wynik",
+              "przepisz pierwszy wiersz komunikatu"
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_as",
+          "pytanie": "Czy słowo AS jest w tym zapytaniu obowiązkowe?",
+          "opcje": [
+            "tak — bez AS zapytanie się nie wykona",
+            "nie — AS jest opcjonalne, ale poprawia czytelność",
+            "nie — AS jest zabronione w MariaDB"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_kiedy_cudzyslow",
+          "wiersze": 3,
+          "pytanie": "Kiedy alias trzeba zamknąć w cudzysłowie? Podaj regułę i po jednym własnym przykładzie aliasu, który cudzysłowu wymaga i który go nie potrzebuje.",
+          "podpowiedz": "Alias trzeba zamknąć w cudzysłowie, gdy…"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Ile kosztuje gwiazdka",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Wykonaj kolejno <code>SELECT * FROM produkt;</code> oraz <code>SELECT nazwa, cena FROM produkt;</code>. Dla każdego odczytaj z phpMyAdmina liczbę kolumn w wyniku i czas wykonania podany nad tabelą wyników. Zestaw obie próby i oceń, co z tego wynika dla arkusza egzaminacyjnego.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_gwiazdka_kolumny",
+              "SELECT * — liczba kolumn w wyniku",
+              ""
+            ],
+            [
+              "z3_gwiazdka_czas",
+              "SELECT * — czas wykonania z phpMyAdmina",
+              "np. 0,0004 s"
+            ],
+            [
+              "z3_wybrane_kolumny",
+              "SELECT nazwa, cena — liczba kolumn w wyniku",
+              ""
+            ],
+            [
+              "z3_wybrane_czas",
+              "SELECT nazwa, cena — czas wykonania z phpMyAdmina",
+              ""
+            ],
+            [
+              "z3_wiersze",
+              "Liczba wierszy w obu wynikach",
+              "czy się różni?"
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Polecenie w arkuszu brzmi „wyświetl nazwy i ceny produktów”. Uczeń wpisał SELECT * FROM produkt. Jak to ocenić?",
+          "opcje": [
+            "poprawnie — żądane dane są widoczne w wyniku",
+            "niepoprawnie — zapytanie nie odpowiada treści polecenia, mimo że dane widać",
+            "niepoprawnie — zapytanie zwraca błąd składni"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_analiza",
+          "wiersze": 5,
+          "pytanie": "Na tej bazie różnica czasu jest znikoma. Wyjaśnij, dlaczego mimo to SELECT * uchodzi za zły nawyk — odnieś się do trzech skutków wymienionych w lekcji i do tego, jak zmieniłby się wynik pomiaru przy tabeli z 50 kolumnami i milionem wierszy."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po czym w treści polecenia poznasz, że masz wymienić kolumny zamiast użyć gwiazdki?"
+        }
+      ]
+    }
+  ]
+}

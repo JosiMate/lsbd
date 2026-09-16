@@ -1,0 +1,189 @@
+{
+  "id": "lsbd-polaczenie-aplikacja",
+  "tytul": "Połączenie aplikacji z bazą",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-PDO",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Pierwsze połączenie z bazą obuwie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Uruchom w XAMPP-ie moduły <strong>Apache</strong> i <strong>MySQL</strong>. W katalogu <code>htdocs</code> załóż plik <code>polaczenie.php</code>, który łączy się przez PDO z bazą <code>obuwie</code> i wypisuje komunikat o udanym połączeniu. Otwórz stronę w przeglądarce i rozpisz w tabeli elementy użytego ciągu połączenia.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_host",
+              "Host wpisany w ciągu połączenia",
+              ""
+            ],
+            [
+              "z1_port",
+              "Port serwera MariaDB",
+              ""
+            ],
+            [
+              "z1_baza",
+              "Nazwa bazy danych",
+              ""
+            ],
+            [
+              "z1_uzytkownik",
+              "Nazwa użytkownika, na którym łączy się strona",
+              ""
+            ],
+            [
+              "z1_adres",
+              "Adres, pod którym otworzyłeś stronę w przeglądarce",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_kod",
+          "wiersze": 4,
+          "pytanie": "Przepisz dokładnie linię kodu, w której tworzysz obiekt PDO, razem z całym ciągiem DSN."
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_komunikat",
+          "wiersze": 2,
+          "pytanie": "Co dokładnie wyświetliła strona po udanym połączeniu?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "okno przeglądarki z widocznym adresem strony i komunikatem o połączeniu"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Dwa różne błędy połączenia",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Wywołaj na swoim stanowisku dwa różne błędy. Najpierw zmień w ciągu połączenia host na <code>192.168.0.50</code> i odśwież stronę. Potem przywróć host, a zepsuj hasło użytkownika. Za każdym razem zapisz, co wypisała strona, i rozstrzygnij, do której grupy błędów należy ten komunikat.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_zmiana_a",
+              "Próba A — co zmieniłeś w ciągu połączenia",
+              ""
+            ],
+            [
+              "z2_czas_a",
+              "Próba A — po ilu mniej więcej sekundach pojawił się komunikat",
+              ""
+            ],
+            [
+              "z2_zmiana_b",
+              "Próba B — co zmieniłeś w ciągu połączenia",
+              ""
+            ],
+            [
+              "z2_czas_b",
+              "Próba B — po ilu mniej więcej sekundach pojawił się komunikat",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_tresc",
+          "wiersze": 5,
+          "pytanie": "Przepisz oba komunikaty błędów w całości, podpisując je jako próbę A i próbę B."
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_werdykt",
+          "pytanie": "Który z tych dwóch błędów oznacza, że aplikacja w ogóle nie dotarła do serwera?",
+          "opcje": [
+            "błąd z próby A",
+            "błąd z próby B",
+            "oba oznaczają to samo"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_uzasadnienie",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij swój wybór. Po czym w treści komunikatu poznajesz, że serwer odpowiedział, a po czym, że w ogóle się nie odezwał?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Konto aplikacji zamiast konta root",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. W phpMyAdminie załóż użytkownika <code>app_obuwie</code> z hostem <code>localhost</code> i nadaj mu wyłącznie uprawnienie <code>SELECT</code> do bazy <code>obuwie</code>. Przełącz ciąg połączenia w <code>polaczenie.php</code> na to konto, wypisz stroną zawartość tabeli <code>produkt</code>, a potem spróbuj wykonać z tej samej strony polecenie <code>UPDATE produkt SET cena = cena + 1;</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_uprawnienia",
+              "Uprawnienia nadane kontu app_obuwie",
+              ""
+            ],
+            [
+              "z3_host_konta",
+              "Host, dla którego założyłeś to konto",
+              ""
+            ],
+            [
+              "z3_select_wiersze",
+              "Liczba wierszy, które strona wypisała z tabeli produkt",
+              ""
+            ],
+            [
+              "z3_update_skutek",
+              "Czy cena w tabeli zmieniła się po próbie UPDATE",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_blad_update",
+          "wiersze": 3,
+          "pytanie": "Przepisz komunikat, który strona wypisała przy próbie wykonania UPDATE."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_porownanie",
+          "wiersze": 5,
+          "pytanie": "Dlaczego aplikacja nie powinna łączyć się z bazą na koncie root? Odpowiedz, powołując się na to, co przed chwilą zobaczyłeś na ekranie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "strona z wypisaną tabelą produktów i komunikatem odmowy przy próbie UPDATE"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy uruchamianiu pliku PHP i łączeniu go z bazą?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Który element ciągu połączenia najłatwiej pomylić i po czym to rozpoznasz?"
+        }
+      ]
+    }
+  ]
+}

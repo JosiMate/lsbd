@@ -1,0 +1,120 @@
+{
+  "id": "lsbd-import-eksport",
+  "tytul": "Import i eksport danych",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-EKSPORT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Kopia zapasowa metodą szybką",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Wyeksportuj bazę <code>obuwie</code> do pliku metodą <strong>Szybka</strong>: wybierz bazę z listy po lewej, zakładka <strong>Eksport</strong>, przycisk <strong>Eksportuj</strong>. Zapisz plik pod nazwą <code>backup_obuwie.sql</code>, a potem otwórz go w Notatniku i odczytaj żądane informacje.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_nazwa_pliku", "Pełna nazwa zapisanego pliku", "backup_obuwie.sql"],
+            ["z1_rozmiar", "Rozmiar pliku w kilobajtach", ""],
+            ["z1_tabele", "Nazwy tabel, które znalazłeś w pliku", ""],
+            ["z1_pierwsza_linia", "Pierwsza linia pliku otwartego w Notatniku", ""]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "zakładka Eksport w phpMyAdminie z zaznaczoną metodą szybką i widoczną nazwą bazy obuwie"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Czysta karta — usunięcie i odtworzenie bazy",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Usuń bazę <code>obuwie</code> (<strong>Operacje</strong>, potem <strong>Usuń bazę danych</strong>), utwórz ją ponownie pod tą samą nazwą i zaimportuj plik <code>backup_obuwie.sql</code> z zadania 1. Po imporcie sam wymyśl i wykonaj sprawdzenie, czy dane rzeczywiście wróciły.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_kodowanie", "Porównywanie znaków wybrane przy tworzeniu bazy", "np. utf8mb4_general_ci"],
+            ["z2_komunikat", "Komunikat phpMyAdmina po zakończonym imporcie", "np. liczba wykonanych zapytań"],
+            ["z2_kwerenda", "Zapytanie, którym sprawdziłeś, że dane wróciły", ""],
+            ["z2_produkt", "Liczba wierszy w tabeli produkt po imporcie", ""],
+            ["z2_kategoria", "Liczba wierszy w tabeli kategoria po imporcie", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_bez_bazy",
+          "wiersze": 4,
+          "pytanie": "Co zrobi phpMyAdmin, jeśli zaczniesz import, nie wybrawszy wcześniej żadnej bazy, a plik nie zawiera polecenia tworzącego bazę? Jak temu zapobiec?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "lista tabel bazy obuwie po imporcie, z widoczną liczbą rekordów"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Analiza zrzutu i dobór metody eksportu",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Otwórz <code>backup_obuwie.sql</code> w edytorze tekstu i wskaż w nim instrukcje odpowiadające za strukturę oraz za dane. Potem rozstrzygnij, której metody eksportu użyjesz w opisanej niżej sytuacji.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_create", "Instrukcja tworząca strukturę tabeli produkt — początek linii", ""],
+            ["z3_insert", "Instrukcja wprowadzająca dane — początek linii", ""],
+            ["z3_drop", "Czy w pliku występuje DROP TABLE — tak czy nie", ""],
+            ["z3_ile_insert", "Ile instrukcji INSERT INTO liczy plik", ""]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_metoda",
+          "pytanie": "Masz przekazać koledze samą strukturę tabeli produkt, bez wierszy z danymi. Której metody eksportu użyjesz?",
+          "opcje": [
+            "Szybkiej, bo zawsze zapisuje całą bazę w standardowej postaci",
+            "Niestandardowej, bo pozwala wybrać jedną tabelę i zapisać samą strukturę",
+            "Żadnej — trzeba ręcznie skasować wiersze INSERT z gotowego pliku",
+            "Niestandardowej, ale wyłącznie w formacie CSV"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_uzasadnienie",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij wybór i podaj jeszcze jedną sytuację, w której metoda szybka nie wystarcza. Napisz, co konkretnie trzeba wtedy ustawić w opcjach eksportu."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_egzamin",
+          "wiersze": 4,
+          "pytanie": "Odtwórz z pamięci kolejność czynności na egzaminie od otrzymania pliku z danymi do momentu, w którym możesz zacząć pisać zapytania SELECT."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy imporcie lub eksporcie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Ile minut zajęła Ci cała ścieżka od usunięcia bazy do potwierdzenia, że dane wróciły?"
+        }
+      ]
+    }
+  ]
+}

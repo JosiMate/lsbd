@@ -1,0 +1,228 @@
+{
+  "id": "lsbd-dzial-8",
+  "tytul": "Dział VIII. Baza w aplikacji",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-DZ8",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Co powstało na lekcji o połączeniu",
+      "poziom": "Połączenie aplikacji z bazą",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t1_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t1_plik",
+              "Nazwa pliku PHP, który powstał",
+              ""
+            ],
+            [
+              "t1_adres",
+              "Adres, pod którym otwierałeś stronę",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t1_co",
+          "wiersze": 4,
+          "pytanie": "Co zrobiłeś na tej lekcji i jaki komunikat wyświetliła strona po nawiązaniu połączenia?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t1_zrzut",
+          "opis": "efekt z tej lekcji — okno przeglądarki z komunikatem o połączeniu"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Co powstało na lekcji o operacjach CRUD",
+      "poziom": "Operacje CRUD w kodzie aplikacji",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t2_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t2_plik",
+              "Nazwa pliku PHP, który powstał",
+              ""
+            ],
+            [
+              "t2_operacje",
+              "Które litery CRUD zdążyłeś wykonać",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t2_co",
+          "wiersze": 4,
+          "pytanie": "Co zrobiłeś na tej lekcji i co strona wypisała po wykonaniu operacji na tabeli produkt?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t2_zrzut",
+          "opis": "efekt z tej lekcji — strona z wypisaną listą produktów albo komunikatem operacji"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Co powstało na lekcji o SQL Injection",
+      "poziom": "Bezpieczeństwo — SQL Injection i Prepared Statements",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t3_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t3_plik",
+              "Nazwa pliku z formularzem wyszukiwania",
+              ""
+            ],
+            [
+              "t3_wpis",
+              "Ciąg, który wpisałeś w pole formularza na próbę",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t3_co",
+          "wiersze": 4,
+          "pytanie": "Czy podatna wersja strony dała się zaatakować i co zmieniło przejście na zapytanie parametryzowane?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t3_zrzut",
+          "opis": "efekt z tej lekcji — wynik tej samej próby przed przeróbką i po przeróbce"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Co powstało na lekcji o połączeniach i błędach",
+      "poziom": "Zarządzanie połączeniami i błędy",
+      "polecenie": "Uzupełnij po lekcji. Jeżeli nie zdążyłeś skończyć, napisz, na czym stanąłeś — to też jest informacja.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "t4_data",
+              "Data lekcji",
+              ""
+            ],
+            [
+              "t4_plik",
+              "Nazwa pliku, w którym obsłużyłeś błędy",
+              ""
+            ],
+            [
+              "t4_limit",
+              "Odczytana wartość max_connections",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "t4_co",
+          "wiersze": 4,
+          "pytanie": "Jakie błędy udało Ci się wywołać, co wypisała wtedy strona i jak je obsłużyłeś w kodzie?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "t4_zrzut",
+          "opis": "efekt z tej lekcji — strona z własnym komunikatem o błędzie albo wynik pomiaru czasu"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Co było trudne",
+      "poziom": "podsumowanie działu",
+      "polecenie": "Wróć do czterech lekcji tego działu i wskaż miejsca, w których utknąłeś.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "d8_najtrudniejszy",
+          "pytanie": "Temat, który sprawił najwięcej kłopotu",
+          "opcje": [
+            "Połączenie aplikacji z bazą",
+            "Operacje CRUD w kodzie aplikacji",
+            "SQL Injection i zapytania parametryzowane",
+            "Zarządzanie połączeniami i błędy"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 5,
+          "pytanie": "Opisz konkretnie, co było trudne: jaki błąd się pojawiał, czego strona nie wyświetlała, czego nie rozumiałeś."
+        },
+        {
+          "typ": "tekst",
+          "id": "d8_pomoc",
+          "wiersze": 3,
+          "pytanie": "Co pomogło ruszyć dalej: komunikat błędu, przykład z lekcji, kolega, nauczyciel, dokumentacja?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Samoocena",
+      "poziom": "podsumowanie działu",
+      "polecenie": "Zajrzyj do wymagań na oceny na stronie tego działu i oceń się uczciwie. Ta rubryka nie jest oceną — jest podstawą do rozmowy.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "d8_poziom",
+          "pytanie": "Wymagania, które według mnie spełniam w tym dziale",
+          "opcje": [
+            "konieczne (2)",
+            "podstawowe (3)",
+            "rozszerzające (4)",
+            "dopełniające (5)",
+            "wykraczające (6)"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij: co z tego działu potrafisz zrobić samodzielnie, bez zaglądania do materiału?"
+        },
+        {
+          "typ": "tekst",
+          "id": "d8_braki",
+          "wiersze": 3,
+          "pytanie": "Czego jeszcze nie umiesz i co konkretnie zrobisz, żeby to nadrobić?"
+        }
+      ]
+    }
+  ]
+}

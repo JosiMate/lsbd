@@ -1,0 +1,180 @@
+{
+  "id": "lsbd-klucze-sql",
+  "tytul": "Klucze główne i obce w SQL-u",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-KLUCZE",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Klucze w bazie obuwie i tabela zamowienie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Najpierw odczytaj w phpMyAdminie, jak zbudowane są klucze w tabelach <code>kategoria</code> i <code>produkt</code> — zakładka <strong>Struktura</strong>, a pod listą kolumn sekcja <strong>Indeksy</strong>. Potem utwórz tabelę <code>zamowienie</code> z kolumnami: <code>id_zamowienia</code> (klucz główny, automatyczny wzrost), <code>data_zamowienia</code> (typ <code>DATE</code>, obowiązkowa) i <code>id_klienta</code> — klucz obcy wskazujący na <code>klient(id_klienta)</code> z poprzedniej lekcji.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_pk_kategoria",
+              "Klucz główny tabeli kategoria — nazwa kolumny",
+              ""
+            ],
+            [
+              "z1_pk_produkt",
+              "Klucz główny tabeli produkt — nazwa kolumny",
+              ""
+            ],
+            [
+              "z1_fk_produkt",
+              "Kolumna w tabeli produkt wskazująca na kategoria",
+              ""
+            ],
+            [
+              "z1_typ_fk",
+              "Typ tej kolumny odczytany ze Struktury",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_sql",
+          "wiersze": 7,
+          "pytanie": "Przepisz polecenie CREATE TABLE zamowienie, które wykonałeś — razem z klauzulą FOREIGN KEY.",
+          "podpowiedz": "CREATE TABLE zamowienie ("
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "Struktura tabeli zamowienie z widoczną sekcją Indeksy"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Klucz złożony w pozycji zamówienia",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Utwórz tabelę <code>pozycja_zamowienia</code> z kolumnami <code>id_zamowienia</code>, <code>id_produktu</code> i <code>ilosc</code>. Klucz główny ma być złożony z dwóch pierwszych kolumn, a obie mają być jednocześnie kluczami obcymi. Sposób zapisu klucza głównego dobierz sam.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_sql",
+          "wiersze": 8,
+          "pytanie": "Przepisz swoje polecenie CREATE TABLE pozycja_zamowienia.",
+          "podpowiedz": "CREATE TABLE pozycja_zamowienia ("
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_sposob",
+          "pytanie": "Którego ze sposobów zapisu klucza głównego musiałeś tu użyć?",
+          "opcje": [
+            "przy definicji kolumny (inline)",
+            "na końcu definicji tabeli (ograniczenie tabeli)",
+            "dowolnego — oba dają tu ten sam efekt"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dlaczego",
+          "wiersze": 4,
+          "pytanie": "Uzasadnij ten wybór. Co otrzymasz, jeśli zamiast tego dopiszesz PRIMARY KEY osobno przy obu kolumnach?"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_ile_pk",
+              "Liczba kolumn wchodzących w skład klucza głównego",
+              ""
+            ],
+            [
+              "z2_ile_fk",
+              "Liczba kluczy obcych w tej tabeli",
+              ""
+            ],
+            [
+              "z2_warunek",
+              "Warunek, jaki musi spełnić kolumna wskazywana przez klucz obcy",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Kiedy klucz obcy się nie tworzy",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3 i zasady z punktu 2 lekcji. Utwórz parę tabel testowych: <code>kat_test</code> z kolumną <code>id</code> typu <code>INT UNSIGNED</code> jako kluczem głównym oraz <code>prod_test</code> z kolumną <code>id_kat</code> typu <code>INT</code> i kluczem obcym do <code>kat_test(id)</code>. Zanotuj, co zgłosi baza, i doprowadź polecenie do działania. Potem utwórz tabelę <code>uzytkownik</code> z kolumnami <code>id</code> (klucz główny), <code>login</code> (obowiązkowy, unikatowy) i <code>haslo</code> (obowiązkowe) i spróbuj wpisać dwa razy ten sam login.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_komunikat",
+              "Komunikat błędu przy tworzeniu tabeli prod_test",
+              ""
+            ],
+            [
+              "z3_poprawka",
+              "Zmiana, po której klucz obcy dał się utworzyć",
+              ""
+            ],
+            [
+              "z3_duplikat",
+              "Komunikat po drugiej próbie wpisania tego samego loginu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_null",
+          "pytanie": "Do której z kolumn tabeli uzytkownik da się zapisać wartość NULL?",
+          "opcje": [
+            "do id — klucza głównego",
+            "do login — kolumny NOT NULL UNIQUE",
+            "do żadnej z nich"
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "komunikat błędu przy tworzeniu klucza obcego o niezgodnym typie kolumny"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_porownanie",
+          "wiersze": 5,
+          "pytanie": "Porównaj PRIMARY KEY i UNIQUE na podstawie własnych obserwacji z tego ćwiczenia: liczba takich ograniczeń w tabeli, dopuszczanie NULL, cel stosowania."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_obuwie",
+          "wiersze": 4,
+          "pytanie": "Wskaż kolumnę w tabeli produkt lub kategoria bazy obuwie, dla której sensowne byłoby dołożenie ograniczenia UNIQUE. Uzasadnij, przed czym to ograniczenie by ochroniło dane."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy definiowaniu kluczy obcych?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po czym w treści zadania egzaminacyjnego poznasz, że trzeba dopisać FOREIGN KEY?"
+        }
+      ]
+    }
+  ]
+}

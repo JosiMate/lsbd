@@ -1,0 +1,171 @@
+{
+  "id": "lsbd-create-user",
+  "tytul": "Konta użytkowników — CREATE USER",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-USER",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Konto lokalne dla testów",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Na własnym stanowisku XAMPP, zalogowany jako <code>root</code>, utwórz konto <code>tester_lokalny</code> z hasłem <code>test1234</code>, które łączy się z serwerem wyłącznie z <code>localhost</code>. Polecenie wykonaj w zakładce <strong>SQL</strong> phpMyAdmina albo w konsoli MariaDB i zapisz komunikat, który zwróci serwer.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_polecenie",
+              "Wykonane polecenie CREATE USER",
+              "przepisz dokładnie, razem ze średnikiem"
+            ],
+            [
+              "z1_komunikat",
+              "Komunikat zwrotny serwera",
+              "całą linię, którą wyświetlił serwer"
+            ],
+            [
+              "z1_host",
+              "Wartość w kolumnie Host na liście Konta użytkowników",
+              ""
+            ],
+            [
+              "z1_uprawnienia",
+              "Co pokazuje kolumna Uprawnienia globalne dla tego konta",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "zakładka Konta użytkowników w phpMyAdmin z widocznym wierszem tester_lokalny"
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_bez_uprawnien",
+          "wiersze": 3,
+          "pytanie": "Co zobaczy to konto zaraz po zalogowaniu, jeżeli nie nadasz mu żadnych uprawnień?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Konto sieciowe i zasięg hosta",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Utwórz konto <code>admin_sieciowy</code> z hasłem <code>SecureNet2026</code>, które może łączyć się z dowolnego komputera w sieci. Sam zdecyduj, co wpisać w miejsce hosta — na stronie nie ma gotowego polecenia do przepisania. Potem porównaj oba założone konta na liście <strong>Konta użytkowników</strong>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_polecenie",
+              "Wykonane polecenie CREATE USER",
+              ""
+            ],
+            [
+              "z2_zapis_hosta",
+              "Zapis, którego użyłeś w miejscu hosta",
+              ""
+            ],
+            [
+              "z2_host_tester",
+              "Host konta tester_lokalny na liście",
+              ""
+            ],
+            [
+              "z2_host_admin",
+              "Host konta admin_sieciowy na liście",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_roznica",
+          "wiersze": 4,
+          "pytanie": "Czym różni się zasięg tych dwóch kont? Z których komputerów zaloguje się każde z nich?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "lista Konta użytkowników z oboma kontami i widocznymi kolumnami Użytkownik oraz Host"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Porządkowanie kont i dobór hosta do sytuacji",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Usuń konto <code>tester_lokalny</code> i zapisz komunikat zwrotny. Następnie zaplanuj bezpieczny dostęp do serwera w trzech sytuacjach: (a) aplikacja sklepu działa na tym samym komputerze co baza, (b) księgowa pracuje na laptopie o stałym adresie <code>192.168.1.15</code>, (c) zewnętrzny serwis raz w miesiącu łączy się z nieznanego wcześniej adresu. Dla każdej sytuacji zapisz pełne polecenie <code>CREATE USER</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_drop",
+              "Wykonane polecenie DROP USER",
+              ""
+            ],
+            [
+              "z3_drop_komunikat",
+              "Komunikat zwrotny po usunięciu konta",
+              ""
+            ],
+            [
+              "z3_sytuacja_a",
+              "Sytuacja a — polecenie CREATE USER",
+              ""
+            ],
+            [
+              "z3_sytuacja_b",
+              "Sytuacja b — polecenie CREATE USER",
+              ""
+            ],
+            [
+              "z3_sytuacja_c",
+              "Sytuacja c — polecenie CREATE USER",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_ryzyko",
+          "pytanie": "Który zapis hosta daje włamywaczowi największe pole do działania?",
+          "opcje": [
+            "localhost",
+            "konkretny adres IP stacji roboczej",
+            "znak procenta oznaczający dowolny adres"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_uzasadnienie",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij dobór hosta w każdej z trzech sytuacji. W której ryzyko jest największe i czym można je ograniczyć, skoro adresu nie da się z góry wpisać?"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy zakładaniu i usuwaniu kont?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Dlaczego aplikacja nie powinna łączyć się z bazą na koncie root?"
+        }
+      ]
+    }
+  ]
+}

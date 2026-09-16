@@ -1,0 +1,170 @@
+{
+  "id": "lsbd-having-where",
+  "tytul": "HAVING kontra WHERE — w czym tkwi różnica?",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-HAVING",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Filtrowanie grup",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Wyświetl identyfikatory kategorii, w których średnia cena produktu jest wyższa niż 200 zł. Warunek postaw na wyniku funkcji agregującej.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania",
+          "podpowiedz": "SELECT … FROM produkt GROUP BY … HAVING …;"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z1_id",
+              "Identyfikatory kategorii, które przeszły przez sito",
+              "po przecinku"
+            ],
+            [
+              "z1_bez",
+              "Liczba wierszy po usunięciu samej klauzuli HAVING",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_roznica",
+          "wiersze": 3,
+          "pytanie": "Ile grup odrzuciło HAVING i skąd wiesz, że odrzuciło całe grupy, a nie pojedyncze produkty?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Wąskie sito",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Wyświetl nazwy kategorii, w których jest co najmniej 5 produktów — dołącz tabelę <code>kategoria</code>. Jeżeli wynik wyjdzie pusty, dobierz taki próg, przy którym coś się pojawi, i zapisz obie próby.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania z progiem 5"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_ile5",
+              "Liczba wierszy przy progu >= 5",
+              ""
+            ],
+            [
+              "z2_prog",
+              "Próg, przy którym wynik przestał być pusty",
+              "jeśli przy 5 coś było, wpisz „nie dotyczy”"
+            ],
+            [
+              "z2_ile_prog",
+              "Liczba wierszy przy tym progu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_grupowanie",
+          "wiersze": 4,
+          "pytanie": "Po czym grupujesz w tym zapytaniu i dlaczego nie można tu zostawić samego GROUP BY p.id_kategorii, skoro w SELECT jest k.nazwa?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "wynik zapytania z widoczną treścią zapytania i liczbą zwróconych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "WHERE i HAVING w jednym zapytaniu",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Najpierw wykonaj celowo błędne <code>SELECT id_kategorii, COUNT(*) FROM produkt WHERE COUNT(*) &gt; 1 GROUP BY id_kategorii;</code> i przepisz komunikat. Potem wykonaj Ćwiczenie 3 — identyfikatory kategorii, w których jest więcej niż jeden produkt w kolorze czarnym.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_blad",
+              "Komunikat błędu z wersji z COUNT(*) w WHERE",
+              "przepisz dosłownie, z numerem błędu"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_kod",
+          "wiersze": 4,
+          "pytanie": "Ćwiczenie 3 — treść poprawnego zapytania z WHERE i HAVING naraz"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z3_bez_where",
+              "Liczba wierszy po usunięciu warunku na kolor",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_kolejnosc",
+          "wiersze": 5,
+          "pytanie": "Opisz krok po kroku, co w tym jednym zapytaniu robi serwer: co odrzuca WHERE, kiedy powstają grupy i co dopiero potem odcina HAVING."
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_werdykt",
+          "pytanie": "Polecenie: „wyświetl kategorie, w których suma cen produktów przekracza 1000 zł, licząc tylko buty droższe niż 100 zł”. Warunek dotyczący 1000 zł trafia do:",
+          "opcje": [
+            "WHERE",
+            "HAVING",
+            "obie klauzule dadzą ten sam wynik"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Sformułuj jednym zdaniem regułę, po której rozpoznasz w poleceniu egzaminacyjnym, czy warunek idzie do WHERE, czy do HAVING."
+        }
+      ]
+    }
+  ]
+}

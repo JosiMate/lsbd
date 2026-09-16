@@ -1,0 +1,184 @@
+{
+  "id": "lsbd-operacje-crud",
+  "tytul": "Operacje CRUD w kodzie aplikacji",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-CRUD",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Cztery litery CRUD na tabeli produkt",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W pliku <code>crud.php</code> wykonaj przez PDO cztery operacje na bazie <code>obuwie</code>: dodaj nowy produkt do kategorii <strong>Sportowe</strong>, wypisz listę produktów, zmień cenę dodanego produktu i na koniec go usuń. Po każdej operacji strona ma wypisać komunikat.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_create",
+              "Create — zapytanie SQL wysłane przez stronę",
+              ""
+            ],
+            [
+              "z1_read",
+              "Read — zapytanie SQL wysłane przez stronę",
+              ""
+            ],
+            [
+              "z1_update",
+              "Update — zapytanie SQL wysłane przez stronę",
+              ""
+            ],
+            [
+              "z1_delete",
+              "Delete — zapytanie SQL wysłane przez stronę",
+              ""
+            ],
+            [
+              "z1_id_nowego",
+              "id_produktu dodanego produktu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_komunikaty",
+          "wiersze": 4,
+          "pytanie": "Jakie komunikaty wyświetliła strona po kolejnych czterech operacjach? Przepisz je w kolejności."
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_skad_id",
+          "wiersze": 2,
+          "pytanie": "Skąd odczytałeś identyfikator dodanego produktu?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "strona crud.php z listą produktów i komunikatami czterech operacji"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Wyniki zapytania wypisane w pętli",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Napisz plik <code>lista.php</code>, który pobiera z tabeli <code>produkt</code> kolumny <code>nazwa</code>, <code>cena</code> i <code>kolor</code>, a potem wypisuje je jako tabelę HTML. Sam zdecyduj, czy przejdziesz po wynikach metodą <code>fetch</code> w pętli, czy pobierzesz je od razu metodą <code>fetchAll</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_petla",
+          "wiersze": 6,
+          "pytanie": "Przepisz fragment kodu odpowiedzialny za pobranie wyników i przejście po nich."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_metoda",
+              "Wybrana metoda pobierania wyników",
+              ""
+            ],
+            [
+              "z2_wiersze",
+              "Liczba wierszy wypisanych na stronie",
+              ""
+            ],
+            [
+              "z2_kolumny",
+              "Liczba kolumn w wypisanej tabeli",
+              ""
+            ],
+            [
+              "z2_sprawdzenie",
+              "Liczba wierszy w tabeli produkt sprawdzona w phpMyAdminie",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_uzasadnienie",
+          "wiersze": 4,
+          "pytanie": "Dlaczego wybrałeś tę metodę, a nie drugą? Kiedy druga byłaby lepsza?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "strona lista.php z wypisaną tabelą produktów"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "UPDATE bez klauzuli WHERE",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. W phpMyAdminie zrób kopię danych poleceniem <code>CREATE TABLE produkt_kopia AS SELECT * FROM produkt;</code>. Następnie uruchom na kopii <code>UPDATE produkt_kopia SET cena = 99;</code> — bez klauzuli <code>WHERE</code>. Policz skutki i rozpisz przepływ danych, który do nich doprowadził.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_przed",
+              "Liczba wierszy z ceną 99 przed poleceniem",
+              ""
+            ],
+            [
+              "z3_po",
+              "Liczba wierszy z ceną 99 po poleceniu",
+              ""
+            ],
+            [
+              "z3_komunikat",
+              "Komunikat phpMyAdmina o liczbie zmienionych wierszy",
+              ""
+            ],
+            [
+              "z3_odwracalne",
+              "Czy da się odzyskać poprzednie ceny bez kopii zapasowej",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_przeplyw",
+          "wiersze": 6,
+          "pytanie": "Rozpisz kolejne kroki przepływu danych od kliknięcia przycisku w aplikacji do zmiany w tabeli. Wskaż krok, w którym to polecenie należało zatrzymać."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_zabezpieczenie",
+          "wiersze": 4,
+          "pytanie": "Jak zabezpieczysz kod aplikacji przed wysłaniem UPDATE lub DELETE bez klauzuli WHERE? Podaj konkretne rozwiązanie w kodzie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "tabela produkt_kopia po wykonaniu polecenia, z widocznymi jednakowymi cenami"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Która z czterech operacji CRUD sprawiła najwięcej kłopotu w kodzie i dlaczego?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Co od dziś sprawdzasz w zapytaniu, zanim wyślesz je z aplikacji do bazy?"
+        }
+      ]
+    }
+  ]
+}

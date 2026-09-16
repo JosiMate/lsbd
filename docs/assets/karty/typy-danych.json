@@ -14,13 +14,36 @@
         {
           "typ": "tabela",
           "wiersze": [
-            ["Nazwa kolumny", "Typ danych", "Uzasadnienie wyboru"],
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""]
+            [
+              "z1_k1",
+              "Kolumna 1 — nazwa, typ, dlaczego taki",
+              "np. cena — DECIMAL(8,2) — bo pieniądze"
+            ],
+            [
+              "z1_k2",
+              "Kolumna 2 — nazwa, typ, dlaczego taki",
+              ""
+            ],
+            [
+              "z1_k3",
+              "Kolumna 3 — nazwa, typ, dlaczego taki",
+              ""
+            ],
+            [
+              "z1_k4",
+              "Kolumna 4 — nazwa, typ, dlaczego taki",
+              ""
+            ],
+            [
+              "z1_k5",
+              "Kolumna 5 — nazwa, typ, dlaczego taki",
+              ""
+            ],
+            [
+              "z1_k6",
+              "Kolumna 6 — nazwa, typ, dlaczego taki",
+              ""
+            ]
           ]
         }
       ]
@@ -34,17 +57,58 @@
         {
           "typ": "tabela",
           "wiersze": [
-            ["Atrybut", "Zaproponowany typ", "Uzasadnienie"],
-            ["id_zamowienia", "", ""],
-            ["data_zamowienia", "", ""],
-            ["imie_klienta", "", ""],
-            ["nazwisko_klienta", "", ""],
-            ["adres_klienta", "", ""],
-            ["id_produktu", "", ""],
-            ["ilosc", "", ""],
-            ["cena_jednostkowa", "", ""],
-            ["czy_zaplacone", "", ""]
+            [
+              "z2_id_zamowienia",
+              "id_zamowienia — typ",
+              ""
+            ],
+            [
+              "z2_data_zamowienia",
+              "data_zamowienia — typ",
+              ""
+            ],
+            [
+              "z2_imie_klienta",
+              "imie_klienta — typ",
+              ""
+            ],
+            [
+              "z2_nazwisko_klienta",
+              "nazwisko_klienta — typ",
+              ""
+            ],
+            [
+              "z2_adres_klienta",
+              "adres_klienta — typ",
+              ""
+            ],
+            [
+              "z2_id_produktu",
+              "id_produktu — typ",
+              ""
+            ],
+            [
+              "z2_ilosc",
+              "ilosc — typ",
+              ""
+            ],
+            [
+              "z2_cena_jednostkowa",
+              "cena_jednostkowa — typ",
+              ""
+            ],
+            [
+              "z2_czy_zaplacone",
+              "czy_zaplacone — typ",
+              ""
+            ]
           ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_uzasadnienie",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij wybór typu przy czterech atrybutach, przy których decyzja nie była oczywista. Napisz, jaki typ odrzuciłeś i dlaczego."
         }
       ]
     },

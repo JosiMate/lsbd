@@ -1,0 +1,186 @@
+{
+  "id": "lsbd-procedury-funkcje",
+  "tytul": "Procedury i funkcje",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-PROC",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Procedura z jednym parametrem",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W bazie <code>obuwie</code> utwórz procedurę <code>ProduktyKategorii</code> z jednym parametrem wejściowym typu <code>INT</code>, która wypisuje nazwy i ceny produktów z podanej kategorii. Pamiętaj o zmianie ogranicznika poleceń — w phpMyAdminie służy do tego pole <strong>Ogranicznik</strong> pod oknem zapytania. Wywołaj procedurę dla kategorii <strong>Sportowe</strong>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_sql",
+          "wiersze": 7,
+          "pytanie": "Przepisz całą definicję procedury wraz z instrukcjami zmieniającymi ogranicznik."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_ogranicznik",
+              "Użyty ogranicznik poleceń",
+              ""
+            ],
+            [
+              "z1_wywolanie",
+              "Polecenie, którym wywołałeś procedurę dla kategorii Sportowe",
+              ""
+            ],
+            [
+              "z1_wiersze",
+              "Liczba wierszy zwróconych przez procedurę",
+              ""
+            ],
+            [
+              "z1_gdzie",
+              "Gdzie w phpMyAdminie widać listę procedur tej bazy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_bez_ogranicznika",
+          "wiersze": 3,
+          "pytanie": "Spróbuj utworzyć tę procedurę bez zmiany ogranicznika. Jaki komunikat błędu zwróciła baza i w którym miejscu definicji się zatrzymała?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "wynik wywołania procedury w phpMyAdminie"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Funkcja użyta wewnątrz SELECT",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Utwórz funkcję <code>CenaBrutto</code>, która z ceny netto wylicza cenę z 23-procentowym podatkiem VAT. Sam dobierz typ zwracany tak, aby wynik nadawał się do wyświetlenia ceny. Użyj funkcji w zapytaniu wypisującym nazwę produktu i cenę brutto dla całej tabeli <code>produkt</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_sql",
+          "wiersze": 7,
+          "pytanie": "Przepisz definicję funkcji wraz z typem zwracanym i użytymi cechami definicji."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_select",
+          "wiersze": 3,
+          "pytanie": "Przepisz zapytanie SELECT, w którym użyłeś tej funkcji, razem z aliasem kolumny."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_typ",
+              "Zadeklarowany typ zwracany",
+              ""
+            ],
+            [
+              "z2_miejsca",
+              "Liczba miejsc po przecinku w wyniku",
+              ""
+            ],
+            [
+              "z2_najtanszy",
+              "Cena brutto najtańszego produktu",
+              ""
+            ],
+            [
+              "z2_najdrozszy",
+              "Cena brutto najdroższego produktu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_roznica",
+          "wiersze": 4,
+          "pytanie": "Dlaczego to zadanie wymaga funkcji, a nie procedury? Odnieś się do sposobu wywołania jednej i drugiej."
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Procedura z instrukcją warunkową",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Napisz procedurę <code>PrzecenaKategorii</code> z dwoma parametrami wejściowymi: identyfikatorem kategorii i procentem obniżki. Procedura ma obniżyć ceny produktów w tej kategorii, ale tylko wtedy, gdy procent mieści się w zakresie od 1 do 50 — w przeciwnym razie nie może zmienić żadnych danych. Sprawdź w bazie oba przypadki.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_sql",
+          "wiersze": 8,
+          "pytanie": "Przepisz definicję procedury wraz z instrukcją warunkową."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_wywolanie_ok",
+              "Wywołanie z procentem z dozwolonego zakresu",
+              ""
+            ],
+            [
+              "z3_zmienione_ok",
+              "Liczba wierszy, które zmieniły cenę",
+              ""
+            ],
+            [
+              "z3_wywolanie_zle",
+              "Wywołanie z procentem spoza zakresu",
+              ""
+            ],
+            [
+              "z3_zmienione_zle",
+              "Liczba wierszy zmienionych w tym drugim przypadku",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_sprawdzenie",
+          "wiersze": 5,
+          "pytanie": "Jakim zapytaniem sprawdziłeś ceny przed wywołaniem i po nim? Podaj zapytanie oraz obie wartości dla jednego wybranego produktu."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_gdzie_logika",
+          "wiersze": 4,
+          "pytanie": "Podaj jedną korzyść i jedno ryzyko trzymania takiej reguły w bazie zamiast w kodzie aplikacji. Uzasadnij oba."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "ceny produktów danej kategorii przed wywołaniem procedury i po nim"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot: ogranicznik, parametry, a może instrukcja warunkowa?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po czym poznasz, że dane zadanie należy rozwiązać funkcją, a nie procedurą?"
+        }
+      ]
+    }
+  ]
+}

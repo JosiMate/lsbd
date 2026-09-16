@@ -1,0 +1,180 @@
+{
+  "id": "lsbd-widoki",
+  "tytul": "Widoki — wirtualne tabele",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-WIDOK",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Widok na jednej tabeli",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W bazie <code>obuwie</code> utwórz widok <code>v_produkty_drogie</code>, który pokazuje nazwę i cenę produktów droższych niż 300 zł. Odczytaj go zapytaniem <code>SELECT * FROM v_produkty_drogie;</code> i sprawdź, jak phpMyAdmin oznacza go na liście obiektów bazy.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_sql",
+          "wiersze": 4,
+          "pytanie": "Przepisz dokładnie polecenie CREATE VIEW, które wykonałeś."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_wiersze",
+              "Liczba wierszy zwróconych przez widok",
+              ""
+            ],
+            [
+              "z1_kolumny",
+              "Liczba kolumn w wyniku widoku",
+              ""
+            ],
+            [
+              "z1_najdrozszy",
+              "Nazwa najdroższego produktu w widoku",
+              ""
+            ],
+            [
+              "z1_typ",
+              "Co pokazuje kolumna Typ przy tej pozycji na liście obiektów bazy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_miejsce",
+          "wiersze": 3,
+          "pytanie": "Ile miejsca na dysku zajmuje ten widok według phpMyAdmina i dlaczego akurat tyle?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z listą obiektów bazy obuwie i widoczną pozycją v_produkty_drogie"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Widok łączący dwie tabele",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Utwórz widok <code>v_produkt_kategoria</code>, który dla każdego produktu pokazuje jego nazwę, cenę i nazwę kategorii z tabeli <code>kategoria</code>. Sam dobierz rodzaj złączenia i aliasy tak, aby obie kolumny <code>nazwa</code> nie nosiły w wyniku tej samej nazwy.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_sql",
+          "wiersze": 6,
+          "pytanie": "Przepisz polecenie CREATE VIEW wraz z użytym złączeniem i aliasami kolumn."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_zlaczenie",
+              "Użyty rodzaj złączenia",
+              ""
+            ],
+            [
+              "z2_aliasy",
+              "Nazwy kolumn w wyniku widoku",
+              ""
+            ],
+            [
+              "z2_wiersze",
+              "Liczba wierszy zwróconych przez widok",
+              ""
+            ],
+            [
+              "z2_sportowe",
+              "Liczba produktów kategorii Sportowe w widoku",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_sprawdzenie",
+          "wiersze": 4,
+          "pytanie": "Jakim zapytaniem sprawdziłeś, że widok pokazuje wszystkie produkty z tabeli produkt? Podaj zapytanie i obie porównywane liczby."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_dobor",
+          "wiersze": 3,
+          "pytanie": "Dlaczego wybrałeś ten rodzaj złączenia? Co zmieniłoby się w wyniku, gdyby któryś produkt miał puste id_kategorii?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Widok jako ograniczenie dostępu",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Utwórz widok <code>v_produkty_publiczne</code> bez kolumny <code>cena</code> i nadaj użytkownikowi <code>app_obuwie</code> uprawnienie <code>SELECT</code> wyłącznie do tego widoku. Zaloguj się na to konto i sprawdź, co zobaczy przy próbie odczytu tabeli <code>produkt</code>. Potem obniż cenę jednego produktu poniżej 300 zł i sprawdź w bazie, jak zareagował widok <code>v_produkty_drogie</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_sql",
+          "wiersze": 5,
+          "pytanie": "Przepisz polecenia CREATE VIEW i GRANT, które wykonałeś."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_kolumny",
+              "Kolumny widoczne w widoku v_produkty_publiczne",
+              ""
+            ],
+            [
+              "z3_blad",
+              "Komunikat przy próbie odczytu tabeli produkt na koncie app_obuwie",
+              ""
+            ],
+            [
+              "z3_drogie_przed",
+              "Liczba wierszy w v_produkty_drogie przed obniżką ceny",
+              ""
+            ],
+            [
+              "z3_drogie_po",
+              "Liczba wierszy w v_produkty_drogie po obniżce ceny",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_bezpieczenstwo",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij, dlaczego nadanie uprawnień do widoku jest bezpieczniejsze niż nadanie ich do tabeli produkt. Odnieś się do tego, co realnie zobaczył użytkownik app_obuwie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "wynik odczytu widoku na koncie app_obuwie oraz komunikat odmowy dostępu do tabeli produkt"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy tworzeniu widoku ze złączeniem?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "W jakiej sytuacji w bazie obuwie widok naprawdę oszczędza pracę, a kiedy jest zbędny?"
+        }
+      ]
+    }
+  ]
+}

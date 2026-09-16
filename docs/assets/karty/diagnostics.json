@@ -1,0 +1,182 @@
+{
+  "id": "lsbd-diagnostics",
+  "tytul": "Spójność bazy i diagnostyka",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-DIAG",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Naruszone więzy integralności",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 2. W bazie <code>obuwie</code> spróbuj usunąć z tabeli <code>kategoria</code> kategorię, do której przypisane są produkty. Najpierw sprawdź zapytaniem, ile produktów wskazuje na tę kategorię, potem wykonaj <code>DELETE</code> i zapisz komunikat błędu dokładnie tak, jak wyświetlił go serwer — razem z numerem błędu.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_polecenie",
+              "Wykonane polecenie DELETE",
+              ""
+            ],
+            [
+              "z1_kategoria",
+              "Która kategoria i ile produktów do niej należy",
+              ""
+            ],
+            [
+              "z1_blad",
+              "Pełny komunikat błędu",
+              "przepisz razem z numerem błędu"
+            ],
+            [
+              "z1_wiez",
+              "Który więz integralności zablokował operację",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "phpMyAdmin z widoczną treścią polecenia i komunikatem błędu"
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_dlaczego",
+          "wiersze": 4,
+          "pytanie": "Co stałoby się z wierszami tabeli produkt, gdyby baza wykonała to polecenie bez sprzeciwu? Jak nazywamy takie rekordy?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Podgląd pracy serwera",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 1. Wykonaj <code>SHOW PROCESSLIST</code>. Żeby zobaczyć coś więcej niż własne połączenie, w drugiej karcie phpMyAdmina uruchom cięższe zapytanie do tabeli <code>produkt</code> i natychmiast wróć do listy procesów. Sam zdecyduj, jakie zapytanie obciąży serwer na tyle długo, by dało się je złapać.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_obciazenie",
+              "Zapytanie, którym obciążyłeś serwer",
+              ""
+            ],
+            [
+              "z2_procesy",
+              "Liczba procesów widocznych na liście",
+              ""
+            ],
+            [
+              "z2_time",
+              "Największa wartość w kolumnie Time",
+              "w sekundach"
+            ],
+            [
+              "z2_state",
+              "Wartości, które pojawiły się w kolumnie State",
+              ""
+            ],
+            [
+              "z2_info",
+              "Treść z kolumny Info dla najdłużej działającego procesu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "wynik SHOW PROCESSLIST z widocznymi kolumnami Time, State i Info"
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_wniosek",
+          "wiersze": 4,
+          "pytanie": "Po czym na tej liście rozpoznasz zapytanie, które blokuje pracę innych użytkowników? Co administrator robi po takim rozpoznaniu?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "EXPLAIN i decyzja o indeksie",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Wybierz zapytanie <code>SELECT</code> z warunkiem <code>WHERE</code> na kolumnie <code>nazwa</code> tabeli <code>produkt</code> i wykonaj je z przedrostkiem <code>EXPLAIN</code>. Odczytaj kolumny <code>type</code> i <code>rows</code>, potem załóż indeks poleceniem <code>CREATE INDEX</code> i powtórz <code>EXPLAIN</code>. Porównaj oba plany wykonania.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_zapytanie",
+              "Analizowane zapytanie SELECT",
+              ""
+            ],
+            [
+              "z3_type_przed",
+              "Kolumna type przed założeniem indeksu",
+              ""
+            ],
+            [
+              "z3_rows_przed",
+              "Kolumna rows przed założeniem indeksu",
+              ""
+            ],
+            [
+              "z3_index",
+              "Wykonane polecenie CREATE INDEX",
+              ""
+            ],
+            [
+              "z3_type_po",
+              "Kolumna type po założeniu indeksu",
+              ""
+            ],
+            [
+              "z3_rows_po",
+              "Kolumna rows po założeniu indeksu",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "wynik EXPLAIN po założeniu indeksu z widoczną kolumną type"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_analiza",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij, co oznaczała wartość w kolumnie type przed założeniem indeksu i dlaczego przy tabeli z milionem wierszy byłaby poważnym problemem."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_koszt",
+          "wiersze": 4,
+          "pytanie": "Indeks przyspiesza wyszukiwanie, ale nie jest darmowy. Podaj co najmniej dwa koszty jego utrzymywania i wskaż sytuację, w której nie warto go zakładać."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy czytaniu komunikatów błędów i wyniku EXPLAIN?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Od czego zaczniesz, gdy usłyszysz, że „baza działa wolno”?"
+        }
+      ]
+    }
+  ]
+}

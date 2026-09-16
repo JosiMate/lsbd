@@ -110,7 +110,7 @@ Wstawienie `WHERE` po `GROUP BY` spowoduje błąd składni.
     ```sql
     SELECT id_kategorii, COUNT(*) 
     FROM produkt 
-    GROUP BY id_//kategorii;
+    GROUP BY id_kategorii;
     ```
 
 !!! question "Ćwiczenie 3. Sumy i nazwy"

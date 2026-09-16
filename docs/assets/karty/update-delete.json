@@ -1,0 +1,123 @@
+{
+  "id": "lsbd-update-delete",
+  "tytul": "UPDATE i DELETE — i dlaczego zawsze z WHERE",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-UPDEL",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Zmiana jednego rekordu po kluczu głównym",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Wybierz z tabeli <code>produkt</code> dowolny but i zapisz jego <code>id_produktu</code> oraz obecną cenę. Zmień mu cenę poleceniem <code>UPDATE</code> z warunkiem <code>WHERE id_produktu = ...</code>, tak jak w przykładzie z punktu 1 lekcji. Odczytaj z phpMyAdmina, ile wierszy zostało zmodyfikowanych.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_id", "Wybrane id_produktu", ""],
+            ["z1_nazwa", "Nazwa tego produktu", ""],
+            ["z1_cena_przed", "Cena przed zmianą", ""],
+            ["z1_cena_po", "Cena po zmianie", ""],
+            ["z1_kwerenda", "Treść wykonanego polecenia UPDATE", "przepisz dokładnie"],
+            ["z1_wierszy", "Ile wierszy zmodyfikowano (komunikat phpMyAdmina)", ""]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "komunikat phpMyAdmina po wykonaniu UPDATE, z widoczną treścią polecenia i liczbą zmienionych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Podwyżka całej kategorii z obliczeniem",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 1. Podnieś o 20 zł ceny wszystkich produktów z kategorii nr 2. Zanim uruchomisz <code>UPDATE</code>, wykonaj kontrolne zapytanie <code>SELECT</code> z tym samym warunkiem <code>WHERE</code> i zapisz, ile wierszy zwróciło. Potem samodzielnie ułóż drugie polecenie, które zamiast kwoty stałej podniesie te same ceny o 10 procent.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_select", "Kontrolne zapytanie SELECT", "przepisz dokładnie"],
+            ["z2_select_ile", "Ile wierszy zwrócił SELECT", ""],
+            ["z2_update", "Polecenie UPDATE podnoszące cenę o 20 zł", ""],
+            ["z2_update_ile", "Ile wierszy zmodyfikował UPDATE", ""],
+            ["z2_procent", "Polecenie podnoszące te same ceny o 10 procent", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_zgodnosc",
+          "wiersze": 3,
+          "pytanie": "Czy liczba wierszy z kontrolnego SELECT zgodziła się z liczbą zmodyfikowanych wierszy? Co oznaczałaby różnica między tymi liczbami?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_po_co_select",
+          "wiersze": 3,
+          "pytanie": "Po co w ogóle uruchamiać SELECT przed modyfikacją, skoro UPDATE i tak zadziała?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "DELETE i cena pominiętego WHERE",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Usuń z tabeli <code>produkt</code> wszystkie buty droższe niż 1000 zł. Przed usunięciem zrób eksport bazy, żeby móc cofnąć zmianę. Następnie odpowiedz na pytania o skutki pominięcia klauzuli <code>WHERE</code> — samego polecenia bez <code>WHERE</code> nie uruchamiaj.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_kwerenda", "Treść wykonanego polecenia DELETE", "przepisz dokładnie"],
+            ["z3_usunieto", "Ile wierszy usunięto", ""],
+            ["z3_zostalo", "Ile wierszy zostało w tabeli produkt", ""],
+            ["z3_kopia", "Nazwa pliku kopii zapasowej zrobionej przed usuwaniem", ""]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_skutek",
+          "pytanie": "Co zrobiłoby polecenie DELETE FROM produkt bez klauzuli WHERE?",
+          "opcje": [
+            "usunęłoby wszystkie wiersze, ale sama tabela i jej struktura zostałyby w bazie",
+            "usunęłoby tabelę produkt razem ze strukturą i kolumnami",
+            "usunęłoby tylko wiersze, w których któraś kolumna ma wartość NULL",
+            "zostałoby odrzucone, bo baza wymaga klauzuli WHERE"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_spojnosc",
+          "wiersze": 5,
+          "pytanie": "Wyjaśnij, jak wyczyszczenie tabeli produkt wpłynęłoby na spójność bazy obuwie. Odnieś się do powiązania między tabelami kategoria i produkt oraz do tego, czego nie da się już odtworzyć bez kopii zapasowej."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_procedura",
+          "wiersze": 4,
+          "pytanie": "Zapisz własną, trzypunktową procedurę postępowania przed każdą masową modyfikacją danych."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot w tym temacie?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Czy zdarzyło Ci się zmodyfikować więcej wierszy, niż zamierzałeś? Jak to zauważyłeś?"
+        }
+      ]
+    }
+  ]
+}

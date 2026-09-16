@@ -1,0 +1,206 @@
+{
+  "id": "lsbd-wyzwalacze",
+  "tytul": "Wyzwalacze (Triggers)",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-TRIGGER",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Wyzwalacz poprawiający dane przed zapisem",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. W bazie <code>obuwie</code> utwórz wyzwalacz <code>tr_zapobiegaj_ujemnym</code>, który przed wstawieniem wiersza do tabeli <code>produkt</code> zamienia ujemną cenę na 0. Sprawdź jego działanie, wstawiając produkt z ceną <code>-50</code>, i odczytaj z tabeli, co naprawdę zostało zapisane.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z1_sql",
+          "wiersze": 7,
+          "pytanie": "Przepisz całą definicję wyzwalacza."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_moment",
+              "Moment i zdarzenie, na które reaguje wyzwalacz",
+              ""
+            ],
+            [
+              "z1_insert",
+              "Polecenie INSERT, którym sprawdziłeś wyzwalacz",
+              ""
+            ],
+            [
+              "z1_cena_wpisana",
+              "Cena podana w poleceniu INSERT",
+              ""
+            ],
+            [
+              "z1_cena_w_bazie",
+              "Cena odczytana potem z tabeli produkt",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_slowo",
+          "wiersze": 3,
+          "pytanie": "Którego słowa kluczowego użyłeś wewnątrz wyzwalacza do zmiany ceny i dlaczego nie mogło to być to drugie?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "wiersz w tabeli produkt z ceną poprawioną przez wyzwalacz"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Dziennik zmian ceny",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Utwórz tabelę <code>log_cen</code> na identyfikator produktu, starą cenę, nową cenę i datę zmiany. Dodaj wyzwalacz uruchamiany po zmianie wiersza w tabeli <code>produkt</code>, który dopisuje wpis do tej tabeli — ale tylko wtedy, gdy cena faktycznie się zmieniła. Sprawdź to dwoma poleceniami <code>UPDATE</code>: jednym zmieniającym cenę i jednym ustawiającym tę samą wartość co poprzednio.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_tabela_sql",
+          "wiersze": 5,
+          "pytanie": "Przepisz polecenie CREATE TABLE dla tabeli log_cen wraz z typami kolumn."
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_sql",
+          "wiersze": 8,
+          "pytanie": "Przepisz definicję wyzwalacza wraz z warunkiem porównującym starą i nową cenę."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_update_1",
+              "Pierwsze polecenie UPDATE — zmieniające cenę",
+              ""
+            ],
+            [
+              "z2_log_1",
+              "Liczba wierszy w log_cen po pierwszym UPDATE",
+              ""
+            ],
+            [
+              "z2_stara",
+              "Stara cena zapisana w log_cen",
+              ""
+            ],
+            [
+              "z2_nowa",
+              "Nowa cena zapisana w log_cen",
+              ""
+            ],
+            [
+              "z2_log_2",
+              "Liczba wierszy w log_cen po UPDATE ustawiającym tę samą cenę",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_warunek",
+          "wiersze": 4,
+          "pytanie": "Co pokazuje porównanie obu liczb wierszy w log_cen? Do czego potrzebny był warunek wewnątrz wyzwalacza?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "zawartość tabeli log_cen po obu poleceniach UPDATE"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Archiwizacja usuniętych wierszy",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Zrób kopię danych poleceniem <code>CREATE TABLE produkt_kopia AS SELECT * FROM produkt;</code>, utwórz tabelę <code>archiwum_produktow</code> i wyzwalacz uruchamiany po usunięciu wiersza z kopii, zapisujący usuwane dane do archiwum. Usuń jednym poleceniem <code>DELETE</code> wszystkie produkty jednej kategorii i porównaj obie liczby wierszy.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_sql",
+          "wiersze": 8,
+          "pytanie": "Przepisz definicję wyzwalacza archiwizującego."
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_delete",
+              "Wykonane polecenie DELETE",
+              ""
+            ],
+            [
+              "z3_usuniete",
+              "Liczba wierszy usuniętych przez to polecenie",
+              ""
+            ],
+            [
+              "z3_archiwum",
+              "Liczba wierszy w tabeli archiwum_produktow",
+              ""
+            ],
+            [
+              "z3_kopia_po",
+              "Liczba wierszy pozostałych w tabeli produkt_kopia",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z3_zgodnosc",
+          "pytanie": "Czy liczba usuniętych wierszy zgadza się z liczbą wierszy w archiwum?",
+          "opcje": [
+            "tak, są równe",
+            "nie, w archiwum jest mniej",
+            "nie, w archiwum jest więcej"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_for_each",
+          "wiersze": 5,
+          "pytanie": "Ile razy uruchomił się wyzwalacz przy tym jednym poleceniu DELETE? Uzasadnij liczbą z własnego wyniku i wskaż, który fragment definicji o tym decyduje."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_ryzyko",
+          "wiersze": 4,
+          "pytanie": "Podaj sytuację, w której automatyczne działanie wyzwalacza może zaskoczyć programistę aplikacji, i uzasadnij, dlaczego trudno to zauważyć w kodzie aplikacji."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "zawartość tabeli archiwum_produktow po wykonaniu polecenia DELETE"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy pisaniu wyzwalaczy?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Po czym decydujesz, czy wyzwalacz ma działać przed zapisem, czy po nim?"
+        }
+      ]
+    }
+  ]
+}

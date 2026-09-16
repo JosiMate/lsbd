@@ -1,0 +1,184 @@
+{
+  "id": "lsbd-skrypty-struktura",
+  "tytul": "Skrypty tworzące strukturę",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-SKRYPT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Kolejność poleceń w skrypcie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Skrypt ma zbudować trzy tabele: <code>autor</code>, <code>ksiazka</code> (odwołuje się do <code>autor</code>) i <code>egzemplarz</code> (odwołuje się do <code>ksiazka</code>). Ustal kolejność poleceń <code>CREATE TABLE</code> oraz kolejność poleceń <code>DROP TABLE</code> na początku skryptu.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_create_1",
+              "CREATE TABLE — tabela pierwsza",
+              ""
+            ],
+            [
+              "z1_create_2",
+              "CREATE TABLE — tabela druga",
+              ""
+            ],
+            [
+              "z1_create_3",
+              "CREATE TABLE — tabela trzecia",
+              ""
+            ],
+            [
+              "z1_drop_1",
+              "DROP TABLE — tabela usuwana jako pierwsza",
+              ""
+            ],
+            [
+              "z1_drop_2",
+              "DROP TABLE — tabela usuwana jako druga",
+              ""
+            ],
+            [
+              "z1_drop_3",
+              "DROP TABLE — tabela usuwana jako trzecia",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z1_if_exists",
+          "pytanie": "Po co w skrypcie dopisek IF EXISTS przy poleceniu DROP TABLE?",
+          "opcje": [
+            "żeby skrypt nie przerwał się na tabeli, której jeszcze nie ma",
+            "żeby przed usunięciem powstała kopia zapasowa tabeli",
+            "żeby usunąć tylko wiersze, a zostawić strukturę tabeli"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_zasada",
+          "wiersze": 3,
+          "pytanie": "Zapisz jednym zdaniem zasadę, według której ustawia się kolejność poleceń DROP TABLE."
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Własny skrypt i import w phpMyAdminie",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Napisz kompletny skrypt tworzący tabele <code>klient</code> (<code>id_klienta</code>, <code>imie</code>) oraz <code>zamowienie</code> (<code>id_zamowienia</code>, <code>data_zamowienia</code>, <code>id_klienta</code>) — z poleceniami <code>DROP TABLE IF EXISTS</code>, kluczami głównymi i kluczem obcym. Zapisz go w pliku <code>struktura.sql</code> i wczytaj zakładką <strong>Importuj</strong> do bazy ćwiczeniowej. Import wykonaj <strong>dwa razy pod rząd</strong>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_skrypt",
+          "wiersze": 12,
+          "pytanie": "Przepisz cały skrypt, który zaimportowałeś — razem z poleceniami DROP.",
+          "podpowiedz": "DROP TABLE IF EXISTS …"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_baza",
+              "Nazwa bazy, do której importowałeś skrypt",
+              ""
+            ],
+            [
+              "z2_zapytania",
+              "Liczba wykonanych zapytań podana przez phpMyAdmina",
+              ""
+            ],
+            [
+              "z2_drugi_import",
+              "Komunikat po drugim imporcie tego samego pliku",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "komunikat phpMyAdmina po imporcie i lista tabel w lewej kolumnie"
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_bez_drop",
+          "wiersze": 4,
+          "pytanie": "Co zobaczyłbyś przy drugim imporcie, gdyby w skrypcie nie było poleceń DROP TABLE IF EXISTS? Uzasadnij odpowiedź."
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Skrypt, który się nie uruchamia",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Wykonaj w zakładce <strong>SQL</strong> skrypt z lekcji, w którym tabela <code>produkt</code> tworzona jest przed tabelą <code>kategoria</code>. Zanotuj błąd, a potem wskaż dwa różne sposoby doprowadzenia tego skryptu do działania bez zmiany projektu bazy.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_numer",
+              "Numer błędu zgłoszony przez MariaDB",
+              "np. #1824"
+            ],
+            [
+              "z3_tresc",
+              "Fragment komunikatu wskazujący przyczynę",
+              ""
+            ],
+            [
+              "z3_sposob_1",
+              "Sposób naprawy nr 1 — jednym zdaniem",
+              ""
+            ],
+            [
+              "z3_sposob_2",
+              "Sposób naprawy nr 2 — jednym zdaniem",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "komunikat błędu po uruchomieniu skryptu w złej kolejności"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_porownanie",
+          "wiersze": 5,
+          "pytanie": "Porównaj oba sposoby naprawy: który jest bezpieczniejszy w skrypcie oddawanym na egzaminie i dlaczego? Weź pod uwagę, co się stanie, gdy ktoś uruchomi Twój skrypt na pustej bazie."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_obuwie",
+          "wiersze": 4,
+          "pytanie": "Skrypt z punktu 1 lekcji buduje bazę obuwie. Wypisz z niego nazwy tabel w kolejności, w jakiej powstają, i wyjaśnij, dlaczego polecenia DROP na górze skryptu mają kolejność odwrotną."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy pisaniu i importowaniu własnego skryptu?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Ile minut zajęło Ci doprowadzenie skryptu do stanu, w którym uruchamia się bez błędu?"
+        }
+      ]
+    }
+  ]
+}

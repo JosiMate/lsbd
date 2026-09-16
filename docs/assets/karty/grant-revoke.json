@@ -1,0 +1,172 @@
+{
+  "id": "lsbd-grant-revoke",
+  "tytul": "Uprawnienia — GRANT i REVOKE",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-GRANT",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Konto tylko do odczytu i dowód, że działa",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Jako <code>root</code> na własnym stanowisku utwórz konto <code>raportowy</code> (host <code>localhost</code>, hasło <code>raport2026</code>) i nadaj mu wyłącznie prawo odczytu bazy <code>obuwie</code>. Następnie wyloguj się z phpMyAdmina, zaloguj na konto <code>raportowy</code> i spróbuj usunąć dowolny wiersz z tabeli <code>produkt</code>. Zapisz komunikat, który zwróci serwer.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_create",
+              "Wykonane polecenie CREATE USER",
+              ""
+            ],
+            [
+              "z1_grant",
+              "Wykonane polecenie GRANT",
+              ""
+            ],
+            [
+              "z1_komunikat",
+              "Komunikat zwrotny po wykonaniu GRANT",
+              ""
+            ],
+            [
+              "z1_blad",
+              "Komunikat błędu przy próbie usunięcia wiersza",
+              "przepisz całość razem z numerem błędu"
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "wynik polecenia SHOW GRANTS dla konta raportowy"
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_dlaczego",
+          "wiersze": 3,
+          "pytanie": "Dlaczego serwer odrzucił usuwanie, choć konto raportowy bez przeszkód wyświetla dane z tabeli produkt?"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Poziom bazy kontra poziom tabeli",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. Utwórz konto <code>manager_bazy</code> (host <code>localhost</code>, hasło <code>mgr123</code>) i nadaj mu wszystkie uprawnienia do bazy <code>obuwie</code>. Następnie samodzielnie ułóż polecenie, które nada trzeciemu, nowemu kontu prawo <code>SELECT</code> ograniczone do jednej tabeli <code>produkt</code>. Porównaj wyniki <code>SHOW GRANTS</code> dla obu kont.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_grant_baza",
+              "Polecenie GRANT na poziomie bazy",
+              ""
+            ],
+            [
+              "z2_grant_tabela",
+              "Polecenie GRANT na poziomie pojedynczej tabeli",
+              ""
+            ],
+            [
+              "z2_grants_manager",
+              "Linia z SHOW GRANTS dotycząca bazy obuwie dla manager_bazy",
+              ""
+            ],
+            [
+              "z2_grants_tabela",
+              "Linia z SHOW GRANTS dotycząca tabeli produkt dla drugiego konta",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "wybor",
+          "id": "z2_zakres",
+          "pytanie": "Konto ma prawo odczytu tylko tabeli produkt. Co zobaczy po wykonaniu zapytania do tabeli kategoria?",
+          "opcje": [
+            "dane tabeli kategoria",
+            "pustą listę wyników",
+            "komunikat o braku uprawnień"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_roznica",
+          "wiersze": 4,
+          "pytanie": "Po czym w samym zapisie polecenia GRANT poznasz, że uprawnienie obejmuje całą bazę, a po czym — jedną tabelę? Sprawdź swoją odpowiedź w wyniku SHOW GRANTS."
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Odebranie uprawnienia i projekt ról w sklepie",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3. Konto <code>raportowy</code> otrzymało przez pomyłkę prawo <code>DELETE</code> — odbierz je i sprawdź efekt poleceniem <code>SHOW GRANTS</code>. Następnie zaprojektuj uprawnienia dla trzech ról w sklepie z obuwiem: kasjer widzi wyłącznie dane, magazynier dodatkowo poprawia wiersze w tabeli <code>produkt</code>, właściciel zarządza całą bazą <code>obuwie</code>. Dla każdej roli zapisz pełne polecenie <code>GRANT</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_revoke",
+              "Wykonane polecenie REVOKE",
+              ""
+            ],
+            [
+              "z3_po_revoke",
+              "Co zmieniło się w wyniku SHOW GRANTS po odebraniu prawa",
+              ""
+            ],
+            [
+              "z3_kasjer",
+              "Kasjer — polecenie GRANT",
+              ""
+            ],
+            [
+              "z3_magazynier",
+              "Magazynier — polecenie GRANT",
+              ""
+            ],
+            [
+              "z3_wlasciciel",
+              "Właściciel — polecenie GRANT",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_uzasadnienie",
+          "wiersze": 5,
+          "pytanie": "Uzasadnij, dlaczego żadnej z tych ról nie nadałeś uprawnienia ALL PRIVILEGES na poziomie globalnym. Co mógłby zrobić włamywacz, gdyby wykradł hasło kasjera z Twojego zestawu uprawnień?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_pulapka",
+          "wiersze": 3,
+          "pytanie": "Czym różni się skutek polecenia REVOKE od skutku polecenia DROP USER? Opisz, co zostaje na serwerze po każdym z nich."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy nadawaniu i odbieraniu uprawnień?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Na jakim poziomie — globalnym, bazy czy tabeli — będziesz domyślnie nadawał uprawnienia i dlaczego?"
+        }
+      ]
+    }
+  ]
+}

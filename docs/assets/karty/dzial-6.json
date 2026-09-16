@@ -1,0 +1,148 @@
+{
+  "id": "lsbd-dzial-6",
+  "tytul": "Dział VI. Modyfikacja danych — dziennik wdrożenia",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D6",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Lekcja 1 — wprowadzanie danych",
+      "poziom": "INSERT — wprowadzanie danych",
+      "polecenie": "Uzupełnij po lekcji o poleceniu <code>INSERT INTO</code>. Zapisz, co dodałeś do bazy <code>obuwie</code> i skąd wiadomo, że się udało.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z1_data", "Data lekcji", ""],
+            ["z1_co", "Co dodałeś do bazy (tabela i liczba rekordów)", ""],
+            ["z1_kwerenda", "Jedno polecenie INSERT, które zadziałało", "przepisz dokładnie"],
+            ["z1_sprawdzenie", "Czym sprawdziłeś, że rekordy są w tabeli", ""],
+            ["z1_plik", "Nazwa pliku, w którym zapisałeś polecenia", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz jedną rzecz z tej lekcji, o której chcesz pamiętać na egzaminie."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "efekt lekcji — tabela z dodanymi rekordami albo komunikat o wykonanym poleceniu"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Lekcja 2 — modyfikowanie i usuwanie",
+      "poziom": "UPDATE i DELETE — i dlaczego zawsze z WHERE",
+      "polecenie": "Uzupełnij po lekcji o poleceniach <code>UPDATE</code> i <code>DELETE</code>. Zapisz oba polecenia i liczby wierszy, których dotyczyły.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z2_data", "Data lekcji", ""],
+            ["z2_update", "Wykonane polecenie UPDATE", "przepisz dokładnie"],
+            ["z2_update_ile", "Ile wierszy zmodyfikowano", ""],
+            ["z2_delete", "Wykonane polecenie DELETE", "przepisz dokładnie"],
+            ["z2_delete_ile", "Ile wierszy usunięto", ""],
+            ["z2_kopia", "Czy przed zmianami zrobiłeś kopię — nazwa pliku", ""]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_notatka",
+          "wiersze": 3,
+          "pytanie": "Zapisz, w jaki sposób upewniałeś się, że warunek WHERE obejmuje dokładnie te wiersze, o które chodziło."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "efekt lekcji — komunikat phpMyAdmina z liczbą zmodyfikowanych lub usuniętych wierszy"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Lekcja 3 — import i eksport",
+      "poziom": "Import i eksport danych",
+      "polecenie": "Uzupełnij po lekcji o imporcie i eksporcie. Zapisz, jaki plik powstał i czy odtworzenie bazy z niego się powiodło.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            ["z3_data", "Data lekcji", ""],
+            ["z3_plik", "Nazwa wyeksportowanego pliku", ""],
+            ["z3_rozmiar", "Rozmiar pliku", ""],
+            ["z3_metoda", "Użyta metoda eksportu", "szybka albo niestandardowa"],
+            ["z3_wynik", "Wynik importu — komunikat po wczytaniu pliku", ""],
+            ["z3_gdzie", "Gdzie przechowujesz ten plik po lekcji", "pendrive, chmura, dysk domowy"]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_notatka",
+          "wiersze": 3,
+          "pytanie": "Opisz kolejność czynności, którą zapamiętałeś, na wypadek gdyby import na egzaminie się nie powiódł."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "efekt lekcji — lista tabel bazy obuwie odtworzonej z pliku"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Co było trudne",
+      "poziom": "",
+      "polecenie": "Zbierz w jednym miejscu to, co w tym dziale poszło nie tak. Konkretny komunikat błędu jest wart więcej niż ogólne „nie działało”.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z4_najtrudniejszy",
+          "pytanie": "Który temat działu kosztował Cię najwięcej czasu?",
+          "opcje": [
+            "INSERT — wprowadzanie danych",
+            "UPDATE i DELETE — i dlaczego zawsze z WHERE",
+            "Import i eksport danych"
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_komunikat",
+          "wiersze": 4,
+          "pytanie": "Przepisz komunikat błędu, który najbardziej Cię zatrzymał, i napisz, co ostatecznie go usunęło."
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_pomoc",
+          "wiersze": 3,
+          "pytanie": "Skąd korzystałeś z pomocy: materiał z lekcji, kolega, nauczyciel, internet? Co okazało się najskuteczniejsze?"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Którą z trzech operacji — dodawanie, modyfikowanie, odtwarzanie bazy z pliku — musisz jeszcze przećwiczyć przed egzaminem?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Czy ktoś inny odtworzyłby Twoją pracę wyłącznie na podstawie tego dziennika? Czego ewentualnie brakuje?"
+        }
+      ]
+    }
+  ]
+}

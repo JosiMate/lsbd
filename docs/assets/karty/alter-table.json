@@ -1,0 +1,182 @@
+{
+  "id": "lsbd-alter-table",
+  "tytul": "ALTER TABLE — rozbudowa istniejącej bazy",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-ALTER",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Dwie nowe kolumny w tabeli klient",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 1. Do tabeli <code>klient</code> (tej utworzonej przy temacie <code>CREATE TABLE</code>) dodaj kolumnę <code>miasto</code> — tekst do 50 znaków, opcjonalny — oraz kolumnę <code>pesel</code> — tekst o stałej długości 11 znaków, obowiązkowy. Każde polecenie wykonaj osobno w zakładce <strong>SQL</strong>, a po każdym zajrzyj do zakładki <strong>Struktura</strong>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_sql_miasto",
+              "Polecenie dodające kolumnę miasto",
+              "ALTER TABLE klient ADD …"
+            ],
+            [
+              "z1_sql_pesel",
+              "Polecenie dodające kolumnę pesel",
+              ""
+            ],
+            [
+              "z1_typ_pesel",
+              "Typ kolumny pesel w widoku Struktura",
+              ""
+            ],
+            [
+              "z1_pozycja",
+              "Na których pozycjach listy kolumn znalazły się nowe kolumny",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z1_wartosci",
+          "wiersze": 3,
+          "pytanie": "Jaką wartość dostały nowe kolumny w wierszach, które były w tabeli wcześniej? Sprawdź to w zakładce Przeglądaj i zapisz, co widzisz."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z1_zrzut",
+          "opis": "Struktura tabeli klient z widocznymi kolumnami miasto i pesel"
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Zmiana typu kolumny z nazwą produktu",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 2. W tabeli <code>produkt</code> kolumna z nazwą ma ograniczoną długość. Odczytaj jej obecny typ, a następnie zmień go tak, żeby mieściła 255 znaków i nie dopuszczała wartości pustych. Właściwe słowo kluczowe dobierz sam.",
+      "pola": [
+        {
+          "typ": "wybor",
+          "id": "z2_slowo",
+          "pytanie": "Którego słowa kluczowego użyłeś w poleceniu ALTER TABLE?",
+          "opcje": [
+            "MODIFY — zmieniam tylko typ i ograniczenie",
+            "CHANGE — zmieniam także nazwę kolumny",
+            "DROP COLUMN, a potem ADD od nowa"
+          ]
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_typ_przed",
+              "Typ kolumny przed zmianą",
+              ""
+            ],
+            [
+              "z2_null_przed",
+              "Rubryka Null przed zmianą (Tak/Nie)",
+              ""
+            ],
+            [
+              "z2_sql",
+              "Wykonane polecenie ALTER TABLE",
+              ""
+            ],
+            [
+              "z2_typ_po",
+              "Typ kolumny po zmianie",
+              ""
+            ],
+            [
+              "z2_null_po",
+              "Rubryka Null po zmianie (Tak/Nie)",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_change",
+          "wiersze": 4,
+          "pytanie": "Zapisz, jak wyglądałoby to samo polecenie, gdyby przy okazji trzeba było zmienić nazwę kolumny na nazwa_produktu. Wskaż, czym te dwa zapisy różnią się w składni."
+        },
+        {
+          "typ": "zrzut",
+          "id": "z2_zrzut",
+          "opis": "Struktura tabeli produkt po zmianie, z widocznym nowym typem kolumny"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Ryzykowna zmiana typu i usunięcie kolumny",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 3 i ostrzeżenie z punktu 4 lekcji. W tabeli <code>kategoria</code> dodaj kolumnę <code>opis_stary VARCHAR(30)</code>, wpisz do niej w kilku wierszach wartości tekstowe (na przykład <code>brak</code>), a potem spróbuj zmienić jej typ na <code>INT</code>. Obejrzyj wynik oraz ostrzeżenia poleceniem <code>SHOW WARNINGS;</code>. Na koniec usuń kolumnę <code>opis_stary</code>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_sql_modify",
+              "Polecenie zmieniające typ kolumny na INT",
+              ""
+            ],
+            [
+              "z3_efekt",
+              "Co stało się z wartościami tekstowymi po zmianie typu",
+              ""
+            ],
+            [
+              "z3_ostrzezenia",
+              "Liczba ostrzeżeń z SHOW WARNINGS i ich treść",
+              ""
+            ],
+            [
+              "z3_sql_drop",
+              "Polecenie usuwające kolumnę opis_stary",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z3_zrzut",
+          "opis": "wynik SHOW WARNINGS albo zawartość kolumny opis_stary po zmianie typu"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_procedura",
+          "wiersze": 5,
+          "pytanie": "Zaproponuj bezpieczną procedurę zmiany typu kolumny w tabeli, w której są już dane klientów. Wypisz kroki w kolejności i wskaż, w którym momencie robisz kopię zapasową."
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_drop",
+          "wiersze": 4,
+          "pytanie": "Dlaczego DROP COLUMN jest groźniejszy niż DELETE z warunkiem WHERE? Odnieś się do tego, co da się odzyskać w jednym, a co w drugim przypadku."
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Co sprawiło kłopot przy modyfikowaniu struktury tabeli?"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 2,
+          "pytanie": "Które polecenie z tej lekcji wykonasz następnym razem dopiero po zrobieniu kopii zapasowej?"
+        }
+      ]
+    }
+  ]
+}
