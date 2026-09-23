@@ -34,6 +34,14 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+  function dzisiejszaDataLocal() {
+    const d = new Date();
+    const rok = d.getFullYear();
+    const miesiac = String(d.getMonth() + 1).padStart(2, "0");
+    const dzien = String(d.getDate()).padStart(2, "0");
+    return `${rok}-${miesiac}-${dzien}`;
+  }
+
   // ---------------------------------------------------------------- magazyn
   const wczytaj = (id) => {
     try { return JSON.parse(localStorage.getItem(KLUCZ(id))) || {}; }
@@ -266,7 +274,15 @@
     let dane = wczytaj(id);
     // Wartości domyślne (klasa) są tylko w atrybucie value pola — bez tego
     // nigdy nie trafiłyby do zapisanych danych, bo nikt ich nie edytuje.
-    if (!dane._klasa && def.klasa) { dane._klasa = def.klasa; zapisz(id, dane); }
+    let zmieniono = false;
+    if (!dane._klasa && def.klasa) { dane._klasa = def.klasa; zmieniono = true; }
+    if (!dane._data) {
+      const dzis = dzisiejszaDataLocal();
+      dane._data = dzis;
+      dane._data_domyslna = dzis;
+      zmieniono = true;
+    }
+    if (zmieniono) { zapisz(id, dane); }
     render(host, def, dane);
     const status = host.querySelector(".kp-status");
 
@@ -426,12 +442,14 @@
           status.className = "kp-status kp-blad";
           return;
         }
-        /* Liczymy tylko to, co uczeń naprawdę wpisał. Klasa wjeżdża do danych
-           sama przy pierwszym otwarciu karty (wartość domyślna z definicji),
-           więc bez tego wyjątku nawet pusta karta zgłaszała „masz już
+        /* Liczymy tylko to, co uczeń naprawdę wpisał. Klasa i data wjeżdżają
+           do danych same przy pierwszym otwarciu karty (wartości domyślne),
+           więc bez tych wyjątków nawet pusta karta zgłaszała „masz już
            wypełnione pola" i straszyła nadpisaniem. */
         const wypelnione = Object.entries(dane).filter(([k, v]) =>
-          v !== "" && v != null && !(k === "_klasa" && v === def.klasa)).length;
+          v !== "" && v != null && k !== "_data_domyslna"
+          && !(k === "_klasa" && v === def.klasa)
+          && !(k === "_data" && v === dane._data_domyslna)).length;
         const kiedy = paczka.zapisano
           ? new Date(paczka.zapisano).toLocaleString("pl-PL")
           : "nieznanej daty";
