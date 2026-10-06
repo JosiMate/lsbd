@@ -63,6 +63,8 @@ extra_javascript:
   # przy generowaniu pliku .docx, żeby nie obciążać czytelników materiału.
   # sql-trener.js sam pobiera silnik SQLite z cdnjs przy pierwszym użyciu.
   - assets/js/karta.js
+  # „Moje informacje zwrotne” (strona informacje-zwrotne.md) — komentarze nauczyciela po kodzie z karteczki
+  - assets/js/informacje.js
   - assets/js/quiz.js
   - assets/js/postep.js
   - assets/js/sql-trener.js
