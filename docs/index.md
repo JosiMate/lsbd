@@ -82,6 +82,7 @@ Ciebie i nie ma nic wspólnego z ocenami.
 | **[Funkcje agregujące i GROUP BY](dzial-4/agregacja-groupby.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[HAVING kontra WHERE](dzial-4/having-where.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[Podzapytania](dzial-4/podzapytania.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Zamówienia w sklepie — karta pracy działu](dzial-4/zamowienia-praktyka.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział V. Struktura bazy
 

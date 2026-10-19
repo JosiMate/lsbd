@@ -14,6 +14,7 @@ To jest najczęściej punktowana część arkusza INF.03 i jednocześnie ta, w k
 | Funkcje agregujące i GROUP BY | [Materiał i ćwiczenia](agregacja-groupby.md) |
 | HAVING kontra WHERE | [Materiał i ćwiczenia](having-where.md) |
 | Podzapytania | [Materiał i ćwiczenia](podzapytania.md) |
+| Zamówienia w sklepie — karta pracy działu (2 h) | [Karta pracy i ćwiczenia](zamowienia-praktyka.md) |
 
 ## Wymagania na oceny w tym dziale
 

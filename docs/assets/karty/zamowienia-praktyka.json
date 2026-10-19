@@ -1,0 +1,344 @@
+{
+  "id": "lsbd-zamowienia-praktyka",
+  "tytul": "Zamówienia w sklepie — karta pracy działu IV",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D4-ZAM",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Struktura bazy",
+      "poziom": "wymagania konieczne · ocena 2",
+      "polecenie": "Ćwiczenie 1 i pierwsze „Przewiduj”. Odczytaj strukturę bazy — w trenerze przycisk <strong>Pokaż strukturę</strong>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_zam_kl",
+              "Kolumna, po której łączy się zamowienie z klient",
+              ""
+            ],
+            [
+              "z1_poz_prod",
+              "Kolumna, po której łączy się pozycja z produkt",
+              ""
+            ],
+            [
+              "z1_obce",
+              "Wszystkie klucze obce tabeli pozycja",
+              "po przecinku"
+            ],
+            [
+              "z1_przewiduj",
+              "Twoje przewidywanie: ile wierszy da SELECT * FROM klient, zamowienie",
+              "wpisz przed wykonaniem"
+            ],
+            [
+              "z1_iloczyn",
+              "Ile wierszy zwróciło to zapytanie w trenerze",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Kto złożył zamówienie",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Ćwiczenie 2. Data każdego zamówienia oraz imię i nazwisko klienta, z aliasami <code>z</code> i <code>k</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania",
+          "podpowiedz": "SELECT … FROM zamowienie z JOIN klient k ON …;"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z2_alias",
+          "wiersze": 2,
+          "pytanie": "Co by się stało, gdybyś w warunku ON napisał samo id_klienta, bez aliasu?"
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Zamówienia z Tarnowa",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 3. Numer zamówienia, data i nazwisko klienta — tylko klienci z Tarnowa, od najnowszego zamówienia.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ],
+            [
+              "z3_pierwszy",
+              "Numer zamówienia w pierwszym wierszu wyniku",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Klienci, którzy nic nie kupili",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Ćwiczenie 4 a) i b). Złączenie zewnętrzne i warunek <code>IS NULL</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z4a_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania a)"
+        },
+        {
+          "typ": "tekst",
+          "id": "z4b_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania b)"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z4a_ile",
+              "Ile wierszy zwróciło zapytanie a)",
+              ""
+            ],
+            [
+              "z4_kto",
+              "Klienci bez zamówień — imiona i nazwiska",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z4_notatka",
+          "wiersze": 3,
+          "pytanie": "Ile wierszy dałoby zapytanie a) ze zwykłym JOIN zamiast LEFT JOIN i dlaczego tyle?"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z4_zrzut",
+          "opis": "wynik zapytania a) z widocznymi wartościami NULL"
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Ile zamówień złożył każdy klient",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Drugie „Przewiduj” i ćwiczenie 5. Grupowanie po kliencie i <code>COUNT</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z5_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z5_anna",
+              "Ile zamówień złożyła Anna Nowak",
+              ""
+            ],
+            [
+              "z5_przewiduj",
+              "Co pokazały zapytania A i B z „Przewiduj” przy Ewie Kowalczyk",
+              "A: …, B: …"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_dlaczego",
+          "wiersze": 2,
+          "pytanie": "Dlaczego przy LEFT JOIN liczy się kolumnę z prawej tabeli, a nie gwiazdkę?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Trzy tabele",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 6. Data zamówienia, nazwa produktu i ilość dla pozycji zamówień od 1 października 2026.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z6_kod",
+          "wiersze": 5,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z6_ile",
+              "Liczba zwróconych wierszy",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z6_droga",
+          "wiersze": 2,
+          "pytanie": "Przez którą tabelę idzie połączenie zamówienia z produktem i dlaczego nie da się ich złączyć bezpośrednio?"
+        }
+      ]
+    },
+    {
+      "nr": 7,
+      "tytul": "Duże zamówienia",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 7 a) i b). Wartość zamówienia jako <code>SUM(cena × ilosc)</code>, potem tylko powyżej 550 zł.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z7a_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania a)"
+        },
+        {
+          "typ": "tekst",
+          "id": "z7b_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania b)"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z7_max",
+              "Numer i wartość najdroższego zamówienia",
+              "nr …, … zł"
+            ],
+            [
+              "z7b_ile",
+              "Ile zamówień zostało po warunku b)",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z7_having",
+          "wiersze": 2,
+          "pytanie": "Dlaczego warunek > 550 stoi w HAVING, a nie w WHERE?"
+        }
+      ]
+    },
+    {
+      "nr": 8,
+      "tytul": "Czego nikt nie kupił",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 8 a) i b). Podzapytania z <code>NOT IN</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z8a_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania a)"
+        },
+        {
+          "typ": "tekst",
+          "id": "z8b_kod",
+          "wiersze": 4,
+          "pytanie": "Treść zapytania b)"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z8a_produkt",
+              "Produkt, którego nikt nie zamówił",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z8_porownanie",
+          "wiersze": 3,
+          "pytanie": "Porównaj ćwiczenie 8b z 4b: czy wynik jest ten sam? Który sposób wybrałbyś na egzaminie i dlaczego?"
+        }
+      ]
+    },
+    {
+      "nr": 9,
+      "tytul": "Tak jak na egzaminie",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Ćwiczenie 9 — w phpMyAdminie, na bazie zaimportowanej z pliku <code>obuwie-zamowienia.sql</code>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z9_kod",
+          "wiersze": 5,
+          "pytanie": "Treść zapytania"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z9_najlepsza",
+              "Kategoria, która sprzedała się najlepiej, i liczba par",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "zrzut",
+          "id": "z9_zrzut",
+          "opis": "cały ekran z phpMyAdminem: treść zapytania i wynik, z widocznym paskiem zadań"
+        }
+      ]
+    },
+    {
+      "nr": 10,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Które ćwiczenie sprawiło największy kłopot i na czym on polegał"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Po czym w treści polecenia egzaminacyjnego poznasz, że potrzebujesz LEFT JOIN, GROUP BY albo HAVING? Po jednym sygnale na każde."
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,9 @@
  *                   „braki"  — ten sam sklep z dziurami: puste ceny, kolory
  *                              i wysokości, produkty bez kategorii oraz jedna
  *                              kategoria bez produktów (do NULL i LEFT JOIN)
+ *                   „zamowienia" — „obuwie" plus klienci, zamówienia i pozycje
+ *                              zamówień (pięć tabel; złączenia trzech tabel,
+ *                              klienci bez zamówień, produkt nigdy niekupiony)
  *   data-start    — treść wpisana do pola na starcie (opcjonalnie)
  *   data-wzorzec  — poprawne zapytanie; jeśli podane, trener porówna wynik
  *                   ucznia z wynikiem wzorca i powie, czy się zgadza
@@ -100,6 +103,89 @@
       " (9,'Halówka Pro',      219.00,NULL,       'skóra ekologiczna', 8,   4),",
       " (10,'Trzewik Turysta', 399.00,'zielony',  'tkanina',          22,NULL),",
       " (11,'Wkładka Zima',    NULL,  NULL,       'filc',           NULL,NULL);",
+    ].join("\n"),
+
+    // Sklep „obuwie" rozszerzony o sprzedaż — do karty pracy działu IV
+    // (zamowienia-praktyka.md). Kategorie i produkty są te same co w zestawie
+    // „obuwie", dochodzą klienci, zamówienia i pozycje zamówień. Celowo: dwóch
+    // klientów nie ma żadnego zamówienia, a „Biegacz 300" nie trafił do
+    // żadnego — do LEFT JOIN, IS NULL i NOT IN. Pozycja łączy zamówienie
+    // z produktem, więc da się ćwiczyć złączenie trzech tabel.
+    zamowienia: [
+      "CREATE TABLE kategoria (",
+      "  id_kategorii INTEGER PRIMARY KEY,",
+      "  nazwa        TEXT NOT NULL",
+      ");",
+      "CREATE TABLE produkt (",
+      "  id_produktu  INTEGER PRIMARY KEY,",
+      "  nazwa        TEXT NOT NULL,",
+      "  cena         REAL NOT NULL,",
+      "  kolor        TEXT,",
+      "  material     TEXT,",
+      "  wysokosc     INTEGER,",
+      "  id_kategorii INTEGER REFERENCES kategoria(id_kategorii)",
+      ");",
+      "CREATE TABLE klient (",
+      "  id_klienta   INTEGER PRIMARY KEY,",
+      "  imie         TEXT NOT NULL,",
+      "  nazwisko     TEXT NOT NULL,",
+      "  miasto       TEXT",
+      ");",
+      "CREATE TABLE zamowienie (",
+      "  id_zamowienia   INTEGER PRIMARY KEY,",
+      "  id_klienta      INTEGER REFERENCES klient(id_klienta),",
+      "  data_zamowienia TEXT NOT NULL",
+      ");",
+      "CREATE TABLE pozycja (",
+      "  id_pozycji    INTEGER PRIMARY KEY,",
+      "  id_zamowienia INTEGER REFERENCES zamowienie(id_zamowienia),",
+      "  id_produktu   INTEGER REFERENCES produkt(id_produktu),",
+      "  ilosc         INTEGER NOT NULL",
+      ");",
+      "INSERT INTO kategoria VALUES",
+      " (1,'Trzewiki'),",
+      " (2,'Kozaki'),",
+      " (3,'Sandały'),",
+      " (4,'Sportowe');",
+      "INSERT INTO produkt VALUES",
+      " (1,'Trzewik Alpin',329.00,'czarny','skóra naturalna',18,1),",
+      " (2,'Trzewik Roboczy',259.50,'brązowy','skóra naturalna',15,1),",
+      " (3,'Kozak Klasyk',449.00,'czarny','skóra naturalna',34,2),",
+      " (4,'Kozak Zimowy',519.99,'bordowy','skóra naturalna',36,2),",
+      " (5,'Sandał Lato',129.00,'beżowy','skóra ekologiczna',4,3),",
+      " (6,'Sandał Trekking',189.00,'szary','tkanina',6,3),",
+      " (7,'Biegacz 200',279.00,'niebieski','tkanina',9,4),",
+      " (8,'Biegacz 300',349.00,'czarny','tkanina',11,4),",
+      " (9,'Halówka Pro',219.00,'biały','skóra ekologiczna',8,4),",
+      " (10,'Trzewik Turysta',399.00,'zielony','tkanina',22,1);",
+      "INSERT INTO klient VALUES",
+      " (1,'Anna','Nowak','Tarnów'),",
+      " (2,'Piotr','Wiśniewski','Kraków'),",
+      " (3,'Katarzyna','Lis','Szczucin'),",
+      " (4,'Marek','Zając','Tarnów'),",
+      " (5,'Ewa','Kowalczyk','Dąbrowa Tarnowska'),",
+      " (6,'Tomasz','Wójcik','Kraków');",
+      "INSERT INTO zamowienie VALUES",
+      " (1,1,'2026-09-02'),",
+      " (2,2,'2026-09-05'),",
+      " (3,1,'2026-09-14'),",
+      " (4,3,'2026-09-20'),",
+      " (5,4,'2026-10-01'),",
+      " (6,2,'2026-10-03'),",
+      " (7,1,'2026-10-08');",
+      "INSERT INTO pozycja VALUES",
+      " (1,1,1,1),",
+      " (2,1,5,2),",
+      " (3,2,7,1),",
+      " (4,2,9,1),",
+      " (5,3,3,1),",
+      " (6,4,9,2),",
+      " (7,4,6,1),",
+      " (8,5,4,1),",
+      " (9,5,2,1),",
+      " (10,6,7,2),",
+      " (11,7,10,1),",
+      " (12,7,5,1);",
     ].join("\n"),
   };
 
