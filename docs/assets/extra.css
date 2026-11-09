@@ -368,3 +368,47 @@
 .md-typeset details.rozgrzewka > summary::after {
   background-color: var(--rz-akcent);
 }
+
+/* ─────────────────────── Stanowisko pracy: karta + trener SQL ───────────────────────
+   Strona z kartą pracy działu V (dzial-5/biblioteka-praktyka.md): karta po lewej,
+   trener SQL po prawej przyklejony do ekranu — uczeń przewija kartę, a trener zostaje
+   na miejscu. Strona ukrywa boczne menu (hide: navigation, toc), a tu poszerzamy
+   obszar treści, żeby obie kolumny miały miejsce. Na wąskim ekranie kolumny
+   układają się jedna pod drugą. */
+body:has(.stanowisko) .md-main__inner.md-grid { max-width: 100rem; }
+.stanowisko {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  margin: 1rem 0 1.5rem;
+}
+.stanowisko__trener {
+  position: sticky;
+  top: 3.1rem;                         /* pod nagłówkiem Material (2.4rem) */
+  height: calc(100vh - 3.7rem);
+  display: flex;
+  flex-direction: column;
+}
+.stanowisko__trener .sql-trener {
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.stanowisko__trener .sql-trener textarea { flex: 0 0 auto; min-height: 9rem; }
+.stanowisko__trener .sql-trener__wynik { flex: 1 1 auto; min-height: 5rem; overflow: auto; }
+.stanowisko__karta .karta-pracy { margin-top: 0; }
+.stanowisko__trener .sql-trener__pasek { padding: .3rem .6rem; }
+.stanowisko__trener .sql-trener__zadania { flex-wrap: nowrap; }
+.stanowisko__trener .sql-trener__zadania label { display: flex; align-items: center; gap: .3rem; flex: 1 1 auto; min-width: 0; }
+.stanowisko__trener .sql-trener__zadania select { flex: 1 1 auto; min-width: 0; max-width: none; }
+.stanowisko__trener .sql-trener__zadania button { white-space: nowrap; padding: .3rem .55rem; }
+.stanowisko__trener .sql-trener__wynik table th,
+.stanowisko__trener .sql-trener__wynik table td { padding: .3em .6em; }
+@media screen and (max-width: 68.75em) {
+  .stanowisko { grid-template-columns: minmax(0, 1fr); }
+  .stanowisko__trener { position: static; height: auto; }
+  .stanowisko__trener .sql-trener__wynik { max-height: 60vh; }
+}

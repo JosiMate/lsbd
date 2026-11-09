@@ -10,3 +10,4 @@ nav:
   - "Klucze główne i obce w SQL-u": klucze-sql.md
   - "ALTER TABLE — rozbudowa istniejącej bazy": alter-table.md
   - "Skrypty tworzące strukturę": skrypty-struktura.md
+  - "Biblioteka szkolna — karta pracy działu": biblioteka-praktyka.md

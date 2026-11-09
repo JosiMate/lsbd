@@ -92,6 +92,7 @@ Ciebie i nie ma nic wspólnego z ocenami.
 | **[Klucze główne i obce w SQL-u](dzial-5/klucze-sql.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[ALTER TABLE — rozbudowa istniejącej bazy](dzial-5/alter-table.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 | **[Skrypty tworzące strukturę](dzial-5/skrypty-struktura.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
+| **[Biblioteka szkolna — karta pracy działu](dzial-5/biblioteka-praktyka.md)** | :material-check-circle:{ title="Materiał gotowy" } gotowe |
 
 ### Dział VI. Modyfikacja danych
 

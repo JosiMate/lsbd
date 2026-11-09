@@ -1,0 +1,676 @@
+{
+ "tytul": "Biblioteka szkolna — karta pracy działu V",
+ "projekt": "Baza: biblioteka — stan docelowy (po zadaniu 8)\n\nautor        (id_autora PK, imie, nazwisko)\nczytelnik    (id_czytelnika PK, imie, nazwisko, email)\nksiazka      (id_ksiazki PK, tytul, isbn UNIQUE, rok_wydania,\n              id_autora FK -> autor)\nwypozyczenie (id_wypozyczenia PK,\n              id_czytelnika FK -> czytelnik  ON DELETE CASCADE,\n              id_ksiazki    FK -> ksiazka    ON DELETE RESTRICT,\n              data_wypozyczenia, data_zwrotu)\n\nautor 1 ──< ksiazka 1 ──< wypozyczenie >── 1 czytelnik\n\nWszystkie klucze główne: INT UNSIGNED AUTO_INCREMENT.\nKlucz obcy ma ten sam typ co klucz, na który wskazuje.",
+ "zadania": [
+  {
+   "nr": 1,
+   "tytul": "Gotowy skrypt — tabela czytelnik",
+   "start": "-- Gotowy skrypt: tabela czytelników biblioteki szkolnej.\n-- Przeczytaj go, odpowiedz w karcie na pytania z zadania 1, potem kliknij Wykonaj.\nCREATE TABLE czytelnik (\n  id_czytelnika INT UNSIGNED AUTO_INCREMENT,\n  imie VARCHAR(30) NOT NULL,\n  nazwisko VARCHAR(40) NOT NULL,\n  klasa CHAR(3) NOT NULL,\n  PRIMARY KEY (id_czytelnika)\n);",
+   "uwaga": "Kliknij <strong>Wstaw kod z zadania</strong>. Najpierw przeczytaj skrypt i odpowiedz w karcie, dopiero potem <strong>Wykonaj</strong>.",
+   "sprawdzenia": [
+    {
+     "co": "tabela",
+     "tabela": "czytelnik",
+     "opis": "Jest tabela <code>czytelnik</code>.",
+     "rada": "Kliknij <strong>Wstaw kod z zadania</strong>, potem <strong>Wykonaj</strong>."
+    },
+    {
+     "co": "klucz",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "id_czytelnika"
+     ],
+     "opis": "Kluczem głównym jest <code>id_czytelnika</code>."
+    },
+    {
+     "co": "auto",
+     "tabela": "czytelnik",
+     "kolumna": "id_czytelnika",
+     "opis": "<code>id_czytelnika</code> numeruje się sam (<code>AUTO_INCREMENT</code>)."
+    },
+    {
+     "co": "kolumny",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "imie",
+      "nazwisko"
+     ],
+     "opis": "Są kolumny <code>imie</code> i <code>nazwisko</code>."
+    }
+   ],
+   "podpowiedzi": [
+    "Każdy wiersz między nawiasami to jedna kolumna: najpierw nazwa, potem typ, na końcu ograniczenia.",
+    "Klucz główny jest zadeklarowany w osobnym, ostatnim wierszu — szukaj słów <code>PRIMARY KEY</code>.",
+    "Kolumny, które muszą mieć wartość, mają dopisek <code>NOT NULL</code>. Kolumna klucza głównego też nie może być pusta — z definicji."
+   ]
+  },
+  {
+   "nr": 2,
+   "tytul": "Tabela autor według wzoru",
+   "uwaga": "Wzorem jest skrypt tabeli <code>czytelnik</code> z zadania 1 — ten sam układ, inne nazwy.",
+   "sprawdzenia": [
+    {
+     "co": "kolumny",
+     "tabela": "autor",
+     "kolumny": [
+      "id_autora",
+      "imie",
+      "nazwisko"
+     ],
+     "dokladnie": true,
+     "opis": "Tabela <code>autor</code> ma dokładnie trzy kolumny: id_autora, imie, nazwisko.",
+     "rada": "Sprawdź nazwę tabeli i pisownię kolumn — bez polskich liter."
+    },
+    {
+     "co": "klucz",
+     "tabela": "autor",
+     "kolumny": [
+      "id_autora"
+     ],
+     "opis": "Kluczem głównym jest <code>id_autora</code>."
+    },
+    {
+     "co": "auto",
+     "tabela": "autor",
+     "kolumna": "id_autora",
+     "opis": "<code>id_autora</code> ma <code>AUTO_INCREMENT</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "autor",
+     "kolumna": "id_autora",
+     "wzor": "^INT UNSIGNED$",
+     "opis": "<code>id_autora</code> to liczba całkowita bez znaku — jak klucz w tabeli <code>czytelnik</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "autor",
+     "kolumna": "imie",
+     "wzor": "^VARCHAR\\(30\\)$",
+     "opis": "<code>imie</code> to tekst do 30 znaków."
+    },
+    {
+     "co": "typ",
+     "tabela": "autor",
+     "kolumna": "nazwisko",
+     "wzor": "^VARCHAR\\(40\\)$",
+     "opis": "<code>nazwisko</code> to tekst do 40 znaków."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "autor",
+     "nie_null": [
+      "imie",
+      "nazwisko"
+     ],
+     "opis": "Imię i nazwisko są obowiązkowe (<code>NOT NULL</code>)."
+    }
+   ],
+   "podpowiedzi": [
+    "Skopiuj skrypt z zadania 1 i zmień w nim nazwy: tabeli, klucza, kolumn. Kolumnę <code>klasa</code> usuń.",
+    "Po usunięciu ostatniej kolumny zostaje przecinek przed <code>PRIMARY KEY</code> — i on ma zostać. Przecinka nie może być tylko <strong>po ostatnim</strong> elemencie przed nawiasem.",
+    "Pomyliłeś się i tabela już istnieje? Wykonaj <code>DROP TABLE autor;</code> i utwórz ją jeszcze raz."
+   ]
+  },
+  {
+   "nr": 3,
+   "tytul": "Tabela ksiazka — dobór typów",
+   "uwaga": "Typy dla <code>isbn</code> i <code>rok_wydania</code> wybierasz sam. Uzasadnienie wpisz do karty.",
+   "sprawdzenia": [
+    {
+     "co": "kolumny",
+     "tabela": "ksiazka",
+     "kolumny": [
+      "id_ksiazki",
+      "tytul",
+      "isbn",
+      "rok_wydania"
+     ],
+     "dokladnie": false,
+     "opis": "Tabela <code>ksiazka</code> ma kolumny: id_ksiazki, tytul, isbn, rok_wydania."
+    },
+    {
+     "co": "klucz",
+     "tabela": "ksiazka",
+     "kolumny": [
+      "id_ksiazki"
+     ],
+     "opis": "Kluczem głównym jest <code>id_ksiazki</code>."
+    },
+    {
+     "co": "auto",
+     "tabela": "ksiazka",
+     "kolumna": "id_ksiazki",
+     "opis": "<code>id_ksiazki</code> ma <code>AUTO_INCREMENT</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "id_ksiazki",
+     "wzor": "^INT UNSIGNED$",
+     "opis": "<code>id_ksiazki</code> to <code>INT UNSIGNED</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "tytul",
+     "wzor": "^VARCHAR\\(1[05]0\\)$",
+     "opis": "<code>tytul</code> to tekst o zmiennej długości do 100 znaków."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "isbn",
+     "wzor": "^(VAR)?CHAR\\(13\\)$",
+     "opis": "<code>isbn</code> to tekst na dokładnie 13 znaków.",
+     "rada": "ISBN to identyfikator, nie liczba do liczenia — tak jak numer telefonu."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "rok_wydania",
+     "wzor": "^(SMALLINT|MEDIUMINT|INT)( UNSIGNED)?$",
+     "opis": "<code>rok_wydania</code> to liczba całkowita, która pomieści rok 1834.",
+     "rada": "<code>TINYINT</code> jest za mały, a <code>YEAR</code> w MariaDB przyjmuje tylko lata 1901–2155."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "ksiazka",
+     "nie_null": [
+      "tytul",
+      "isbn"
+     ],
+     "null": [
+      "rok_wydania"
+     ],
+     "opis": "Tytuł i ISBN są obowiązkowe, rok wydania nie."
+    }
+   ],
+   "podpowiedzi": [
+    "ISBN ma 13 cyfr, ale nikt go nie dodaje ani nie mnoży. Numer telefonu czy PESEL też trzymasz jako tekst. Jaki typ ma <strong>stałą</strong> długość?",
+    "Rok 1834 (pierwsze wydanie „Pana Tadeusza”) nie zmieści się w <code>TINYINT</code> (najwyżej 255), a typ <code>YEAR</code> przyjmuje w MariaDB tylko lata 1901–2155.",
+    "<code>isbn CHAR(13) NOT NULL</code>, <code>rok_wydania SMALLINT</code> — i bez <code>NOT NULL</code>, bo rok może być nieznany."
+   ]
+  },
+  {
+   "nr": 4,
+   "tytul": "Nowa kolumna w tabeli czytelnik",
+   "sprawdzenia": [
+    {
+     "co": "kolumny",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "email"
+     ],
+     "opis": "W tabeli <code>czytelnik</code> jest kolumna <code>email</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "czytelnik",
+     "kolumna": "email",
+     "wzor": "^VARCHAR\\(60\\)$",
+     "opis": "<code>email</code> to tekst do 60 znaków."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "czytelnik",
+     "null": [
+      "email"
+     ],
+     "opis": "<code>email</code> może być pusty.",
+     "rada": "Nie każdy uczeń ma szkolny e-mail — bez <code>NOT NULL</code>."
+    },
+    {
+     "co": "kolumny",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "id_czytelnika",
+      "imie",
+      "nazwisko"
+     ],
+     "opis": "Dotychczasowe kolumny zostały na miejscu.",
+     "rada": "Tabeli nie usuwa się po to, żeby dodać kolumnę — od tego jest <code>ALTER TABLE</code>."
+    }
+   ],
+   "podpowiedzi": [
+    "Tabela już istnieje, więc nie <code>CREATE</code>, tylko <code>ALTER TABLE czytelnik …</code>.",
+    "Kolumnę dodaje się słowem <code>ADD</code>, a po nim piszesz definicję kolumny tak samo jak w <code>CREATE TABLE</code>."
+   ]
+  },
+  {
+   "nr": 5,
+   "tytul": "Książka ma autora — klucz obcy",
+   "sprawdzenia": [
+    {
+     "co": "kolumny",
+     "tabela": "ksiazka",
+     "kolumny": [
+      "id_autora"
+     ],
+     "opis": "W tabeli <code>ksiazka</code> jest kolumna <code>id_autora</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "id_autora",
+     "wzor": "^INT UNSIGNED$",
+     "opis": "<code>id_autora</code> ma ten sam typ co klucz w tabeli <code>autor</code>."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "ksiazka",
+     "nie_null": [
+      "id_autora"
+     ],
+     "opis": "Każda książka musi mieć autora (<code>NOT NULL</code>)."
+    },
+    {
+     "co": "obcy",
+     "tabela": "ksiazka",
+     "kolumna": "id_autora",
+     "cel": "autor",
+     "opis": "Jest klucz obcy <code>ksiazka.id_autora</code> → <code>autor(id_autora)</code>."
+    },
+    {
+     "co": "odrzuca",
+     "polecenie": "INSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Test', '9788300000017', 2020, 999);",
+     "kod": "#1452",
+     "opis": "Baza odrzuca książkę z autorem nr 999, którego nie ma."
+    },
+    {
+     "co": "przyjmuje",
+     "przed": "INSERT INTO autor (imie, nazwisko) VALUES ('Adam', 'Mickiewicz');",
+     "polecenie": "INSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Pan Tadeusz', '9788300000024', 1834, (SELECT MAX(id_autora) FROM autor));",
+     "opis": "Baza przyjmuje książkę z istniejącym autorem."
+    }
+   ],
+   "dopisek": "Testowe wiersze trener wstawia do kopii Twojej bazy — w Twojej bazie nic nie przybywa.",
+   "podpowiedzi": [
+    "Potrzebne są dwie zmiany w jednym poleceniu: nowa kolumna i ograniczenie. Oddziela się je przecinkiem: <code>ALTER TABLE ksiazka ADD …, ADD …;</code>",
+    "Klucz obcy musi mieć <strong>dokładnie ten sam typ</strong> co klucz, na który wskazuje. Sprawdź w „Strukturze bazy”, jaki typ ma <code>autor.id_autora</code>.",
+    "<code>ADD id_autora INT UNSIGNED NOT NULL, ADD FOREIGN KEY (id_autora) REFERENCES autor(id_autora)</code>"
+   ]
+  },
+  {
+   "nr": 6,
+   "tytul": "Bibliotekarka zmienia zdanie — ALTER TABLE",
+   "sprawdzenia": [
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "tytul",
+     "wzor": "^VARCHAR\\(150\\)$",
+     "opis": "<code>tytul</code> mieści 150 znaków."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "ksiazka",
+     "nie_null": [
+      "tytul"
+     ],
+     "opis": "<code>tytul</code> nadal jest obowiązkowy.",
+     "rada": "<code>MODIFY</code> zastępuje <strong>całą</strong> definicję kolumny. Bez <code>NOT NULL</code> w poleceniu kolumna staje się opcjonalna."
+    },
+    {
+     "co": "unikalne",
+     "tabela": "ksiazka",
+     "kolumna": "isbn",
+     "opis": "ISBN nie może się powtórzyć."
+    },
+    {
+     "co": "odrzuca",
+     "przed": "INSERT INTO autor (imie, nazwisko) VALUES ('Henryk', 'Sienkiewicz');\nINSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Quo vadis', '9788300000031', 1896, (SELECT MAX(id_autora) FROM autor));",
+     "polecenie": "INSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Quo vadis — drugi raz', '9788300000031', 1896, (SELECT MAX(id_autora) FROM autor));",
+     "kod": "#1062",
+     "opis": "Baza odrzuca drugą książkę z tym samym ISBN."
+    },
+    {
+     "co": "brak_kolumny",
+     "tabela": "czytelnik",
+     "kolumna": "klasa",
+     "opis": "W tabeli <code>czytelnik</code> nie ma już kolumny <code>klasa</code>."
+    },
+    {
+     "co": "kolumny",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "id_czytelnika",
+      "imie",
+      "nazwisko",
+      "email"
+     ],
+     "opis": "Pozostałe kolumny czytelnika są na miejscu."
+    }
+   ],
+   "podpowiedzi": [
+    "Trzy zmiany: <code>MODIFY</code> zmienia definicję kolumny, <code>ADD UNIQUE (…)</code> dodaje ograniczenie, <code>DROP COLUMN</code> usuwa kolumnę. Dwie pierwsze dotyczą tabeli <code>ksiazka</code>, trzecia — <code>czytelnik</code>.",
+    "W <code>MODIFY</code> piszesz kolumnę od nowa, w całości: nazwa, typ <strong>i</strong> ograniczenia. To, czego nie powtórzysz, zniknie.",
+    "<code>ALTER TABLE ksiazka MODIFY tytul VARCHAR(150) NOT NULL, ADD UNIQUE (isbn);</code> i osobno <code>ALTER TABLE czytelnik DROP COLUMN klasa;</code>"
+   ]
+  },
+  {
+   "nr": 7,
+   "tytul": "Skrypt bazy od zera — trzy tabele",
+   "skrypt": true,
+   "uwaga": "Wklej do pola <strong>cały skrypt</strong> i kliknij <strong>Sprawdź zadanie</strong>. Trener uruchomi go dwa razy pod rząd na czystej, pustej bazie — Twojej bazy nie rusza.",
+   "sprawdzenia": [
+    {
+     "co": "tabela",
+     "tabela": "czytelnik",
+     "opis": "Jest tabela <code>czytelnik</code>.",
+     "rada": "Kliknij <strong>Wstaw kod z zadania</strong>, potem <strong>Wykonaj</strong>."
+    },
+    {
+     "co": "klucz",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "id_czytelnika"
+     ],
+     "opis": "Kluczem głównym jest <code>id_czytelnika</code>."
+    },
+    {
+     "co": "auto",
+     "tabela": "czytelnik",
+     "kolumna": "id_czytelnika",
+     "opis": "<code>id_czytelnika</code> numeruje się sam (<code>AUTO_INCREMENT</code>)."
+    },
+    {
+     "co": "kolumny",
+     "tabela": "czytelnik",
+     "kolumny": [
+      "id_czytelnika",
+      "imie",
+      "nazwisko",
+      "email"
+     ],
+     "dokladnie": true,
+     "opis": "<code>czytelnik</code> ma dokładnie kolumny: id_czytelnika, imie, nazwisko, email.",
+     "rada": "Bez kolumny <code>klasa</code> — usunęliśmy ją w zadaniu 6."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "czytelnik",
+     "nie_null": [
+      "imie",
+      "nazwisko"
+     ],
+     "null": [
+      "email"
+     ],
+     "opis": "W <code>czytelnik</code> imię i nazwisko są obowiązkowe, e-mail nie."
+    },
+    {
+     "co": "kolumny",
+     "tabela": "autor",
+     "kolumny": [
+      "id_autora",
+      "imie",
+      "nazwisko"
+     ],
+     "dokladnie": true,
+     "opis": "Tabela <code>autor</code> ma dokładnie trzy kolumny: id_autora, imie, nazwisko.",
+     "rada": "Sprawdź nazwę tabeli i pisownię kolumn — bez polskich liter."
+    },
+    {
+     "co": "klucz",
+     "tabela": "autor",
+     "kolumny": [
+      "id_autora"
+     ],
+     "opis": "Kluczem głównym jest <code>id_autora</code>."
+    },
+    {
+     "co": "auto",
+     "tabela": "autor",
+     "kolumna": "id_autora",
+     "opis": "<code>id_autora</code> ma <code>AUTO_INCREMENT</code>."
+    },
+    {
+     "co": "kolumny",
+     "tabela": "ksiazka",
+     "kolumny": [
+      "id_ksiazki",
+      "tytul",
+      "isbn",
+      "rok_wydania",
+      "id_autora"
+     ],
+     "dokladnie": true,
+     "opis": "Tabela <code>ksiazka</code> ma kolumny: id_ksiazki, tytul, isbn, rok_wydania, id_autora."
+    },
+    {
+     "co": "klucz",
+     "tabela": "ksiazka",
+     "kolumny": [
+      "id_ksiazki"
+     ],
+     "opis": "Kluczem głównym jest <code>id_ksiazki</code>."
+    },
+    {
+     "co": "auto",
+     "tabela": "ksiazka",
+     "kolumna": "id_ksiazki",
+     "opis": "<code>id_ksiazki</code> ma <code>AUTO_INCREMENT</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "id_ksiazki",
+     "wzor": "^INT UNSIGNED$",
+     "opis": "<code>id_ksiazki</code> to <code>INT UNSIGNED</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "tytul",
+     "wzor": "^VARCHAR\\(150\\)$",
+     "opis": "<code>tytul</code> to tekst o zmiennej długości do 150 znaków."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "isbn",
+     "wzor": "^(VAR)?CHAR\\(13\\)$",
+     "opis": "<code>isbn</code> to tekst na dokładnie 13 znaków.",
+     "rada": "ISBN to identyfikator, nie liczba do liczenia — tak jak numer telefonu."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "rok_wydania",
+     "wzor": "^(SMALLINT|MEDIUMINT|INT)( UNSIGNED)?$",
+     "opis": "<code>rok_wydania</code> to liczba całkowita, która pomieści rok 1834.",
+     "rada": "<code>TINYINT</code> jest za mały, a <code>YEAR</code> w MariaDB przyjmuje tylko lata 1901–2155."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "ksiazka",
+     "nie_null": [
+      "tytul",
+      "isbn"
+     ],
+     "null": [
+      "rok_wydania"
+     ],
+     "opis": "Tytuł i ISBN są obowiązkowe, rok wydania nie."
+    },
+    {
+     "co": "unikalne",
+     "tabela": "ksiazka",
+     "kolumna": "isbn",
+     "opis": "ISBN nie może się powtórzyć (<code>UNIQUE</code>)."
+    },
+    {
+     "co": "typ",
+     "tabela": "ksiazka",
+     "kolumna": "id_autora",
+     "wzor": "^INT UNSIGNED$",
+     "opis": "<code>id_autora</code> w książce to <code>INT UNSIGNED</code>."
+    },
+    {
+     "co": "obcy",
+     "tabela": "ksiazka",
+     "kolumna": "id_autora",
+     "cel": "autor",
+     "opis": "Klucz obcy <code>ksiazka.id_autora</code> → <code>autor</code>."
+    }
+   ],
+   "podpowiedzi": [
+    "Skrypt ma dwie części: najpierw <code>DROP TABLE IF EXISTS</code> dla każdej tabeli, potem <code>CREATE TABLE</code> — od razu w <strong>ostatecznej</strong> postaci, z kolumnami dodanymi i usuniętymi w zadaniach 4–6. <code>ALTER TABLE</code> w skrypcie nie jest potrzebny.",
+    "Kolejność tworzenia: najpierw tabele, na które nikt nie wskazuje (<code>czytelnik</code>, <code>autor</code>), potem <code>ksiazka</code>. Usuwanie — dokładnie odwrotnie.",
+    "W <code>CREATE TABLE ksiazka</code> po kolumnach dopisz trzy wiersze: <code>PRIMARY KEY (id_ksiazki)</code>, <code>UNIQUE (isbn)</code> i <code>FOREIGN KEY (id_autora) REFERENCES autor(id_autora)</code>."
+   ]
+  },
+  {
+   "nr": 8,
+   "tytul": "Wypożyczenia — dwa klucze obce i ON DELETE",
+   "skrypt": true,
+   "uwaga": "Dopisz tabelę <code>wypozyczenie</code> do skryptu z zadania 7, wklej do pola całość i kliknij <strong>Sprawdź zadanie</strong>.",
+   "sprawdzenia": [
+    {
+     "co": "kolumny",
+     "tabela": "wypozyczenie",
+     "kolumny": [
+      "id_wypozyczenia",
+      "id_czytelnika",
+      "id_ksiazki",
+      "data_wypozyczenia",
+      "data_zwrotu"
+     ],
+     "dokladnie": true,
+     "opis": "Tabela <code>wypozyczenie</code> ma kolumny: id_wypozyczenia, id_czytelnika, id_ksiazki, data_wypozyczenia, data_zwrotu."
+    },
+    {
+     "co": "klucz",
+     "tabela": "wypozyczenie",
+     "kolumny": [
+      "id_wypozyczenia"
+     ],
+     "opis": "Kluczem głównym jest <code>id_wypozyczenia</code> …"
+    },
+    {
+     "co": "auto",
+     "tabela": "wypozyczenie",
+     "kolumna": "id_wypozyczenia",
+     "opis": "… i numeruje się sam."
+    },
+    {
+     "co": "typ",
+     "tabela": "wypozyczenie",
+     "kolumna": "data_wypozyczenia",
+     "wzor": "^DATE$",
+     "opis": "Daty mają typ <code>DATE</code>."
+    },
+    {
+     "co": "typ",
+     "tabela": "wypozyczenie",
+     "kolumna": "data_zwrotu",
+     "wzor": "^DATE$",
+     "opis": "<code>data_zwrotu</code> też jest typu <code>DATE</code>."
+    },
+    {
+     "co": "wymagane",
+     "tabela": "wypozyczenie",
+     "nie_null": [
+      "id_czytelnika",
+      "id_ksiazki",
+      "data_wypozyczenia"
+     ],
+     "null": [
+      "data_zwrotu"
+     ],
+     "opis": "Data zwrotu może być pusta (książka jeszcze nie wróciła), pozostałe kolumny nie."
+    },
+    {
+     "co": "obcy",
+     "tabela": "wypozyczenie",
+     "kolumna": "id_czytelnika",
+     "cel": "czytelnik",
+     "usun": "CASCADE",
+     "opis": "Klucz obcy do <code>czytelnik</code> z <code>ON DELETE CASCADE</code>."
+    },
+    {
+     "co": "obcy",
+     "tabela": "wypozyczenie",
+     "kolumna": "id_ksiazki",
+     "cel": "ksiazka",
+     "usun": "RESTRICT",
+     "opis": "Klucz obcy do <code>ksiazka</code> blokuje usunięcie wypożyczanej książki (<code>RESTRICT</code>)."
+    },
+    {
+     "co": "odrzuca",
+     "przed": "INSERT INTO czytelnik (imie, nazwisko) VALUES ('Ola', 'Nowak');\nINSERT INTO autor (imie, nazwisko) VALUES ('Bolesław', 'Prus');\nINSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Lalka', '9788373279991', 1890, 1);\nINSERT INTO wypozyczenie (id_czytelnika, id_ksiazki, data_wypozyczenia) VALUES (1, 1, '2026-11-16');",
+     "polecenie": "DELETE FROM ksiazka WHERE id_ksiazki = 1;",
+     "kod": "#1451",
+     "opis": "Próba usunięcia wypożyczonej książki kończy się błędem #1451."
+    },
+    {
+     "co": "wynik",
+     "przed": "INSERT INTO czytelnik (imie, nazwisko) VALUES ('Ola', 'Nowak');\nINSERT INTO autor (imie, nazwisko) VALUES ('Bolesław', 'Prus');\nINSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Lalka', '9788373279991', 1890, 1);\nINSERT INTO wypozyczenie (id_czytelnika, id_ksiazki, data_wypozyczenia) VALUES (1, 1, '2026-11-16');",
+     "polecenie": "DELETE FROM czytelnik WHERE id_czytelnika = 1;\nSELECT COUNT(*) FROM wypozyczenie;",
+     "wynik": [
+      [
+       0
+      ]
+     ],
+     "opis": "Usunięcie czytelnika usuwa też jego wypożyczenia."
+    },
+    {
+     "co": "obcy",
+     "tabela": "ksiazka",
+     "kolumna": "id_autora",
+     "cel": "autor",
+     "opis": "Reszta bazy z zadania 7 jest na miejscu."
+    }
+   ],
+   "podpowiedzi": [
+    "<code>wypozyczenie</code> wskazuje na dwie tabele, więc tworzysz ją <strong>na końcu</strong>, a usuwasz <strong>na początku</strong> skryptu.",
+    "Każdy klucz obcy to osobny wiersz <code>FOREIGN KEY (…) REFERENCES …(…)</code>, a zachowanie dopisujesz na jego końcu: <code>ON DELETE CASCADE</code> albo <code>ON DELETE RESTRICT</code>.",
+    "Czytelnik odchodzi ze szkoły — jego wypożyczenia mogą zniknąć razem z nim: <code>CASCADE</code>. Książki, która ma historię wypożyczeń, nie wolno skasować: <code>RESTRICT</code>."
+   ]
+  },
+  {
+   "nr": 9,
+   "tytul": "Skrypt z trzema błędami — klub sportowy",
+   "start": "-- Skrypt bazy klubu sportowego, który NIE chce się wykonać.\n-- Są w nim trzy błędy. Uruchamiaj, czytaj komunikat, poprawiaj — aż przejdzie cały.\nCREATE TABLE zawodnik (\n  id_zawodnika INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n  imie VARCHAR(30) NOT NULL,\n  nazwisko VARCHAR(40) NOT NULL,\n  id_druzyny INT NOT NULL,\n  FOREIGN KEY (id_druzyny) REFERENCES druzyna(id_druzyny)\n);\n\nCREATE TABLE druzyna (\n  id_druzyny INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n  nazwa VARCHAR(50) NOT NULL,\n  miasto VARCHAR(40) NOT NULL\n);\n\nCREATE TABLE mecz (\n  id_meczu INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n  data_meczu DATE NOT NULL,\n  gospodarz VARCHAR(50) NOT NULL,\n  FOREIGN KEY (gospodarz) REFERENCES druzyna(nazwa)\n);",
+   "uwaga": "Kliknij <strong>Wstaw kod z zadania</strong> i <strong>Wykonaj</strong>. Przy każdym błędzie zapisz w karcie komunikat, przyczynę i poprawkę.",
+   "sprawdzenia": [
+    {
+     "co": "tabela",
+     "tabela": "druzyna",
+     "opis": "Jest tabela <code>druzyna</code>."
+    },
+    {
+     "co": "obcy",
+     "tabela": "zawodnik",
+     "kolumna": "id_druzyny",
+     "cel": "druzyna",
+     "opis": "Zawodnik ma klucz obcy do drużyny."
+    },
+    {
+     "co": "typ",
+     "tabela": "zawodnik",
+     "kolumna": "id_druzyny",
+     "wzor": "^INT UNSIGNED$",
+     "opis": "<code>zawodnik.id_druzyny</code> ma ten sam typ co klucz drużyny."
+    },
+    {
+     "co": "zapytanie",
+     "sql": "SELECT \"table\" FROM pragma_foreign_key_list('mecz');",
+     "wynik": [
+      [
+       "druzyna"
+      ]
+     ],
+     "opis": "Mecz ma klucz obcy do drużyny-gospodarza.",
+     "rada": "Klucza obcego nie wolno po prostu usunąć — ma zostać, tylko poprawny."
+    }
+   ],
+   "podpowiedzi": [
+    "Błąd pierwszy jest w <strong>kolejności</strong>: <code>zawodnik</code> wskazuje na tabelę, której w tej chwili jeszcze nie ma. Poprawiona tabela już powstała, a skrypt uruchamiasz od nowa? Dopisz na górze <code>DROP TABLE IF EXISTS</code> — od tabel podrzędnych.",
+    "Błąd drugi jest w <strong>typach</strong>: porównaj typ <code>id_druzyny</code> w obu tabelach — liczy się także <code>UNSIGNED</code>.",
+    "Błąd trzeci: <code>druzyna.nazwa</code> nie jest kluczem ani nie ma indeksu, więc klucz obcy nie może na nią wskazywać. Najlepiej wskazać klucz główny: kolumna <code>id_gospodarza INT UNSIGNED NOT NULL</code> i <code>REFERENCES druzyna(id_druzyny)</code>."
+   ]
+  }
+ ]
+}

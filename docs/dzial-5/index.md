@@ -13,6 +13,7 @@ Kolejność ma tu znaczenie dosłownie — tabela z kluczem obcym nie powstanie,
 | Klucze główne i obce w SQL-u | [Materiał i ćwiczenia](klucze-sql.md) |
 | ALTER TABLE — rozbudowa istniejącej bazy | [Materiał i ćwiczenia](alter-table.md) |
 | Skrypty tworzące strukturę | [Materiał i ćwiczenia](skrypty-struktura.md) |
+| Biblioteka szkolna — karta pracy działu (2 h) | [Karta pracy i trener SQL](biblioteka-praktyka.md) |
 
 ## Wymagania na oceny w tym dziale
 

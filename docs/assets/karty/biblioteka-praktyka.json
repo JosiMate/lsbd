@@ -1,0 +1,336 @@
+{
+  "id": "lsbd-biblioteka-praktyka",
+  "tytul": "Biblioteka szkolna — karta pracy działu V",
+  "przedmiot": "PCEiKZ Szczucin · lokalne systemy baz danych · INF.03",
+  "klasa": "",
+  "sufiks": "LSBD-D5-BIB",
+  "zadania": [
+    {
+      "nr": 1,
+      "tytul": "Gotowy skrypt — tabela czytelnik",
+      "poziom": "wymagania konieczne · ocena 2",
+      "polecenie": "W trenerze obok wybierz zadanie 1 i kliknij <strong>Wstaw kod z zadania</strong>. Przeczytaj skrypt i odpowiedz na pytania, <strong>zanim</strong> go wykonasz. Potem <strong>Wykonaj</strong>, <strong>Struktura bazy</strong> i <strong>Sprawdź zadanie</strong>.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z1_kolumny",
+              "Nazwy kolumn i ich typy",
+              "np. imie — VARCHAR(30), …"
+            ],
+            [
+              "z1_pk",
+              "Wiersz skryptu, w którym zadeklarowano klucz główny",
+              ""
+            ],
+            [
+              "z1_wymagane",
+              "Kolumny, które muszą mieć wartość — po czym to poznałeś",
+              ""
+            ],
+            [
+              "z1_auto",
+              "Co zrobi baza z kolumną id_czytelnika, gdy dodasz nowego czytelnika",
+              ""
+            ],
+            [
+              "z1_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "tytul": "Tabela autor według wzoru",
+      "poziom": "wymagania konieczne · ocena 2",
+      "polecenie": "Utwórz tabelę <code>autor</code> na wzór tabeli <code>czytelnik</code>:<br>• <code>id_autora</code> — liczba całkowita bez znaku, numerowana automatycznie, klucz główny;<br>• <code>imie</code> — tekst do 30 znaków, obowiązkowy;<br>• <code>nazwisko</code> — tekst do 40 znaków, obowiązkowy.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z2_kod",
+          "wiersze": 7,
+          "pytanie": "Treść polecenia CREATE TABLE",
+          "podpowiedz": "CREATE TABLE autor ( … );"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z2_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "tytul": "Tabela ksiazka — dobór typów",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Utwórz tabelę <code>ksiazka</code>:<br>• <code>id_ksiazki</code> — jak klucz w tabeli <code>autor</code>;<br>• <code>tytul</code> — tekst do 100 znaków, obowiązkowy;<br>• <code>isbn</code> — numer ISBN-13 zapisany bez kresek (13 cyfr), obowiązkowy;<br>• <code>rok_wydania</code> — rok pierwszego wydania, może być nieznany. W bibliotece są lektury z XIX wieku, np. „Pan Tadeusz” (1834).<br>Typy dla <code>isbn</code> i <code>rok_wydania</code> dobierz sam.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z3_kod",
+          "wiersze": 8,
+          "pytanie": "Treść polecenia CREATE TABLE"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z3_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_isbn",
+          "wiersze": 2,
+          "pytanie": "Jaki typ ma isbn i dlaczego nie jest to typ liczbowy?"
+        },
+        {
+          "typ": "tekst",
+          "id": "z3_rok",
+          "wiersze": 2,
+          "pytanie": "Jaki typ ma rok_wydania? Dlaczego nie TINYINT i nie YEAR?"
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "tytul": "Nowa kolumna w tabeli czytelnik",
+      "poziom": "wymagania podstawowe · ocena 3",
+      "polecenie": "Biblioteka chce wysyłać przypomnienia o zwrocie. Dodaj do istniejącej tabeli <code>czytelnik</code> kolumnę <code>email</code> — tekst do 60 znaków, <strong>nieobowiązkowy</strong>. Tabeli nie usuwaj.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z4_kod",
+          "wiersze": 3,
+          "pytanie": "Treść polecenia"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z4_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ],
+            [
+              "z4_null",
+              "Jaką wartość w kolumnie email dostaną czytelnicy, którzy byli w tabeli wcześniej",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "tytul": "Książka ma autora — klucz obcy",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Dodaj do tabeli <code>ksiazka</code> kolumnę <code>id_autora</code> (każda książka musi mieć autora) i klucz obcy wskazujący na <code>autor(id_autora)</code> — jednym poleceniem <code>ALTER TABLE</code>. Potem sprawdź klucz w praktyce: wykonaj w trenerze <code>INSERT INTO ksiazka (tytul, isbn, rok_wydania, id_autora) VALUES ('Test', '9788300000017', 2020, 999);</code>",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z5_kod",
+          "wiersze": 4,
+          "pytanie": "Treść polecenia ALTER TABLE"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z5_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ],
+            [
+              "z5_komunikat",
+              "Komunikat, który dostałeś po próbie dodania książki z autorem nr 999",
+              "numer błędu i treść"
+            ],
+            [
+              "z5_tabela",
+              "Która tabela jest nadrzędna, a która podrzędna",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z5_typ",
+          "wiersze": 2,
+          "pytanie": "Dlaczego id_autora w książce musi mieć typ INT UNSIGNED, a nie samo INT?"
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "tytul": "Bibliotekarka zmienia zdanie — ALTER TABLE",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Trzy zmiany w gotowej bazie:<br>• tytuły bywają długie — <code>tytul</code> ma mieścić 150 znaków i nadal być obowiązkowy;<br>• ten sam ISBN nie może trafić do bazy dwa razy;<br>• kolumna <code>klasa</code> w tabeli <code>czytelnik</code> jest zbędna (czytelnikami są też nauczyciele) — usuń ją.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z6_kod",
+          "wiersze": 5,
+          "pytanie": "Treść poleceń"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z6_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z6_modify",
+          "wiersze": 2,
+          "pytanie": "Co się stanie z kolumną tytul, jeśli w MODIFY napiszesz tylko VARCHAR(150), bez NOT NULL?"
+        }
+      ]
+    },
+    {
+      "nr": 7,
+      "tytul": "Skrypt bazy od zera — trzy tabele",
+      "poziom": "wymagania rozszerzające · ocena 4",
+      "polecenie": "Napisz <strong>jeden skrypt</strong>, który zbuduje tabele <code>czytelnik</code>, <code>autor</code> i <code>ksiazka</code> od zera, od razu w postaci po zadaniach 4–6 (bez <code>ALTER TABLE</code>). Skrypt ma się dać uruchomić <strong>dwa razy pod rząd</strong> bez błędu — zacznij go od <code>DROP TABLE IF EXISTS</code>. Wklej cały skrypt do pola trenera i kliknij <strong>Sprawdź zadanie</strong>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z7_kod",
+          "wiersze": 16,
+          "pytanie": "Cały skrypt"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z7_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z7_kolejnosc",
+          "wiersze": 2,
+          "pytanie": "Dlaczego tabele usuwasz w odwrotnej kolejności niż tworzysz?"
+        }
+      ]
+    },
+    {
+      "nr": 8,
+      "tytul": "Wypożyczenia — dwa klucze obce i ON DELETE",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "Dopisz do skryptu z zadania 7 tabelę <code>wypozyczenie</code>: <code>id_wypozyczenia</code> (klucz, numerowany automatycznie), <code>id_czytelnika</code>, <code>id_ksiazki</code>, <code>data_wypozyczenia</code> (obowiązkowa), <code>data_zwrotu</code> (pusta, dopóki książka nie wróci). Zasady biblioteki: gdy czytelnik zostaje usunięty, jego wypożyczenia znikają razem z nim; książki, która była wypożyczana, usunąć się nie da. Na koniec zaimportuj cały skrypt w <strong>phpMyAdminie</strong> do bazy <code>biblioteka</code> i otwórz zakładkę <strong>Projektant</strong>.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "z8_kod",
+          "wiersze": 12,
+          "pytanie": "Polecenie CREATE TABLE wypozyczenie (cały skrypt jest w zadaniu 7 + ta tabela)"
+        },
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z8_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ],
+            [
+              "z8_miejsce",
+              "Gdzie w skrypcie stoi DROP i CREATE tej tabeli — i dlaczego tam",
+              ""
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z8_uzasadnienie",
+          "wiersze": 3,
+          "pytanie": "Uzasadnij wybór ON DELETE dla obu kluczy obcych"
+        },
+        {
+          "typ": "zrzut",
+          "id": "z8_zrzut",
+          "opis": "phpMyAdmin, zakładka Projektant: cztery tabele z liniami relacji"
+        }
+      ]
+    },
+    {
+      "nr": 9,
+      "tytul": "Skrypt z trzema błędami — klub sportowy",
+      "poziom": "wymagania dopełniające · ocena 5",
+      "polecenie": "W trenerze wybierz zadanie 9, kliknij <strong>Wstaw kod z zadania</strong> i <strong>Wykonaj</strong>. Skrypt ma trzy błędy i za każdym razem MariaDB zgłasza ten sam komunikat (errno: 150). Znajdź przyczynę, popraw, uruchom ponownie — aż przejdzie cały. Klucze obce mają zostać.",
+      "pola": [
+        {
+          "typ": "tabela",
+          "wiersze": [
+            [
+              "z9_b1",
+              "Błąd 1 — przyczyna i poprawka",
+              ""
+            ],
+            [
+              "z9_b2",
+              "Błąd 2 — przyczyna i poprawka",
+              ""
+            ],
+            [
+              "z9_b3",
+              "Błąd 3 — przyczyna i poprawka",
+              ""
+            ],
+            [
+              "z9_spr",
+              "Wynik „Sprawdź zadanie” w trenerze",
+              "np. 7 z 7"
+            ]
+          ]
+        },
+        {
+          "typ": "tekst",
+          "id": "z9_kod",
+          "wiersze": 14,
+          "pytanie": "Poprawiony skrypt"
+        }
+      ]
+    },
+    {
+      "nr": 10,
+      "tytul": "Samoocena",
+      "poziom": "",
+      "polecenie": "Krótko i szczerze — to nie jest oceniane na stopień.",
+      "pola": [
+        {
+          "typ": "tekst",
+          "id": "s_trudne",
+          "wiersze": 3,
+          "pytanie": "Które zadanie sprawiło największy kłopot i na czym on polegał"
+        },
+        {
+          "typ": "tekst",
+          "id": "s_wnioski",
+          "wiersze": 3,
+          "pytanie": "Co sprawdzisz najpierw, gdy na egzaminie phpMyAdmin pokaże „errno: 150”?"
+        }
+      ]
+    }
+  ]
+}
